@@ -1,0 +1,139 @@
+﻿@page
+@model Website.Pages.MenuModel
+@{
+    ViewData["Title"] = "Find your crave";
+    ViewData["Intro"] = "Breakfast out of this World!";
+}
+@using TheFlyingSaucer.Data;
+<div class="text-center">
+
+    <div class="container">
+        <h1 class="page-title-index">@ViewData["Title"]</h1>
+    </div>
+    <form id="menu-database">
+        <div class="container">
+            <div id="search">
+                <div class="search-textbox">
+                    <input type="text" name="SearchTerms" value="@Model.SearchTerms" placeholder="YOUR desire..." />
+                </div>
+                <div class="search-button">
+                    <input type="submit" value="Search">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+        <div class="filter-and-result">
+            <div class="all-filters">
+                <h2>Filter</h2>
+            <div id="filters">
+                <h4 class="name-header">Types</h4>
+                <div class="types-filter">
+                    <label class="filter-format">
+                        <div class="filter-entree">
+                            <input type="checkbox" name="IncludeEntrees" value="true" checked="@Model.IncludeEntrees" />
+                            Entree
+                        </div>
+                    </label>
+                    <label class="filter-format">
+                        <div class="filter-side">
+                            <input type="checkbox" name="IncludeSides" value="true" checked="@Model.IncludeSides" />
+                            Side
+                        </div>
+                    </label>
+                    <label class="filter-format">
+                        <div class="filter-drink">
+                            <input type="checkbox" name="IncludeDrinks" value="true" checked="@Model.IncludeDrinks" />
+                            Drinks
+                        </div>
+                    </label>
+                </div>
+                <h4 class="name-header">Calories</h4>
+                <div class="filter-format calories-filter">
+                    <input name="CaloriesMin" type="number" min="0" max="1000" step="0.1" placeholder="min" value="@Model.CaloriesMin"/>
+                    -
+                    <input name="CaloriesMax" type="number" min="0" max="1000" step="0.1" placeholder="max" value="@Model.CaloriesMax" />
+                </div>
+           
+                <h4 class="name-header">Price</h4>
+                <div class="filter-format price-filter">
+                    $<input name="PriceMin" type="number" min="0" max="1000" step="0.01" placeholder="min" value="@Model.PriceMin"/>
+                    -
+                    $<input name="PriceMax" type="number" min="0" max="1000" step="0.01" placeholder="max" value="@Model.PriceMax"/>
+                </div>
+                <div class="search-button search-filter">
+                    <input type="submit" value="Search">
+                </div>
+            </div>
+        </div>
+        <div id="results">
+            <div class="menu-item">
+                <div class="entrees menu-section">
+                        @if (Model.IncludeEntrees || (!Model.IncludeEntrees && !Model.IncludeDrinks && !Model.IncludeSides))
+                        {
+                            <div class="entree-title">
+                                <h2 id="entrees">Entrees</h2>
+                            </div>
+                            <div class="entree-detail">
+
+                            @foreach (IMenuItem item in @Model.Entrees)
+                            {
+                                <div class="entree-menu-item flex-item">
+                                    <h5>@item.Name <span>$@item.Price</span></h5>
+                                    <div class="description">@item.Description</div>
+                                    <div class="calories">Calories: <span>@item.Calories</span></div>
+                                </div>
+                            }
+                          </div>
+                        }
+                    </div>
+                <div class="sides menu-section">
+                    @if(Model.IncludeSides || (!Model.IncludeEntrees && !Model.IncludeDrinks && !Model.IncludeSides))
+                    {
+                    <div class="side-title">
+                        <h2 id="sides">Sides</h2>
+                    </div>
+                    <div class="side-detail">
+                        @foreach (IMenuItem item in @Model.Sides){
+                            <div class="side-menu-item flex-item">
+                                <h5>@item.Name <span>$@item.Price</span></h5>
+                                <div class="description">@item.Description</div>
+                                <div class="calories">Calories: <span>@item.Calories</span></div>
+                            </div>
+                        }
+                     </div>
+                    }
+                </div>
+                <div class="drinks menu-section">
+                        @if (Model.IncludeDrinks || (!Model.IncludeEntrees && !Model.IncludeDrinks && !Model.IncludeSides))
+                        {
+                            <div class="drink-title">
+                            <h2 id="drinks">Drinks</h2>
+                            </div>
+                            <div class="drink-detail">
+                            @foreach (IMenuItem item in @Model.Drinks)
+                            {
+                                if (item is Drink drink)
+                                {
+                                    <div class="drink-menu-item flex-item">
+                                        @if (item.Name == "Inorganic Substance")
+                                        {
+                                            <h5>@item.Name <span>$0.00</span></h5>
+                                        }
+                                        else
+                                        {
+                                            <h5>@item.Name <br /><span>S: $1.00  M: $1:50  L: $2:00</span></h5>
+                                        }
+                                        <div class="description">@item.Description</div>
+                                        <div class="calories">Calories: <span>@item.Calories</span></div>
+                                    </div>
+                                }
+                            }
+                            </div>
+                        }
+                    </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</form>
+</div>

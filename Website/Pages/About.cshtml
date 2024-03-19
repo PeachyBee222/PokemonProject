@@ -1,0 +1,42 @@
+﻿@page
+@{
+    ViewData["Title"] = "About Us";
+}
+<div class="page-format">
+    <div class="slogan">
+        <div class="slogan-more">
+            <h1>
+                Breakfast Out of This<br /><span class="emphasis">WORLD</span>
+            </h1>
+            <div class="call-to-action">
+                <spans class="slogan-catch">Find your crave</spans>
+                <div class="slogan-whitespace"></div>
+                <div class="slogan-arrow">
+                    <img src="~/Images/arrow.png" width="100" height="60" />
+                </div>
+                <div class="button">
+                    <a class="slogan-button" asp-area="" asp-page="/Menu">Our Delicacies</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="about-desc">
+        <h1 class="about-title">@ViewData["Title"]</h1>
+        <p class="about-page">
+                Founded in 2023 by definitely human Earth students of the CIS 400 course,
+                the Flying Saucer offers breakfast repasts at any hour of the day for your
+                avid consuming. Beam down to any of our many Earth-based locations for a taste. 
+        </p>
+        <div class="logo-main">
+            <img class="main-logo" src="~/Images/logo1.png" width="480" height="480" />
+        </div>
+        <div class="logos">
+            <div class="logo-second">
+                <img class="second-logo" src="~/Images/logo2.png" width="850" height="290" />
+                <div class="logo-menu">
+                    <a class="ending-button" asp-area="" asp-page="/Menu">View Our Menu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

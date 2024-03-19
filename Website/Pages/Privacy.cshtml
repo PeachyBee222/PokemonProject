@@ -1,0 +1,44 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Privacy Policy"; //sets title of the page
+}
+<div class="page-format">
+    <div class="slogan">
+        <div class="slogan-more">
+            <h1>
+                Breakfast Out of This<br /><span class="emphasis">WORLD</span>
+            </h1>
+            <div class="call-to-action">
+                <spans class="slogan-catch">Find your crave</spans>
+                <div class="slogan-whitespace"></div>
+                <div class="slogan-arrow">
+                    <img src="~/Images/arrow.png" width="100" height="60" />
+                </div>
+                <div class="button">
+                    <a class="slogan-button" asp-area="" asp-page="/Menu">Our Delicacies</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="about-desc">
+            <h1 class="privacy-title about-title">@ViewData["Title"]</h1>
+            <p class="privacy-page about-page">
+                The Flying Saucer respects the privacy and autonomy of all setient beings.
+                This site does not collect your data. The site does not use cookies.
+                The site only offers information about The Flying Saurcer and its out-of-this world
+                consumable foodstuffs.
+            </p>
+            <div class="logo-main">
+                <img class="main-logo" src="~/Images/logo1.png" width="480" height="480" />
+            </div>
+        <div class="logos">
+            <div class="logo-second">
+                <img class="second-logo" src="~/Images/logo2.png" width="850" height="290" />
+                <div class="logo-menu">
+                    <a class="ending-button" asp-area="" asp-page="/Menu">View Our Menu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

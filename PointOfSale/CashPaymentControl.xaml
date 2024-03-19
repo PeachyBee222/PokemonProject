@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="TheFlyingSaucer.PointOfSale.CashPaymentControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TheFlyingSaucer.PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <local:PaidAndOwedCountBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Paid="{Binding Path = TwentiesFromTheCustomer}" Owed="{Binding Path= TwentiesChange}"/>
+        <local:PaidAndOwedCountBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Paid="{Binding Path = TensFromCustomer}" Owed="{Binding Path= TensChange}"/>
+        <local:PaidAndOwedCountBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Paid="{Binding Path = FivesFromCustomer}" Owed="{Binding Path= FivesChange}"/>
+        <local:PaidAndOwedCountBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" Paid="{Binding Path = OnesFromCustomer}" Owed="{Binding Path= OnesChange}"/>
+        <local:PaidAndOwedCountBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="6" Paid="{Binding Path = QuartersFromCustomer}" Owed="{Binding Path= QuartersChange}"/>
+        <local:PaidAndOwedCountBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="7" Paid="{Binding Path = DimesFromCustomer}" Owed="{Binding Path= DimesChange}"/>
+        <local:PaidAndOwedCountBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="8" Paid="{Binding Path = NicklesFromCustomer}" Owed="{Binding Path= NicklesChange}"/>
+        <local:PaidAndOwedCountBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="9" Paid="{Binding Path = PenniesFromCustomer}" Owed="{Binding Path= PenniesChange}"/>
+
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26" Grid.Row="1" Grid.Column="7" Text="{Binding Path= Total, StringFormat=' {0:c}'}"/>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26" Grid.Row="3" Grid.Column="7" Text="{Binding Path= AmountDue, StringFormat=' {0:c}'}"/>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26" Grid.Row="5" Grid.Column="7" Text="{Binding Path= ChangeOwed, StringFormat=' {0:c}'}"/>
+
+
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26" Grid.Row="1">$20</TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26" Grid.Row="2">$10</TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26" Grid.Row="3">$5</TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26" Grid.Row="4">$1</TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26" Grid.Row="6">25¢</TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26" Grid.Row="7">10¢</TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26" Grid.Row="8">5¢</TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26" Grid.Row="9">1¢</TextBlock>
+
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26" Grid.Row="0" Grid.Column="1">From Customer</TextBlock>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="26" Grid.Row="0" Grid.Column="2"><Run Text="Given As"/><LineBreak/><Run Text="Change"/></TextBlock>
+        <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="26" Grid.Row="1"  Grid.ColumnSpan="2" Grid.Column="4">Total Sale</TextBlock>
+        <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="26" Grid.Row="3"  Grid.ColumnSpan="2" Grid.Column="4">Amount Due</TextBlock>
+        <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="26" Grid.Row="5"  Grid.ColumnSpan="2" Grid.Column="4">Change Owed</TextBlock>
+
+        <Button IsEnabled="False" Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2" FontSize="26" BorderBrush="Coral" ButtonBase.Click="FinalizeOrderClick" Name="finalizeSale">Finalize Sale</Button>
+        <Button Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="2" FontSize="26" BorderBrush="Coral" ButtonBase.Click="ChangeButtonClick">Calculate Change</Button>
+
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="1"  Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="1"></Border>
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="2"  Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="1"></Border>
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="3"  Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="1"></Border>
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="4"  Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="1"></Border>
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="6"  Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="1"></Border>
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="7"  Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="1"></Border>
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="8"  Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="1"></Border>
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="9"  Grid.RowSpan="1" Grid.Column="2" Grid.ColumnSpan="1"></Border>
+
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="1"  Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1"></Border>
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="2"  Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1"></Border>
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="3"  Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1"></Border>
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="4"  Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1"></Border>
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="6"  Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1"></Border>
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="7"  Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1"></Border>
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="8"  Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1"></Border>
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="9"  Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1"></Border>
+
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="1"  Grid.RowSpan="1" Grid.Column="7" Grid.ColumnSpan="1"></Border>
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="3"  Grid.RowSpan="1" Grid.Column="7" Grid.ColumnSpan="1"></Border>
+        <Border BorderBrush="Coral" BorderThickness="2" CornerRadius="10" Grid.Row="5"  Grid.RowSpan="1" Grid.Column="7" Grid.ColumnSpan="1"></Border>
+    </Grid>
+</UserControl>

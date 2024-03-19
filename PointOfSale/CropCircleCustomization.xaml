@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="TheFlyingSaucer.PointOfSale.CropCircleCustomization"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TheFlyingSaucer.PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="500*"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <!--Fixme, this isnt right, unsure how to get the title-->
+        <TextBlock Text="Crop Circle" Grid.ColumnSpan="3" HorizontalAlignment="Center" FontSize="30"/>
+        <!--Fixme, how to display calories propertly with adding "Calories:"-->
+        <TextBlock Text="{Binding Path=Calories, StringFormat='Calories: {0}'}" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center"/>
+
+        <CheckBox IsChecked ="{Binding Path=Berries}" Grid.Row="2" Grid.Column="1" FontSize="24">Berries</CheckBox>
+    </Grid>
+</UserControl>
