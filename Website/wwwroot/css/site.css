@@ -7,7 +7,7 @@ html {
 body {
     font-family: 'Gluten', cursive;
     background: #151E3F;
-    background: url(../../Images/backgroundidea.png) repeat-y center top #151E3F;
+    /*background: url(../../Images/backgroundidea.png) repeat-y center top #151E3F;*/
     background-size: cover;
     position: relative;
 
@@ -28,7 +28,7 @@ body::before {
 
 footer {
     background: #030027;
-    background: url(../../Images/backgroundidea.png) repeat-y center top #030027;
+    /*background: url(../../Images/backgroundidea.png) repeat-y center top #030027;*/
     background-size: cover;
     margin-top: -50px;
 }
@@ -116,6 +116,7 @@ footer {
 
 .slogan-more .call-to-action .slogan-catch {
     text-align: right;
+    transform: rotate(-10deg);
 }
 
 .slogan-more .call-to-action .slogan-button{
@@ -192,8 +193,8 @@ footer {
 
 /*#endregion */
 
-/*#region Entree Feature*/
-.entree-feature {
+/*#region top3-user-stat Feature*/
+.top3-user-stat {
     display: flex;
     background: #FFEFD3;
     transform: rotate(0.78deg);
@@ -203,37 +204,37 @@ footer {
     left: -10px;
 }
 
-.entree-feature .container {
+.top3-user-stat .container {
     transform: rotate(-0.78deg);
 }
 
-.entree-feature .feature-text .feature-detail{
+.top3-user-stat .feature-text .feature-detail{
     color: #A75A26;
     text-align: left;
 }
 
 
-.entree-feature .feature-calories {
+.top3-user-stat .feature-calories {
     text-align: left;
     color: #A75A26;
     padding-top: 40px;
 }
 
-.entree-feature .feature-calories h4{
+.top3-user-stat .feature-calories h4{
     font-weight: bold;
 
 }
 
-.entree-feature .feature-price {
+.top3-user-stat .feature-price {
     color: #A75A26;
     text-align: left;
 }
 
-.entree-feature .feature-price h4 {
+.top3-user-stat .feature-price h4 {
     font-weight: bold;
 }
-
-.entree-feature .explore-menu a {
+/*
+.top3-user-stat .explore-menu a {
     font-weight: normal;
     font-size: 16px;
     line-height: 170%;
@@ -242,19 +243,20 @@ footer {
     text-decoration: none;
 }
 
-.entree-feature .explore-menu a:hover {
+.top3-user-stat .explore-menu a:hover {
     color: rgba(167, 90, 38, 0.3);
 }
 
-.entree-feature .explore-menu{
+.top3-user-stat .explore-menu{
     text-align: center;
     margin-top: 250px;
     min-width: 200px;
 }
+*/
 /*#endregion Entree Feature*/
 
 /*#region Side Feature*/
-.side-feature {
+.top3-pokemon {
     display: flex;
     background: #97CEEF;
     width: 100%;
@@ -263,22 +265,22 @@ footer {
     top: -15px;
 }
 
-.side-feature .feature-text .feature-detail {    
+.top3-pokemon .feature-text .feature-detail {    
     flex: 2;
     color: #124E73;
     text-align: right;
 }
 
-.side-feature .feature-text h5 span{
+.top3-pokemon .feature-text h5 span{
     font-weight: bold;
 }
 
-.side-feature .feature-calories {
+.top3-pokemon .feature-calories {
     text-align: right;
     color: #124E73;
 }
 
-.side-feature .feature-image{
+.top3-pokemon .feature-image{
     flex: 1;
     text-align: left;
     width: 50%;
@@ -286,36 +288,37 @@ footer {
 .feature-image img{
 }
 
-.side-feature .feature-calories h4 {
+.top3-pokemon .feature-calories h4 {
     font-weight: bold;
 }
 
-.side-feature .feature-price {
+.top3-pokemon .feature-price {
     text-align: right;
     color: #124E73;
 }
 
-.side-feature .feature-price h4 {
-    font-weight: bold;
+.top3-pokemon .feature-price h4 {
+        font-weight: bold;
 }
-
-.side-feature .explore-menu a {
+/*
+.top3-pokemon .explore-menu a {
     text-align: right;
     color: rgba(18, 78, 115, 0.7);
     text-decoration: none;
     
 }
-.side-feature .explore-menu {
+.top3-pokemon .explore-menu {
     text-align: left;
 }
 
-.side-feature .explore-menu a:hover {
+.top3-pokemon .explore-menu a:hover {
     color: rgba(18, 78, 115, 0.3);
 }
+*/
 /*#endregion*/
 
 /*#region Drink Feature*/
-.drink-feature {
+.generation {
     display: flex;
     background: #7D604A;
     transform: rotate(-0.78deg);
@@ -326,38 +329,38 @@ footer {
     left: -10px;
 }
 
-.drink-feature .container {
+.generation .container {
     transform: rotate(0.78deg);
 }
 
-.drink-feature .feature-text .feature-detail {
+.generation .feature-text .feature-detail {
     color: #30251C;
     text-align: left;
 }
 
-.drink-feature .feature-image {
+.generation .feature-image {
 
 }
 
-.drink-feature .feature-calories {
+.generation .feature-calories {
     text-align: left;
     color: #30251C;
 }
 
-.drink-feature .feature-calories h4 {
+.generation .feature-calories h4 {
     font-weight: bold;
 }
 
-.drink-feature .feature-price {
+.generation .feature-price {
     text-align: left;
     color: #30251C;
 }
 
-.drink-feature .feature-price h4 {
+.generation .feature-price h4 {
     font-weight: bold;
 }
-
-.drink-feature .explore-menu a {
+/*
+.generation .explore-menu a {
     font-weight: normal;
     font-size: 16px;
     line-height: 170%;
@@ -366,15 +369,16 @@ footer {
     text-decoration: none;
 }
 
-.drink-feature .explore-menu a:hover {
+.generation .explore-menu a:hover {
     color: rgba(48, 37, 28, 0.3);
 }
 
-.drink-feature .explore-menu {
+.generation .explore-menu {
     text-align: center;
     margin-top: 250px;
     min-width: 200px;
 }
+    */
 /*#endregion drink Feature*/
 
 /*#region About and Privacy page*/

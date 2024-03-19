@@ -2,91 +2,111 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home";
-    ViewData["Intro"] = "Breakfast out of this World!";
+    ViewData["Intro"] = "Pokémon Data Base";
 }
 @using TheFlyingSaucer.Data;
 
 <div class="slogan">
     <div class="slogan-more">
         <h1>
-            Breakfast Out of This<br /><span class="emphasis">WORLD</span>
+            Pokémon Data Base
         </h1>
         <div class="call-to-action">
-            <spans class="slogan-catch">Find your crave</spans>
+            <spans class="slogan-catch">View Pokémon Here</spans>
             <div class="slogan-whitespace"></div>
             <div class="slogan-arrow">
                 <img src="~/Images/arrow.png" width="100" height="60" />
             </div>
             <div class="button">
-                <a class="slogan-button" asp-area="" asp-page="/Menu">Our Delicacies</a>
+                <a class="slogan-button" asp-area="" asp-page="/Pokemon">Pokémon Awaits</a>
             </div>
         </div>
     </div>
 </div>
 
 <div class="all-feature">
-    <div class="entree-feature feature">
+    <div class="top3-user-stat feature">
         <div class="container">
         <div class="feature-text">
             <div class="feature-detail">
-                <h4>TRY OUR OL' FASHIONED</h4>
-                <h2>FLATTENED PLANETCAKES</h2>
-                <h5>Excite your taste buds with The Flying Saucer’s pancakes. It’s more than just pancakes</h5>
-            </div>
-            <div class="price-and-calories">
-                <div class="feature-calories">
-                    <h4>919</h4>
-                    <h5>Calories</h5>
-                </div>
-                <div class="feature-price">
-                    <h4>$8.50</h4>
-                    <h5>Price</h5>
+                <h4>STRIVE TO BE THE BEST!</h4>
+                <h2>STATS FOR THE TOP 3 USERS </h2>
+                <div class="feature-stats">
+                    <h5>List out the top 3 user emails and average stat block total</h5>
                 </div>
             </div>
-        </div>
-        <div class="explore-menu">
-            <a asp-area="" asp-page="/Menu">Craving for more?<br />Explore Menu</a>
-        </div>
-        <div class="feature-image">
-            <img src="~/Images/flyingsaucer.png" width="405" height="405" />
-        </div>
-        </div>
-    </div>
-    <div class="side-feature feature">
-        <div class="container">
-            <div class="feature-image">
-                <img src="~/Images/eggs2.png" width="300" height="300" />
-            </div>
-            <div class="feature-text">
-                <div class="feature-detail">
-                    <h4>CRACK A SUNNY SMILE WITH</h4>
-                    <h2>EVISCERATED EGGS</h2>
-                    <h5>It’s <span>eggsolutely</span> delicious, we don’t mean to egg it on, but it’s the <span>eggcelent</span> choice</h5>
-                </div>
-                <div class="price-and-calories-side">
-                    <div class="feature-calories feature-calories-side">
-                        <h4>156</h4>
+            <!--
+                 <div class="price-and-calories">
+                    <div class="feature-calories">
+                        <h4>919</h4>
                         <h5>Calories</h5>
                     </div>
-                    <div class ="feature-price feature-price-side">
-                        <h4>$2.00</h4>
+                    <div class="feature-price">
+                        <h4>$8.50</h4>
                         <h5>Price</h5>
                     </div>
                 </div>
-                <div class="explore-menu">
-                    <a asp-area="" asp-page="/Menu">Craving for more?<br />Explore Menu</a>
-                </div>
+            -->
+        </div>
+        <!--
+            <div class="explore-menu">
+                <a asp-area="" asp-page="/Menu">Craving for more?<br />Explore Menu</a>
+            </div>
+        -->
+            <div class="feature-image">
+                <img src="~/Images/pokemonhome1.png" width="955" height="340" />
             </div>
         </div>
     </div>
-    <div class="drink-feature feature">
+    <div class="top3-pokemon feature">
+        <div class="container">
+            <div class="feature-image">
+                <img src="~/Images/pokeball.png" width="340" height="340" />
+            </div>
+            <div class="feature-text">
+                <div class="feature-detail">
+                    <h4>STRIVE TO COLLECT THEM ALL!</h4>
+                    <h2>NUMBER OF POKEMON FOR THE TOP 3 USERS</h2>
+                    <!--
+                        <h5>It’s <span>eggsolutely</span> delicious, we don’t mean to egg it on, but it’s the <span>eggcelent</span> choice</h5>
+                    -->
+                    <div class="feature-stats">
+                        <h5>List out the top 3 user emails and the number of Pokémon they have</h5>
+                    </div>
+                </div>
+                <!--
+                    <div class="price-and-calories-side">
+                        <div class="feature-calories feature-calories-side">
+                            <h4>156</h4>
+                            <h5>Calories</h5>
+                        </div>
+                        <div class ="feature-price feature-price-side">
+                            <h4>$2.00</h4>
+                            <h5>Price</h5>
+                        </div>
+                    </div>
+                
+                <div class="explore-menu">
+                    <a asp-area="" asp-page="/Menu">Craving for more?<br />Explore Menu</a>
+                </div>
+                -->
+            </div>
+        </div>
+    </div>
+    <div class="generation feature">
         <div class="container">
         <div class="feature-text">
             <div class="feature-detail">
-                <h4>STIR UP YOUR DAY WITH</h4>
-                <h2>SAUCER FUEL</h2>
-                <h5>Is Coffee a part of your daily grind? Our <span>beantastic</span> coffee will fuel you right up!</h5>
+                <h4>WHAT GENERATION DO YOU LOVE?</h4>
+                <h2>GENERATION POPULARITY</h2>
+                <!--
+                    <h5>Is Coffee a part of your daily grind? Our <span>beantastic</span> coffee will fuel you right up!</h5>
+                -->
+                <div class="feature-stats">
+                    <h5>List each generation and the number of Pokémon being used</h5>
+                </div>
             </div>
+        <!--
             <div class="price-and-calories">
                 <div class="feature-calories">
                     <h4>1</h4>
@@ -101,9 +121,10 @@
         <div class="explore-menu">
             <a asp-area="" asp-page="/Menu">Craving for more?<br />Explore Menu</a>
         </div>
-        <div class="feature-image">
-            <img src="~/Images/saucerfuel.PNG" width="405" height="405" />
+        -->
         </div>
+        <div class="feature-image">
+            <img src="~/Images/pokemonhome2.png" width="749" height="422" />
         </div>
     </div>
 </div>
