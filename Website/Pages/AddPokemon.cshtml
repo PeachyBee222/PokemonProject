@@ -1,0 +1,63 @@
+﻿@page
+@model Website.Pages.AddPokemonModel
+@{
+    ViewData["Title"] = "Add Your Pokémon";
+}
+<div class="page-format">
+    <div class="slogan">
+        <div class="slogan-more">
+            <h1 class="add-pokemon-title">@ViewData["Title"]</h1>
+            <div class="call-to-action">
+                <spans class="slogan-catch">Go back to home</spans>
+                <div class="slogan-whitespace"></div>
+                <div class="slogan-arrow">
+                    <img src="~/Images/arrow.png" width="100" height="60" />
+                </div>
+                <div class="button">
+                    <a class="slogan-button" asp-area="" asp-page="/Pokemon">Pokémon Awaits</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="add-pokemon-desc">
+        <!--
+        <p class="add-pokemon-page">
+            Founded in 2023 by definitely human Earth students of the CIS 400 course,
+            the Flying Saucer offers breakfast repasts at any hour of the day for your
+            avid consuming. Beam down to any of our many Earth-based locations for a taste.
+        </p>
+        -->
+        <div class="add-pokemon-page">
+            <h2>Enter in Information</h2>
+            <div class="add-pokemon-input">
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="text" name="email" placeholder="Enter Here" />
+                </div>
+                <div class="input-group">
+                    <label>Nickname</label>
+                    <input type="text" name="nickname" placeholder="Enter Here" />
+                </div>
+                <div class="input-group">
+                    <label>Pokemon ID</label>
+                    <input type="number" name="pokemonid" placeholder="Enter Here" />
+                </div>
+            </div>
+        </div>
+        <div class="logo-main">
+            <img class="main-logo" src="~/Images/pokemoncreate.png" width="850" height="600" />
+        </div>
+        <!--
+        <div class="logos">
+            <div class="logo-second">
+                <img class="second-logo" src="~/Images/pokemoncreate.png" width="850" height="290" />
+                
+                <div class="logo-menu">
+                    <a class="ending-button" asp-area="" asp-page="/Menu">View Our Menu</a>
+                </div>
+            </div>
+        </div>
+        -->
+
+    </div>
+</div>

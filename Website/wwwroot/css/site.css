@@ -381,8 +381,11 @@ footer {
     */
 /*#endregion drink Feature*/
 
-/*#region About and Privacy page*/
-.about-desc {
+/*#region Add Pokemon and Privacy page*/
+.page-format{
+    margin-bottom: 2%;
+}
+.add-pokemon-desc {
     background: #FFEFD3;
     transform: rotate(0.8deg);
     border: none;
@@ -391,21 +394,38 @@ footer {
     width: 110%;
 }
 
-.about-title{
-   padding-top: 80px;
-   font-weight: bold;
-   text-align: center;
-   margin-top: 80px;
+.add-pokemon-title {
+    padding-top: 80px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 80px;
 }
 
-.about-page{
+.add-pokemon-page {
     text-align: center;
     margin: 40px 15% 0 15%;
 }
 
-.logo-main{
+.add-pokemon-page h2 {
+    color: #030027;
     text-align: center;
-    margin-top: -70px;
+    margin: 40px 15% 0 15%;
+    font-weight: bold;
+}
+
+.add-pokemon-input label {
+    color: #030027;
+    font-weight: bold;
+}
+
+.add-pokemon-input input {
+    margin: 40px 15% 0 15%;
+}
+
+.logo-main{
+    text-align: right;
+    margin-top: -190px;
+    margin-right: 150px;
 }
 
 .logo-second {
@@ -424,14 +444,12 @@ footer {
     padding-top: 100px;
 }
 
-.second-logo {
-}
 
 .logo-menu a{
     color: #FFEFD3;
     text-decoration: none;
     font-size: 30px;
-
+    margin-top: 50px; 
     text-align:right;
 }
 
