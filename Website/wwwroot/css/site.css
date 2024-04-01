@@ -30,8 +30,12 @@ footer {
     background: #030027;
     /*background: url(../../Images/backgroundidea.png) repeat-y center top #030027;*/
     background-size: cover;
-    margin-top: -50px;
+    margin-top: -100px;
 }
+footer img {
+    margin-top: 100px;
+}
+
 .footer-links a{
     color: #FFEFD3!important;
     text-decoration: none;
@@ -381,53 +385,114 @@ footer {
     */
 /*#endregion drink Feature*/
 
-/*#region Add Pokemon and Privacy page*/
+/*#region Add Pokemon and Create Account and Create Pokemon page*/
 .page-format{
     margin-bottom: 2%;
 }
-.add-pokemon-desc {
+.create-add-desc {
     background: #FFEFD3;
-    transform: rotate(0.8deg);
+    transform: rotate(2deg);
     border: none;
-    color: #030027;
     height: 700px;
     width: 110%;
+    margin-left: -20px;
 }
 
-.add-pokemon-title {
+.create-add-title {
     padding-top: 80px;
     font-weight: bold;
     text-align: center;
     margin-top: 80px;
 }
 
-.add-pokemon-page {
+.create-add-page {
     text-align: center;
     margin: 40px 15% 0 15%;
+    transform: rotate(-2deg);
 }
 
-.add-pokemon-page h2 {
+.create-add-page h2 {
     color: #030027;
     text-align: center;
     margin: 40px 15% 0 15%;
     font-weight: bold;
 }
 
-.add-pokemon-input label {
+.create-add-input {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 32px;
+}
+
+.create-add-input label {
     color: #030027;
     font-weight: bold;
 }
 
-.add-pokemon-input input {
-    margin: 40px 15% 0 15%;
+.create-add-input input {
+    border-radius: 4px; /*having an issue with this only working on 2 corners, found something in inspect*/
+    background: rgba(255, 239, 211, 0.08);
+    border: none;
+    text-align: center;
+    margin-bottom: 3%;
+    width: 200px;
+    font-weight: bold;
+    height: 40px;
+    color: #FFEFD3;
 }
 
-.logo-main{
+.input-group { /*gets the textboxes lined up nicely*/
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+    text-align: left;
+}
+
+.input-group input[type=text]:focus { /*this does the outline of the textboxes when selected*/
+    outline: 4px solid #97CEEF;
+}
+
+.input-group input[type=number]:focus {
+    outline: 4px solid #97CEEF;
+}
+
+.input-button input {
+    background: #EF7B45;
+    font-weight: bolder;
+    color: #FFEFD3;
+}
+
+.input-button input:hover {
+    color: #030027;
+}
+
+.input-button input {
+    padding: 5px 24px 0px 24px;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+}
+
+.add-pokemon-desc .logo-main{
     text-align: right;
-    margin-top: -190px;
+    margin-top: -280px;
     margin-right: 150px;
 }
 
+.create-pokemon-desc .logo-main {
+    text-align: right;
+    margin-top: -620px;
+    margin-right: 150px;
+}
+
+.create-account-desc .logo-main {
+    text-align: right;
+    margin-top: -280px;
+    margin-right: 150px;
+}
+
+/*
 .logo-second {
     background: #EF7B45;
     transform: rotate(-0.5deg);
@@ -443,7 +508,7 @@ footer {
     flex: .5;
     padding-top: 100px;
 }
-
+*/
 
 .logo-menu a{
     color: #FFEFD3;

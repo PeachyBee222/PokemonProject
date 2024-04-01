@@ -1,4 +1,72 @@
 ﻿@page
 @model Website.Pages.CreatePokemonModel
 @{
+    ViewData["Title"] = "Create Your Pokémon";
 }
+<div class="page-format">
+    <div class="slogan">
+        <div class="slogan-more">
+            <h1 class="create-pokemon-title create-add-title">@ViewData["Title"]</h1>
+            <div class="call-to-action">
+                <spans class="slogan-catch">Go back to home</spans>
+                <div class="slogan-whitespace"></div>
+                <div class="slogan-arrow">
+                    <img src="~/Images/arrow.png" width="100" height="60" />
+                </div>
+                <div class="button">
+                    <a class="slogan-button" asp-area="" asp-page="/Pokemon">Pokémon Awaits</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="create-pokemon-desc create-add-desc">
+        <div class="create-pokemon-page create-add-page">
+            <h2>Enter in Information</h2>
+            <div class="create-add-input create-input">
+                <div class="input-group">
+                    <label>Name: </label>
+                    <input type="text" name="name" placeholder="Enter Here" style="background-color: #030027" />
+                </div>
+                <div class="input-group">
+                    <label>Nickname: </label>
+                    <input type="text" name="nickname" placeholder="Enter Here" style="background-color: #030027" />
+                </div>
+                <div class="input-group">
+                    <label>Attack: </label>
+                    <input type="number" name="attack" min="0" max="200" placeholder="Enter Here" style="background-color: #030027" />
+                </div>
+                <div class="input-group">
+                    <label>Defense: </label>
+                    <input type="number" name="defense" min="0" max="300" placeholder="Enter Here" style="background-color: #030027" /> 
+                </div>
+                <div class="input-group">
+                    <label>Speed: </label>
+                    <input type="number" name="speed" min="0" max="200" placeholder="Enter Here" style="background-color: #030027" />
+                </div>
+                <div class="input-group">
+                    <label>HP: </label>
+                    <input type="number" name="hp" min="0" max="300" placeholder="Enter Here" style="background-color: #030027" />
+                </div>
+                <div class="input-group">
+                    <label>Generation: <br /> (0 if its your own creation) </label>
+                    <input type="number" name="generation" min="0" max="9" placeholder="Enter Here" style="background-color: #030027" />
+                </div>
+                <div class="input-group">
+                    <label>Element: </label>
+                    <input type="text" name="pelement" placeholder="Enter Here" style="background-color: #030027" />
+                </div>
+                <div class="input-group">
+                    <label>Secondary Element: <break>(Optional)</break></label>
+                    <input type="text" name="selement" placeholder="Enter Here" style="background-color: #030027" />
+                </div>
+                <!-- FIXME will need error checking on input information-->
+                <div class="input-button input-group">
+                    <input type="submit" value="Submit">
+                </div>
+            </div>
+        </div>
+        <div class="logo-main">
+            <img class="main-logo" src="~/Images/pokemoncreate.png" width="850" height="600" />
+        </div>
+    </div>
+</div>
