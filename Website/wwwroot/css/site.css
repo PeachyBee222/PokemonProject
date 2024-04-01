@@ -474,19 +474,22 @@ footer img {
     border: none;
 }
 
-.add-pokemon-desc .logo-main{
+.add-pokemon-desc .logo-main {
+    transform: rotate(-2deg);
     text-align: right;
     margin-top: -280px;
     margin-right: 150px;
 }
 
 .create-pokemon-desc .logo-main {
+    transform: rotate(-2deg);
     text-align: right;
     margin-top: -620px;
     margin-right: 150px;
 }
 
 .create-account-desc .logo-main {
+    transform: rotate(-2deg);
     text-align: right;
     margin-top: -280px;
     margin-right: 150px;
