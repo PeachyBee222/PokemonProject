@@ -197,7 +197,7 @@ footer img {
 
 /*#endregion */
 
-/*#region top3-user-stat Feature*/
+/*#region User Stat Feature*/
 .top3-user-stat {
     display: flex;
     background: #FFEFD3;
@@ -237,6 +237,10 @@ footer img {
 .top3-user-stat .feature-price h4 {
     font-weight: bold;
 }
+
+.top3-user-stat .feature-text h5 span {
+    font-weight: bold;
+}
 /*
 .top3-user-stat .explore-menu a {
     font-weight: normal;
@@ -257,9 +261,9 @@ footer img {
     min-width: 200px;
 }
 */
-/*#endregion Entree Feature*/
+/*#endregion User Stat Feature*/
 
-/*#region Side Feature*/
+/*#region Number of Pokemon Feature*/
 .top3-pokemon {
     display: flex;
     background: #97CEEF;
@@ -321,7 +325,7 @@ footer img {
 */
 /*#endregion*/
 
-/*#region Drink Feature*/
+/*#region Generation Feature*/
 .generation {
     display: flex;
     background: #7D604A;
@@ -363,6 +367,10 @@ footer img {
 .generation .feature-price h4 {
     font-weight: bold;
 }
+
+.generation .feature-text h5 span {
+    font-weight: bold;
+}
 /*
 .generation .explore-menu a {
     font-weight: normal;
@@ -383,7 +391,7 @@ footer img {
     min-width: 200px;
 }
     */
-/*#endregion drink Feature*/
+/*#endregion Generation Feature*/
 
 /*#region Add Pokemon and Create Account and Create Pokemon page*/
 .page-format{
@@ -656,11 +664,12 @@ input[type=number] {
 
 /*#endregion*/
 .filter-and-result {
+    /*FIXME how to get it to adjust with more/less items*/
     display: flex;
     flex-direction: row;
     gap: 24px;
     padding-top: 80px;
-    margin-bottom: 80px;
+    margin-bottom: 20%;
     align-items: flex-start;
 }
 

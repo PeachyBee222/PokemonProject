@@ -1,5 +1,5 @@
 ﻿@page
-@model IndexModel
+@model Website.Pages.MenuModel
 @{
     ViewData["Title"] = "Home";
     ViewData["Intro"] = "Pokémon Data Base";
@@ -32,27 +32,19 @@
                 <h4>STRIVE TO BE THE BEST!</h4>
                 <h2>STATS FOR THE TOP 3 USERS </h2>
                 <div class="feature-stats">
-                    <h5>List out the top 3 user emails and average stat block total</h5>
+                    <!--
+                        <h5>List out the top 3 user emails and average stat block total</h5>
+                    -->
+                    @foreach (var item in @Model.TopUserStat)
+                    {
+                        <div class="stat-function-item flex-item">
+                            <!--FIXME update this to be the correct information. and update the codebehind-->
+                            <h5>Email: <span>@item</span></h5>
+                        </div>
+                    }
                 </div>
             </div>
-            <!--
-                 <div class="price-and-calories">
-                    <div class="feature-calories">
-                        <h4>919</h4>
-                        <h5>Calories</h5>
-                    </div>
-                    <div class="feature-price">
-                        <h4>$8.50</h4>
-                        <h5>Price</h5>
-                    </div>
-                </div>
-            -->
         </div>
-        <!--
-            <div class="explore-menu">
-                <a asp-area="" asp-page="/Menu">Craving for more?<br />Explore Menu</a>
-            </div>
-        -->
             <div class="feature-image">
                 <img src="~/Images/pokemonhome1.png" width="955" height="340" />
             </div>
@@ -67,29 +59,19 @@
                 <div class="feature-detail">
                     <h4>STRIVE TO COLLECT THEM ALL!</h4>
                     <h2>NUMBER OF POKEMON FOR THE TOP 3 USERS</h2>
-                    <!--
-                        <h5>It’s <span>eggsolutely</span> delicious, we don’t mean to egg it on, but it’s the <span>eggcelent</span> choice</h5>
-                    -->
                     <div class="feature-stats">
-                        <h5>List out the top 3 user emails and the number of Pokémon they have</h5>
+                        <!--
+                            <h5>List out the top 3 user emails and the number of Pokémon they have</h5>
+                        -->
+                        @foreach (var item in @Model.TopUserNumPokemon)
+                        {
+                            <div class="stat-function-item flex-item">
+                                <!--FIXME update this to be the correct information. and update the codebehind-->
+                                <h5>Email: <span>@item Pokémon</span></h5>
+                            </div>
+                        }
                     </div>
                 </div>
-                <!--
-                    <div class="price-and-calories-side">
-                        <div class="feature-calories feature-calories-side">
-                            <h4>156</h4>
-                            <h5>Calories</h5>
-                        </div>
-                        <div class ="feature-price feature-price-side">
-                            <h4>$2.00</h4>
-                            <h5>Price</h5>
-                        </div>
-                    </div>
-                
-                <div class="explore-menu">
-                    <a asp-area="" asp-page="/Menu">Craving for more?<br />Explore Menu</a>
-                </div>
-                -->
             </div>
         </div>
     </div>
@@ -99,32 +81,23 @@
             <div class="feature-detail">
                 <h4>WHAT GENERATION DO YOU LOVE?</h4>
                 <h2>GENERATION POPULARITY</h2>
-                <!--
-                    <h5>Is Coffee a part of your daily grind? Our <span>beantastic</span> coffee will fuel you right up!</h5>
-                -->
                 <div class="feature-stats">
-                    <h5>List each generation and the number of Pokémon being used</h5>
+                    <!--
+                        <h5>List each generation and the number of Pokémon being used</h5>
+                    -->
+                    @foreach (var item in @Model.GenerationPop)
+                    {
+                        <div class="stat-function-item flex-item">
+                            <!--FIXME update this to be the correct information. and update the codebehind-->
+                            <h5>Generation FIXNUM: <span>@item Pokémon</span></h5>
+                        </div>
+                    }
                 </div>
             </div>
-        <!--
-            <div class="price-and-calories">
-                <div class="feature-calories">
-                    <h4>1</h4>
-                    <h5>Calories</h5>
-                </div>
-                <div class="feature-price">
-                    <h4>$1.00</h4>
-                    <h5>Price</h5>
-                </div>
-            </div>
-        </div>
-        <div class="explore-menu">
-            <a asp-area="" asp-page="/Menu">Craving for more?<br />Explore Menu</a>
-        </div>
-        -->
         </div>
         <div class="feature-image">
             <img src="~/Images/pokemonhome2.png" width="749" height="422" />
+        </div>
         </div>
     </div>
 </div>

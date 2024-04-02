@@ -4,6 +4,7 @@ using TheFlyingSaucer.Data;
 
 namespace Website.Pages
 {
+    //Be careful before editing name here, the HTML that uses this needs the .MenuModel
     public class MenuModel : PageModel
     {
         /*
@@ -52,7 +53,78 @@ namespace Website.Pages
             Sides = FilterBySide(MenuItems,true);
             Entrees = FilterByEntree(MenuItems,true);
 
+            //the following are for pokemon testing FIXME
+            PokemonNames = TestPokemon();
+            GenerationPop = TestGeneration();
+            TopUserStat = TestStatBlockTotal();
+            TopUserNumPokemon = TestNumPokemon();
+
         }
+
+        /* The following functions below are for testing HTML with pokemon
+         *  FIXME
+         */
+        public List<string> TestPokemon()
+        {
+            List<string> TestPokemon = new List<string>();
+            TestPokemon.Add("Charzard");
+            TestPokemon.Add("Squirtle");
+            TestPokemon.Add("Pikachu");
+            return TestPokemon;
+        }
+
+        public List<int> TestGeneration()
+        {
+            List<int> TestGeneration = new List<int>();
+            TestGeneration.Add(10);
+            TestGeneration.Add(20);
+            TestGeneration.Add(30);
+            return TestGeneration;
+        }
+        public List<int> TestStatBlockTotal()
+        {
+            List<int> TestStat = new List<int>();
+            TestStat.Add(10);
+            TestStat.Add(20);
+            TestStat.Add(30);
+            return TestStat;
+        }
+
+        public List<int> TestNumPokemon()
+        {
+            List<int> TestNum = new List<int>();
+            TestNum.Add(10);
+            TestNum.Add(20);
+            TestNum.Add(30);
+            return TestNum;
+        }
+
+        public List<string>? PokemonNames
+        {
+            get; protected set;
+        }
+
+        public List<int>? GenerationPop
+        {
+            get; protected set;
+        }
+
+        public List<int>? TopUserStat
+        {
+            get; protected set;
+        }
+
+        public List<int>? TopUserNumPokemon
+        {
+            get; protected set;
+        }
+
+        /* The functions above are for testing HTML with pokemon
+         * 
+         * The functions below are for the previous project and will give info on
+         * how to filter
+         */
+
         /// <summary>
         /// the maximum bound for the price
         /// </summary>
