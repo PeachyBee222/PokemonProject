@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonProject.DataTests
+namespace PokemonProjectPokemonProject.DataTests
 {
     /// <summary>
     /// The unit tests for the YouAreToast tests
@@ -62,7 +62,8 @@ namespace PokemonProject.DataTests
         /// if it is attempted, the count will be set to 12.
         /// </summary>
         [Fact]
-        public void ShouldNotBeAbleToSetCountAboveTwelve() {
+        public void ShouldNotBeAbleToSetCountAboveTwelve()
+        {
             YouAreToast yat = new();
             yat.Count = 13;
             Assert.Equal(12u, yat.Count);
@@ -87,9 +88,9 @@ namespace PokemonProject.DataTests
         /// <param name="calories">The number of calories for texas toast</param>
 
         [Theory]
-        [InlineData(6,100 * 6)]
+        [InlineData(6, 100 * 6)]
         [InlineData(0, 100 * 1)]
-        [InlineData(2, 100 *2)]
+        [InlineData(2, 100 * 2)]
         [InlineData(1, 100 * 1)]
         [InlineData(5, 100 * 5)]
         [InlineData(3, 100 * 3)]
@@ -239,7 +240,8 @@ namespace PokemonProject.DataTests
         public void ChangingCountShouldNotifyOfPropertyChanges(uint count, string propertyName)
         {
             YouAreToast yat = new();
-            Assert.PropertyChanged(yat, propertyName, () => {
+            Assert.PropertyChanged(yat, propertyName, () =>
+            {
                 yat.Count = count;
             });
         }

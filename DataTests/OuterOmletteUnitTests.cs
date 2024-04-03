@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonProject.DataTests
+namespace PokemonProjectPokemonProject.DataTests
 {
     /// <summary>
     /// Unit tests for OuterOmlette class

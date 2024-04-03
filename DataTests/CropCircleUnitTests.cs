@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonProject.DataTests
+namespace PokemonProjectPokemonProject.DataTests
 {
     /// <summary>
     /// The unit tests for the CropCircle class
@@ -73,8 +73,8 @@ namespace PokemonProject.DataTests
         /// <param name="berries">If the Crop Circle will be served with berries</param>
         /// <param name="calories">The expected calories, given the specified state</param>
         [Theory]
-        [InlineData(true, 158 +89)]
-        [InlineData( false, 158 + 0)]
+        [InlineData(true, 158 + 89)]
+        [InlineData(false, 158 + 0)]
         public void CaloriesShouldBeCorrect(bool berries, uint calories)
         {
             CropCircle cc = new()

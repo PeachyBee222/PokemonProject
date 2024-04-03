@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit.Sdk;
 
-namespace PokemonProject.DataTests
+namespace PokemonProjectPokemonProject.DataTests
 {
     /// <summary>
     /// The unit tests for the order class
@@ -38,10 +38,10 @@ namespace PokemonProject.DataTests
         /// <param name="taxRate">the specified tax rate</param>
         /// <param name="total">the correct total that should be calculated</param>
         [Theory]
-        [InlineData(1,2,3,0.1,6.6)]
-        [InlineData(1,3,2,0.1,6.6)]
-        [InlineData(1,8,4,0.2,15.6)]
-        [InlineData(2,3,6,0.2,13.2)]
+        [InlineData(1, 2, 3, 0.1, 6.6)]
+        [InlineData(1, 3, 2, 0.1, 6.6)]
+        [InlineData(1, 8, 4, 0.2, 15.6)]
+        [InlineData(2, 3, 6, 0.2, 13.2)]
         public void TotalShouldBeCorrectlyCalculated(decimal price1, decimal price2, decimal price3, decimal taxRate, decimal total)
         {
             Order order = new Order();
@@ -77,7 +77,7 @@ namespace PokemonProject.DataTests
             order.Add(new SampleMenuItem() { Name = "2" });
             order.Add(new SampleMenuItem() { Name = "3" });
             int i = 1;
-            foreach(IMenuItem item in order)
+            foreach (IMenuItem item in order)
             {
                 Assert.Equal($"{i}", item.Name);
                 i++;
@@ -106,7 +106,7 @@ namespace PokemonProject.DataTests
             SampleMenuItem sm = new SampleMenuItem();
             order.Add(sm);
             Assert.True(order.Contains(sm));
-            Assert.Contains<IMenuItem>(sm, order);
+            Assert.Contains(sm, order);
         }
 
         /// <summary>
@@ -137,8 +137,8 @@ namespace PokemonProject.DataTests
             order.Add(sm2);
             order.CopyTo(array, 0);
             order.Clear();
-            Assert.Contains<IMenuItem>(sm2, array);
-            Assert.Contains<IMenuItem>(sm1, array);
+            Assert.Contains(sm2, array);
+            Assert.Contains(sm1, array);
         }
 
         /// <summary>
@@ -162,7 +162,8 @@ namespace PokemonProject.DataTests
         public void ChangingTaxRateShouldNotifyOfPropertyChange() //FIXME THIS IS FAILING
         {
             Order order = new Order();
-            Assert.PropertyChanged(order, "TaxRate", () => {
+            Assert.PropertyChanged(order, "TaxRate", () =>
+            {
                 order.TaxRate = 0.20m;
             });
         }
@@ -175,12 +176,12 @@ namespace PokemonProject.DataTests
         /// <param name="tax">the given tax</param>
         [Theory]
         [InlineData(0.15, 0.6)]
-        [InlineData(0.2,0.8)]
-        [InlineData(0,0)]
+        [InlineData(0.2, 0.8)]
+        [InlineData(0, 0)]
         [InlineData(.5, 2)]
         public void ChangingTaxRateShouldChangeTax(decimal taxRate, decimal tax)
         {
-            Order order = new Order() { TaxRate = taxRate};
+            Order order = new Order() { TaxRate = taxRate };
             order.Add(new CropCircle()); //2.00 is the price
             order.Add(new YouAreToast()); //2.00 is default price
             Assert.Equal(tax, order.Tax);
@@ -192,10 +193,10 @@ namespace PokemonProject.DataTests
         /// <param name="taxRate">specified tax rate</param>
         /// <param name="total">what the total should be</param>
         [Theory]
-        [InlineData(0.15,4.6)]
-        [InlineData(0.2,4.8)]
-        [InlineData(0,4)]
-        [InlineData(0.5,6)]
+        [InlineData(0.15, 4.6)]
+        [InlineData(0.2, 4.8)]
+        [InlineData(0, 4)]
+        [InlineData(0.5, 6)]
         public void ChangingTaxRateShouldChangeTotal(decimal taxRate, decimal total)
         {
             Order order = new Order() { TaxRate = taxRate };
@@ -257,17 +258,17 @@ namespace PokemonProject.DataTests
             var order2 = new Order();
             var order3 = new Order();
 
-            Assert.Equal(order1.Number+1, order2.Number);
-            Assert.Equal(order2.Number+1, order3.Number);
+            Assert.Equal(order1.Number + 1, order2.Number);
+            Assert.Equal(order2.Number + 1, order3.Number);
         }
 
         /// <summary>
         /// The date and time should equal the proper time aligning with when the order was made
         /// </summary>
         [Fact]
-        public void PlacedAtShouldBeCorrectDateAndTime() 
-        { 
-            Assert.Equal(DateTime.Now, new Order().PlacedAt, new TimeSpan(0,0,1)); //called within one second of each other
+        public void PlacedAtShouldBeCorrectDateAndTime()
+        {
+            Assert.Equal(DateTime.Now, new Order().PlacedAt, new TimeSpan(0, 0, 1)); //called within one second of each other
         }
 
         /// <summary>

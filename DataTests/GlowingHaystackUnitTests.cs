@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonProject.DataTests
+namespace PokemonProjectPokemonProject.DataTests
 {
     /// <summary>
     /// Unit tests for glowing haystack
@@ -115,7 +115,7 @@ namespace PokemonProject.DataTests
         /// <param name="tomatoes">If the Glowing Haystack will be served with tomatoes</param>
         /// <param name="calories">The expected calories, given the specified state</param>
         [Theory]
-        [InlineData(true, true, true, 470 + 15 + 23 + 22 )]
+        [InlineData(true, true, true, 470 + 15 + 23 + 22)]
         [InlineData(false, true, true, 470 + 0 + 23 + 22)]
         [InlineData(true, false, true, 470 + 15 + 0 + 22)]
         [InlineData(false, true, false, 470 + 0 + 23 + 0)]

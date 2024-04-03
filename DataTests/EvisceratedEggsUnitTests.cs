@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonProject.DataTests
+namespace PokemonProjectPokemonProject.DataTests
 {
     /// <summary>
     /// The unit tests for the EvisceratedEggs class
@@ -116,8 +116,8 @@ namespace PokemonProject.DataTests
         /// <param name="style">The style of eggs</param>
         /// <param name="instructions">The expected special instructions</param>
         [Theory]
-        [InlineData(2,EggStyle.OverEasy, new string[] { "Over Easy"})]
-        [InlineData(4, EggStyle.OverEasy, new string[] { "Over Easy","4 eggs" })]
+        [InlineData(2, EggStyle.OverEasy, new string[] { "Over Easy" })]
+        [InlineData(4, EggStyle.OverEasy, new string[] { "Over Easy", "4 eggs" })]
         [InlineData(2, EggStyle.Hardboiled, new string[] { "Hard Boiled" })]
         [InlineData(4, EggStyle.Scrambled, new string[] { "Scrambled", "4 eggs" })]
         public void SpecialInstructionsRelfectsState(uint count, EggStyle style, string[] instructions)
@@ -148,7 +148,7 @@ namespace PokemonProject.DataTests
         [InlineData(5, 1 * 5)]
         [InlineData(4, 1 * 4)]
         [InlineData(3, 1 * 3)]
-        [InlineData(7, 1* 6)]
+        [InlineData(7, 1 * 6)]
         public void PriceShouldBeCorrect(uint count, decimal price)
         {
             EvisceratedEggs ee = new()
@@ -249,7 +249,8 @@ namespace PokemonProject.DataTests
         public void ChangingSizeShouldNotifyOfPropertyChanges(EggStyle style, string propertyName)
         {
             EvisceratedEggs ee = new();
-            Assert.PropertyChanged(ee, propertyName, () => {
+            Assert.PropertyChanged(ee, propertyName, () =>
+            {
                 ee.Style = style;
             });
         }
@@ -272,11 +273,12 @@ namespace PokemonProject.DataTests
         public void ChangingCountShouldNotifyOfPropertyChanges(uint count, string propertyName)
         {
             EvisceratedEggs ee = new();
-            Assert.PropertyChanged(ee, propertyName, () => {
+            Assert.PropertyChanged(ee, propertyName, () =>
+            {
                 ee.Count = count;
             });
         }
-        
+
         #endregion
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PokemonProject.Data;
 
-namespace PokemonProject.DataTests
+namespace PokemonProjectPokemonProject.DataTests
 {
     /// <summary>
     /// The unit tests for the menu class

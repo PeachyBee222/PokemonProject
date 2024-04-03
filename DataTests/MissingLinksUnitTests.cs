@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonProject.DataTests
+namespace PokemonProjectPokemonProject.DataTests
 {
     /// <summary>
     /// The unit tests for the MissingLinks class
@@ -230,7 +230,8 @@ namespace PokemonProject.DataTests
         public void ChangingCountShouldNotifyOfPropertyChanges(uint count, string propertyName)
         {
             MissingLinks ml = new();
-            Assert.PropertyChanged(ml, propertyName, () => {
+            Assert.PropertyChanged(ml, propertyName, () =>
+            {
                 ml.Count = count;
             });
         }

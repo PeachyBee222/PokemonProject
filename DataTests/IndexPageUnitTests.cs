@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using PokemonProject.Data;
 using Website.Pages;
 
-namespace PokemonProject.DataTests
+namespace PokemonProjectPokemonProject.DataTests
 {
     /*
     /// <summary>

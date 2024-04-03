@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonProject.DataTests
+namespace PokemonProjectPokemonProject.DataTests
 {
     /// <summary>
     /// The unit tests for LivestockMutilation Class
@@ -168,9 +168,9 @@ namespace PokemonProject.DataTests
         [InlineData(2, 7.25)]
         [InlineData(1, 7.25)]
         [InlineData(3, 7.25)]
-        [InlineData(5, 7.25 + (2 * 1))]
-        [InlineData(10, 7.25 + (5 * 1))]
-        [InlineData(8, 7.25 + (5 * 1))]
+        [InlineData(5, 7.25 + 2 * 1)]
+        [InlineData(10, 7.25 + 5 * 1)]
+        [InlineData(8, 7.25 + 5 * 1)]
         [InlineData(4, 7.25 + 1)]
         [InlineData(0, 7.25)]
         public void PriceShouldBeCorrect(uint count, decimal price)

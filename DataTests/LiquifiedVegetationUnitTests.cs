@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonProject.DataTests
+namespace PokemonProjectPokemonProject.DataTests
 {
     /// <summary>
     /// The unit tests for the class Liquified Vegitation
@@ -132,7 +132,7 @@ namespace PokemonProject.DataTests
             /// <param name="instructions">The expected special instructions</param>
             [Theory]
             [InlineData(ServingSize.Small, true, new string[] { })]
-            [InlineData(ServingSize.Medium, false, new string[] { "No Ice" , "Medium"})]
+            [InlineData(ServingSize.Medium, false, new string[] { "No Ice", "Medium" })]
             [InlineData(ServingSize.Large, true, new string[] { "Large" })]
             public void SpecialInstructionsRelfectsState(ServingSize serving, bool ice, string[] instructions)
             {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonProject.DataTests
+namespace PokemonProjectPokemonProject.DataTests
 {
     /// <summary>
     /// The unit tests for the class TakenBacon
@@ -88,7 +88,7 @@ namespace PokemonProject.DataTests
             tb.Count = 13;
             Assert.Equal(6u, tb.Count);
         }
-        
+
         /// <summary>
         /// This test verifies that a TakenBacon's count cannot be below 1, and 
         /// if it is attempted, the count will be set to 1.
@@ -100,7 +100,7 @@ namespace PokemonProject.DataTests
             tb.Count = 0;
             Assert.Equal(1u, tb.Count);
         }
-        
+
         /// <summary>
         /// This test checks that even as the TakenBacon's state mutates, the calories reflect that state
         /// </summary>
@@ -233,7 +233,8 @@ namespace PokemonProject.DataTests
         public void ChangingCountShouldNotifyOfPropertyChanges(uint count, string propertyName)
         {
             TakenBacon tb = new();
-            Assert.PropertyChanged(tb, propertyName, () => {
+            Assert.PropertyChanged(tb, propertyName, () =>
+            {
                 tb.Count = count;
             });
         }

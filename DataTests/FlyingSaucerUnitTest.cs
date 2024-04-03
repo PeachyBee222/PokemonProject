@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace PokemonProject.DataTests
+namespace PokemonProjectPokemonProject.DataTests
 {
     /// <summary>
     /// Unit tests for the FlyingSaucer class
@@ -207,12 +207,12 @@ namespace PokemonProject.DataTests
         [Theory]
         [InlineData(6, 8.5)]
         [InlineData(5, 8.5 - .5)]
-        [InlineData(10, 8.5 + (4 * .5))]
-        [InlineData(9, 8.5 + (3 * .5))]
-        [InlineData(8, 8.5 + (2 * .5))]
+        [InlineData(10, 8.5 + 4 * .5)]
+        [InlineData(9, 8.5 + 3 * .5)]
+        [InlineData(8, 8.5 + 2 * .5)]
         [InlineData(7, 8.5 + .5)]
-        [InlineData(12, 8.5 + (6 * .5))]
-        [InlineData(13, 8.5 + (6 * .5))] //edge case, not allowed to go over 12 pancakes
+        [InlineData(12, 8.5 + 6 * .5)]
+        [InlineData(13, 8.5 + 6 * .5)] //edge case, not allowed to go over 12 pancakes
         public void PriceShouldBeCorrect(uint stackSize, decimal price)
         {
             FlyingSaucer fs = new()

@@ -7,7 +7,7 @@ using Xunit;
 using Xunit.Sdk;
 using System.Collections.Specialized;
 
-namespace PokemonProject.DataTests
+namespace PokemonProjectPokemonProject.DataTests
 {
     /// <summary>
     /// The collection changed class used for test cases

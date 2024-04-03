@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PokemonProject.Data;
 
-namespace PokemonProject.DataTests
+namespace PokemonProjectPokemonProject.DataTests
 {
     /// <summary>
     /// The unit tests for the saucer fuel class
@@ -165,7 +165,7 @@ namespace PokemonProject.DataTests
         [Theory]
         [InlineData(ServingSize.Small, true, false, new string[] { })]
         [InlineData(ServingSize.Medium, true, true, new string[] { "With Cream", "Medium" })]
-        [InlineData(ServingSize.Large, true, false, new string[] { "Large"})]
+        [InlineData(ServingSize.Large, true, false, new string[] { "Large" })]
         public void SpecialInstructionsRelfectsState(ServingSize serving, bool decaf, bool cream, string[] instructions)
         {
             SaucerFuel sf = new()
@@ -239,7 +239,7 @@ namespace PokemonProject.DataTests
             SaucerFuel saucerFuel = new();
             Assert.IsAssignableFrom<INotifyPropertyChanged>(saucerFuel);
         }
-        
+
         /// <summary>
         /// ensures changing the size changes all of the properties it should change
         /// </summary>

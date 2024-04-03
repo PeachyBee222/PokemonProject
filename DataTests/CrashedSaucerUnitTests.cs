@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonProject.DataTests
+namespace PokemonProjectPokemonProject.DataTests
 {
     /// <summary>
     /// Unit tests for the CrashedSaucer class
@@ -161,7 +161,7 @@ namespace PokemonProject.DataTests
         [InlineData(2, true, true, new string[] { })]
         [InlineData(4, true, true, new string[] { "4 Slices" })]
         [InlineData(2, true, false, new string[] { "Hold Butter" })]
-        [InlineData(4, true, false, new string[] {"4 Slices", "Hold Butter"})]
+        [InlineData(4, true, false, new string[] { "4 Slices", "Hold Butter" })]
         public void SpecialInstructionsRelfectsState(uint stackSize, bool syrup, bool butter, string[] instructions)
         {
             CrashedSaucer cs = new()
@@ -187,12 +187,12 @@ namespace PokemonProject.DataTests
         [Theory]
         [InlineData(2, 6.45)]
         [InlineData(1, 6.45)]
-        [InlineData(6,6.45 + (4*1.5))]
-        [InlineData(5, 6.45 + (3 * 1.5))]
-        [InlineData(4, 6.45 + (2 * 1.5))]
+        [InlineData(6, 6.45 + 4 * 1.5)]
+        [InlineData(5, 6.45 + 3 * 1.5)]
+        [InlineData(4, 6.45 + 2 * 1.5)]
         [InlineData(3, 6.45 + 1.5)]
-        [InlineData(10, 6.45 + (4 * 1.5))]
-        [InlineData(0, 6.45 + (0 * 0))]
+        [InlineData(10, 6.45 + 4 * 1.5)]
+        [InlineData(0, 6.45 + 0 * 0)]
         public void PriceShouldBeCorrect(uint stackSize, decimal price)
         {
             CrashedSaucer cs = new()
