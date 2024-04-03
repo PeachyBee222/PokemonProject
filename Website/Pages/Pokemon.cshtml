@@ -5,6 +5,7 @@
     ViewData["Intro"] = "Breakfast out of this World!";
 }
 @using TheFlyingSaucer.Data;
+@using TheFlyingSaucer.Data.Models;
 <div class="text-center">
 
     <div class="container">
@@ -27,38 +28,15 @@
                 <h2>Filter</h2>
             <div id="filters">
                 <h4 class="name-header">Types</h4>
-                <div class="types-filter">
-                    <label class="filter-format">
-                        <div class="filter-entree">
-                            <input type="checkbox" name="IncludeEntrees" value="true" checked="@Model.IncludeEntrees" />
-                            Entree
-                        </div>
-                    </label>
-                    <label class="filter-format">
-                        <div class="filter-side">
-                            <input type="checkbox" name="IncludeSides" value="true" checked="@Model.IncludeSides" />
-                            Side
-                        </div>
-                    </label>
-                    <label class="filter-format">
-                        <div class="filter-drink">
-                            <input type="checkbox" name="IncludeDrinks" value="true" checked="@Model.IncludeDrinks" />
-                            Drinks
-                        </div>
-                    </label>
-                </div>
-                <h4 class="name-header">Calories</h4>
-                <div class="filter-format calories-filter">
-                    <input name="CaloriesMin" type="number" min="0" max="1000" step="0.1" placeholder="min" value="@Model.CaloriesMin"/>
+                <!--Will neeed to update how these connect to the model-->
+                    <div class="filter-format type-filter">
+                        <input name="Type" type="text" placeholder="Type" value="@Model.CaloriesMin" />
+                    </div>
+                <h4 class="name-header">Total</h4>
+                <div class="filter-format total-filter">
+                    <input name="TotalMin" type="number" min="0" max="1000" step="1" placeholder="min" value="@Model.CaloriesMin"/>
                     -
-                    <input name="CaloriesMax" type="number" min="0" max="1000" step="0.1" placeholder="max" value="@Model.CaloriesMax" />
-                </div>
-           
-                <h4 class="name-header">Price</h4>
-                <div class="filter-format price-filter">
-                    $<input name="PriceMin" type="number" min="0" max="1000" step="0.01" placeholder="min" value="@Model.PriceMin"/>
-                    -
-                    $<input name="PriceMax" type="number" min="0" max="1000" step="0.01" placeholder="max" value="@Model.PriceMax"/>
+                    <input name="TotalMax" type="number" min="0" max="1000" step="1" placeholder="max" value="@Model.CaloriesMax" />
                 </div>
                 <div class="search-button search-filter">
                     <input type="submit" value="Search">

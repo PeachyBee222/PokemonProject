@@ -583,6 +583,7 @@ footer img {
     width: 100%;
     border-radius: 8px;
     border: none;
+    margin-top: -20px;
 }
 
 /*#region types filter*/
@@ -600,11 +601,11 @@ footer img {
     color: #7D604A;
 }
 
-.all-filters .calories-filter {
+.all-filters .total-filter {
     padding-bottom: 32px;
 }
-
-.all-filters .calories-filter input {
+/*might need to change back to .total-filter*/
+.all-filters .filter-format input {
     border-radius: 4px;
     background: rgba(255, 239, 211, 0.08);
     border: none;
@@ -613,6 +614,11 @@ footer img {
     height: 40px;
     width: 40%;
     color: #FFEFD3;
+}
+
+.all-filters .type-filter {
+    width: 100%;
+    margin-bottom: 16px;
 }
 
 .all-filters .price-filter input {
