@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using PokemonProject.Data.Model;
+//using PokemonProject.Data.Model;
 using TheFlyingSaucer.Data;
+using TheFlyingSaucer.Data.Models;
 
 namespace Website.Pages
 {
@@ -54,7 +57,7 @@ namespace Website.Pages
             Entrees = FilterByEntree(MenuItems,true);
 
             //the following are for pokemon testing FIXME
-            PokemonNames = TestPokemon();
+            PokemonInfo = TestPokemon();
             GenerationPop = TestGeneration();
             TopUserStat = TestStatBlockTotal();
             TopUserNumPokemon = TestNumPokemon();
@@ -64,23 +67,37 @@ namespace Website.Pages
         /* The following functions below are for testing HTML with pokemon
          *  FIXME
          */
-        public List<string> TestPokemon()
+        public List<Pokemon> TestPokemon()
         {
-            List<string> TestPokemon = new List<string>();
-            TestPokemon.Add("Charzard");
-            TestPokemon.Add("Squirtle");
-            TestPokemon.Add("Pikachu");
+            List<Pokemon> TestPokemon = new List<Pokemon>();
+            Pokemon one = new Pokemon(1, 1, "Charzard", 1, 1, 1, 1, ElementType.fire, null);
+            Pokemon two = new Pokemon(1, 1, "Squirtle", 1, 1, 1, 1, ElementType.water, null);
+            Pokemon three = new Pokemon(1, 1, "Pikachu", 1, 1, 1, 1, ElementType.electric, ElementType.fighting);
             return TestPokemon;
         }
 
-        public List<int> TestGeneration()
+        public List<Generation> TestGeneration()
         {
+            List<Generation> TestGen = new List<Generation>();
+            Generation one = new Generation(1, 5);
+            Generation two = new Generation(2, 10);
+            Generation three = new Generation(3, 15);
+            TestGen.Add(one);
+            TestGen.Add(two);
+            TestGen.Add(three);
+            /*
             List<int> TestGeneration = new List<int>();
             TestGeneration.Add(10);
             TestGeneration.Add(20);
             TestGeneration.Add(30);
-            return TestGeneration;
+            */
+            return TestGen;
         }
+        /// <summary>
+        /// This is for the top 3 users considering their average
+        /// pokemons total (so total of all pokemon / num of all pokemon)
+        /// </summary>
+        /// <returns>Needs the user email and the number they have</returns>
         public List<int> TestStatBlockTotal()
         {
             List<int> TestStat = new List<int>();
@@ -99,12 +116,12 @@ namespace Website.Pages
             return TestNum;
         }
 
-        public List<string>? PokemonNames
+        public List<Pokemon>? PokemonInfo
         {
             get; protected set;
         }
 
-        public List<int>? GenerationPop
+        public List<Generation>? GenerationPop
         {
             get; protected set;
         }
