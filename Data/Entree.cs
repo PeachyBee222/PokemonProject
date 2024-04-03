@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheFlyingSaucer.Data
+namespace PokemonProject.Data
 {
     /// <summary>
     /// The class representing the entrees

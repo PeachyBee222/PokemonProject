@@ -7,9 +7,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <RootNamespace>TheFlyingSaucer.DataTests</RootNamespace>
+    <RootNamespace>PokemonProjectPokemonProject.DataTests</RootNamespace>
 
-    <AssemblyName>TheFlyingSaucer.DataTests</AssemblyName>
+    <AssemblyName>PokemonProjectPokemonProject.DataTests</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

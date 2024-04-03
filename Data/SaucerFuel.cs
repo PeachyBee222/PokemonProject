@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
-namespace TheFlyingSaucer.Data
+namespace PokemonProject.Data
 {
     /// <summary>
     /// The instance of the Saurcer Fuel drink

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheFlyingSaucer.Data
+namespace PokemonProject.Data
 {
     /// <summary>
     /// Class representing properties of all menu items

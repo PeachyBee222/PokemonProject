@@ -5,9 +5,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheFlyingSaucer.Data;
+using PokemonProject.Data;
 
-namespace TheFlyingSaucer.DataTests
+namespace PokemonProject.DataTests
 {
     /// <summary>
     /// The unit tests for the saucer fuel class

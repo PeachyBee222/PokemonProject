@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheFlyingSaucer.Data
+namespace PokemonProject.Data
 {
     /// <summary>
     /// Represents an order of drinks, entrees, sides.

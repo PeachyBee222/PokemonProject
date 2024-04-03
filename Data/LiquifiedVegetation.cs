@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheFlyingSaucer.Data
+namespace PokemonProject.Data
 {
     /// <summary>
     /// The instance of the Liquified Vegitation drink

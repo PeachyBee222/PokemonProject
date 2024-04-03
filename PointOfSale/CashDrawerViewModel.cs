@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using RoundRegister;
 
-namespace TheFlyingSaucer.PointOfSale
+namespace PokemonProject.PointOfSale
 {
     /// <summary>
     /// Cash drawer view model class

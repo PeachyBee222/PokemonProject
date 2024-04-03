@@ -5,10 +5,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using TheFlyingSaucer.Data;
+using PokemonProject.Data;
 using Website.Pages;
 
-namespace TheFlyingSaucer.DataTests
+namespace PokemonProject.DataTests
 {
     /*
     /// <summary>

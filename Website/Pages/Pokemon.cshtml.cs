@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TheFlyingSaucer.Data;
+using PokemonProject.Data;
 
 namespace Website.Pages
 {

@@ -4,8 +4,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RootNamespace>TheFlyingSaucer.Data</RootNamespace>
-    <AssemblyName>TheFlyingSaucer.Data</AssemblyName>
+    <RootNamespace>PokemonProject.Data</RootNamespace>
+    <AssemblyName>PokemonProject.Data</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

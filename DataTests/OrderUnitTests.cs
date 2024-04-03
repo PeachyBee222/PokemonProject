@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit.Sdk;
 
-namespace TheFlyingSaucer.DataTests
+namespace PokemonProject.DataTests
 {
     /// <summary>
     /// The unit tests for the order class

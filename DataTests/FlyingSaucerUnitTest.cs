@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace TheFlyingSaucer.DataTests
+namespace PokemonProject.DataTests
 {
     /// <summary>
     /// Unit tests for the FlyingSaucer class

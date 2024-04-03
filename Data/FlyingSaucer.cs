@@ -1,4 +1,4 @@
-﻿namespace TheFlyingSaucer.Data
+﻿namespace PokemonProject.Data
 {
     /// <summary>
     /// Details of the dish FlyingSaucer
