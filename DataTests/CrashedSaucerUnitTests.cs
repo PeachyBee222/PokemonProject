@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 namespace TheFlyingSaucer.DataTests
 {
     /// <summary>
-    /// Unit tests for the CrashedSaucer class
+    /// Unit tests Example. DELETE UPON COMPLETION
     /// </summary>
     public class CrashedSaucerUnitTests
     {
+        /*
         #region default values
 
         /// <summary>
@@ -311,5 +312,6 @@ namespace TheFlyingSaucer.DataTests
         }
 
         #endregion
+        */
     }
 }
