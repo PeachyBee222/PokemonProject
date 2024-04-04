@@ -16,9 +16,7 @@ namespace PokemonProject.Data.Model
         public int Defense { get; }
         public int Speed { get; }
         public int Total { get; }
-
         public ElementType Pelem { get; }
-
         public ElementType Selem { get; }
 
 

@@ -690,6 +690,10 @@ input[type=number] {
 
 .all-filters h2{
     font-weight: bold;
+    color: #EF7B45;
+}
+.all-filters .name-header{
+    color: #97CEEF;
 }
 .page-title-index {
     color: #FFEFD3;
@@ -701,111 +705,32 @@ input[type=number] {
     border-radius: 16px;
     flex: 4;
     text-align: left;
-    padding: 40px 0px 40px 40px;
+    padding: 40px 40px 40px 40px;
 }
 
-.menu-item .entree-detail{
-    display:flex;
-    flex-direction: row;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 24px;
-    margin: 24px 0px 32px 0px;
+.pokemon-item .pokemon-info {
+    margin: 0px 24px 0px 0px;
+    width: 100%;
 }
 
-.entree-detail .entree-menu-item{
-    flex: calc(50% - 24px);
+.pokemon-item .pokemon-info tr:nth-child(2n){
+    background-color: #151E3F;
 }
 
-.menu-item .side-detail {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 24px;
-    margin: 24px 0px 32px 0px;
+.pokemon-item .pokemon-info .info-titles th {
+    color: #97CEEF;
+    padding: 0px 0px 8px 0px;
 }
 
-.side-detail .side-menu-item {
-    flex: calc(50% - 24px);
-}
-
-.menu-item .drink-detail {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 24px;
-    margin: 24px 0px 32px 0px;
-}
-
-.drink-detail .drink-menu-item {
-    flex: calc(50% - 24px);
-}
-
-
-
-.description {
-    color: rgba(255, 255, 255, 0.7);
-    margin: 8px 0px;
-}
-
-.calories {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.calories span{
-    color:white;
-    font-weight: bold;
-}
-
-.entrees h2,.entrees h5{
+.pokemon-item .pokemon-info .info-details th {
     color: #FFEFD3;
+    font-weight: unset;
+    padding: 8px 0px 8px 0px;
 }
 
-.entrees h2{
+.pokemon h2, .pokemon h5 {
+    color: #EF7B45;
     font-weight: bold;
-}
-
-.entrees h5 span{
-    color: white;
-    font-size: 16px;
-}
-
-.sides h2, .sides h5 {
-    color: rgba(151, 206, 239, 1);
-}
-
-.sides h2 {
-    font-weight: bold;
-}
-
-.sides h5 span {
-    color: white;
-    font-size: 16px;
-}
-
-.drinks h2, .drinks h5 {
-    color:rgba(125, 96, 74, 1);
-}
-
-.drinks h2 {
-    font-weight: bold;
-}
-
-.drinks h5 span {
-    color: white;
-    font-size: 16px;
-}
-
-.name-header .filter-format .filter-drink {
-    color: rgba(125, 96, 74, 1);
-}
-.name-header .filter-format .filter-side {
-    color: rgba(151, 206, 239, 1);
-}
-.name-header .filter-format .filter-entree {
-    color: #FFEFD3;
 }
 
 #search{

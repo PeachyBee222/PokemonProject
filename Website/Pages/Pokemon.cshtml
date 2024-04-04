@@ -1,8 +1,7 @@
 ﻿@page
 @model Website.Pages.MenuModel
 @{
-    ViewData["Title"] = "Find your crave";
-    ViewData["Intro"] = "Breakfast out of this World!";
+    ViewData["Title"] = "Find any Pokémon";
 }
 @using TheFlyingSaucer.Data;
 @using TheFlyingSaucer.Data.Models;
@@ -30,13 +29,13 @@
                 <h4 class="name-header">Types</h4>
                 <!--Will neeed to update how these connect to the model-->
                     <div class="filter-format type-filter">
-                        <input name="Type" type="text" placeholder="Type" value="@Model.CaloriesMin" />
+                        <input name="ElementFilter" type="text" placeholder="Type" value="@Model.ElementFilter" />
                     </div>
                 <h4 class="name-header">Total</h4>
                 <div class="filter-format total-filter">
-                    <input name="TotalMin" type="number" min="0" max="1000" step="1" placeholder="min" value="@Model.CaloriesMin"/>
+                    <input name="TotalMin" type="number" min="0" max="300" step="1" placeholder="min" value="@Model.TotalMin"/>
                     -
-                    <input name="TotalMax" type="number" min="0" max="1000" step="1" placeholder="max" value="@Model.CaloriesMax" />
+                    <input name="TotalMax" type="number" min="0" max="300" step="1" placeholder="max" value="@Model.TotalMax" />
                 </div>
                 <div class="search-button search-filter">
                     <input type="submit" value="Search">
@@ -44,71 +43,43 @@
             </div>
         </div>
         <div id="results">
-            <div class="menu-item">
-                <div class="entrees menu-section">
-                        @if (Model.IncludeEntrees || (!Model.IncludeEntrees && !Model.IncludeDrinks && !Model.IncludeSides))
-                        {
-                            <div class="entree-title">
-                                <h2 id="entrees">Entrees</h2>
-                            </div>
-                            <div class="entree-detail">
-
-                            @foreach (IMenuItem item in @Model.Entrees)
+            <div class="pokemon-item">
+                <div class="pokemon pokemon-section">
+                    <!--Use an if statement here if needed for filtering-->
+                        <div class="pokemon-title">
+                            <h2 id="pokemon">Pokémon</h2>
+                        </div>
+                        <table class="pokemon-info">
+                            <tr class="info-titles">
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Total</th>
+                                <th>HP</th>
+                                <th>Attack</th>
+                                <th>Defense</th>
+                                <th>Speed</th>
+                                <th>Primary</th>
+                                <th>Secondary</th>
+                                <th>Users</th>
+                            </tr>
+                            @foreach (var item in @Model.PokemonInfo)
                             {
-                                <div class="entree-menu-item flex-item">
-                                    <h5>@item.Name <span>$@item.Price</span></h5>
-                                    <div class="description">@item.Description</div>
-                                    <div class="calories">Calories: <span>@item.Calories</span></div>
-                                </div>
+                                <tr class="info-details">
+                                    <th>@item.CreatureID</th>
+                                    <th>@item.Name</th>
+                                    <th>@item.Total</th>
+                                    <th>@item.BaseHP</th>
+                                    <th>@item.Attack</th>
+                                    <th>@item.Defense</th>
+                                    <th>@item.Speed</th>
+                                    <th>@item.Pelem</th>
+                                    <th>@item.Selem</th>
+                                    <!--Need to get the number of users per pokemon, do i add to the class?-->
+                                    <th>20</th>
+                                </tr>
                             }
-                          </div>
-                        }
-                    </div>
-                <div class="sides menu-section">
-                    @if(Model.IncludeSides || (!Model.IncludeEntrees && !Model.IncludeDrinks && !Model.IncludeSides))
-                    {
-                    <div class="side-title">
-                        <h2 id="sides">Sides</h2>
-                    </div>
-                    <div class="side-detail">
-                        @foreach (IMenuItem item in @Model.Sides){
-                            <div class="side-menu-item flex-item">
-                                <h5>@item.Name <span>$@item.Price</span></h5>
-                                <div class="description">@item.Description</div>
-                                <div class="calories">Calories: <span>@item.Calories</span></div>
-                            </div>
-                        }
-                     </div>
-                    }
-                </div>
-                <div class="drinks menu-section">
-                        @if (Model.IncludeDrinks || (!Model.IncludeEntrees && !Model.IncludeDrinks && !Model.IncludeSides))
-                        {
-                            <div class="drink-title">
-                            <h2 id="drinks">Drinks</h2>
-                            </div>
-                            <div class="drink-detail">
-                            @foreach (IMenuItem item in @Model.Drinks)
-                            {
-                                if (item is Drink drink)
-                                {
-                                    <div class="drink-menu-item flex-item">
-                                        @if (item.Name == "Inorganic Substance")
-                                        {
-                                            <h5>@item.Name <span>$0.00</span></h5>
-                                        }
-                                        else
-                                        {
-                                            <h5>@item.Name <br /><span>S: $1.00  M: $1:50  L: $2:00</span></h5>
-                                        }
-                                        <div class="description">@item.Description</div>
-                                        <div class="calories">Calories: <span>@item.Calories</span></div>
-                                    </div>
-                                }
-                            }
-                            </div>
-                        }
-                    </div>
+                        </table>
+                 </div>
             </div>
         </div>
     </div>
