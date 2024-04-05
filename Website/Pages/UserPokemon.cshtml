@@ -1,4 +1,88 @@
 ﻿@page
 @model Website.Pages.UserPokemonModel
 @{
+    ViewData["Title"] = "Find YOUR Pokémon";
 }
+@using TheFlyingSaucer.Data;
+@using TheFlyingSaucer.Data.Models;
+<div class="text-center">
+
+    <div class="container">
+        <h1 class="page-title-index">@ViewData["Title"]</h1>
+    </div>
+    <form id="menu-database">
+        <div class="container">
+            <div id="search">
+                <div class="search-textbox">
+                    <input type="text" name="SearchTerms" value="@Model.SearchUser" placeholder="YOUR desire..." />
+                </div>
+                <div class="search-button">
+                    <input type="submit" value="Search">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+        <div class="filter-and-result">
+            <div class="all-filters">
+                <h2>Filter</h2>
+            <div id="filters">
+                <h4 class="name-header">Types</h4>
+                <!--Will neeed to update how these connect to the model-->
+                    <div class="filter-format type-filter">
+                        <input name="ElementFilter" type="text" placeholder="Type" value="@Model.ElementFilter" />
+                    </div>
+                <h4 class="name-header">Total</h4>
+                <div class="filter-format total-filter">
+                    <input name="TotalMin" type="number" min="0" max="300" step="1" placeholder="min" value="@Model.TotalMin"/>
+                    -
+                    <input name="TotalMax" type="number" min="0" max="300" step="1" placeholder="max" value="@Model.TotalMax" />
+                </div>
+                <div class="search-button search-filter">
+                    <input type="submit" value="Search">
+                </div>
+            </div>
+        </div>
+        <div id="results">
+            <div class="pokemon-item">
+                <div class="pokemon pokemon-section">
+                    <!--Use an if statement here if needed for filtering-->
+                        <div class="pokemon-title">
+                            <h2 id="pokemon">Pokémon</h2>
+                        </div>
+                        <table class="pokemon-info">
+                            <tr class="info-titles">
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>NickName</th>
+                                <th>Total</th>
+                                <th>HP</th>
+                                <th>Attack</th>
+                                <th>Defense</th>
+                                <th>Speed</th>
+                                <th>Primary</th>
+                                <th>Secondary</th>
+                            </tr>
+                            @foreach (var item in @Model.UserPokemon)
+                            {
+                                <tr class="info-details">
+                                    <th>@item.CreatureID</th>
+                                    <th>@item.Name</th>
+                                    <th>Nickname</th>
+                                    <th>@item.Total</th>
+                                    <th>@item.BaseHP</th>
+                                    <th>@item.Attack</th>
+                                    <th>@item.Defense</th>
+                                    <th>@item.Speed</th>
+                                    <th>@item.Pelem</th>
+                                    <th>@item.Selem</th>
+                                    <!--Need to get the number of users per pokemon, do i add to the class?-->
+                                </tr>
+                            }
+                        </table>
+                 </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</form>
+</div>

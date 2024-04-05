@@ -401,11 +401,11 @@ footer img {
     background: #FFEFD3;
     transform: rotate(2deg);
     border: none;
-    height: 700px;
+    height: 800px;
     width: 110%;
     margin-left: -20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .create-add-title {
@@ -417,7 +417,7 @@ footer img {
 
 .create-add-page {
     text-align: center;
-    margin: 40px 15% 0 15%;
+    margin: 40px 32px 0 15%;
     transform: rotate(-2deg);
 }
 
@@ -484,44 +484,12 @@ footer img {
     border: none;
 }
 
-.add-pokemon-desc .logo-main {
+.create-add-desc .main-logo {
     transform: rotate(-2deg);
     text-align: right;
-    margin-top: -280px;
     margin-right: 150px;
+    margin-top: 64px;
 }
-
-.create-pokemon-desc .logo-main {
-    transform: rotate(-2deg);
-    text-align: right;
-    margin-top: -620px;
-    margin-right: 150px;
-}
-
-.create-account-desc .logo-main {
-    transform: rotate(-2deg);
-    text-align: right;
-    margin-top: -280px;
-    margin-right: 150px;
-}
-
-/*
-.logo-second {
-    background: #EF7B45;
-    transform: rotate(-0.5deg);
-    display: flex;
-    position: relative;
-    top: -30px;
-    height: 300px;
-    width: 110%
-}
-
-.logo-second .logo-menu{
-    text-align: right;
-    flex: .5;
-    padding-top: 100px;
-}
-*/
 
 .logo-menu a{
     color: #FFEFD3;
