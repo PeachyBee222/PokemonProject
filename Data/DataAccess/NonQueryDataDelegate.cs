@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Data.SqlClient;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TheFlyingSaucer.Data.DataAccess
+{
+    public abstract class NonQueryDataDelegate<T> : DataDelegate, INonQueryDataDelegate<T>
+    {
+        protected NonQueryDataDelegate(string procedureName)
+         : base(procedureName)
+        {
+        }
+
+        public abstract T Translate(Command command);
+    }
+}
