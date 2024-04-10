@@ -18,9 +18,8 @@ CREATE TABLE Pokemon.Users
 
 CREATE TABLE Pokemon.Generation
 (
-    GenerationID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    GenerationNum INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
     [Name] NVARCHAR(100) NOT NULL UNIQUE,
-    [Number] INT NOT NULL UNIQUE,
 )
 
 CREATE TABLE Pokemon.Element
@@ -32,7 +31,7 @@ CREATE TABLE Pokemon.Element
 CREATE TABLE Pokemon.Creatures
 (
     CreatureID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-    GenerationID INT NOT NULL FOREIGN KEY
+    GenerationNum INT NOT NULL FOREIGN KEY
         REFERENCES Pokemon.Generation(GenerationID),
     [Name] NVARCHAR(30) NOT NULL UNIQUE,
     BaseHP INT NOT NULL
