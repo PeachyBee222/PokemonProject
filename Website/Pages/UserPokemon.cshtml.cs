@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using PokemonProject.Data.Model;
+using PokemonProject.Data.Models;
 using TheFlyingSaucer.Data;
 using TheFlyingSaucer.Data.Models;
 

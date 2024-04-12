@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Data.SqlClient;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 
-namespace TheFlyingSaucer.Data.DataAccess
+namespace DataAccess
 {
     public abstract class DataReaderDelegate<T> : DataDelegate, IDataReaderDelegate<T>
     {

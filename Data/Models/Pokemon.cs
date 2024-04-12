@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonProject.Data.Model
+namespace PokemonProject.Data.Models
 {
     public class Pokemon
     {
@@ -16,8 +16,8 @@ namespace PokemonProject.Data.Model
         public int Defense { get; }
         public int Speed { get; }
         public int Total { get; }
-        public ElementType Pelem { get; }
-        public ElementType Selem { get; }
+        /*public ElementType Pelem { get; }
+        public ElementType Selem { get; }*/
 
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace PokemonProject.Data.Model
         /// <param name="defense"></param>
         /// <param name="speed"></param>
         public Pokemon(int creatureID, int generationNum, string name, int baseHP,
-            int attack, int defense, int speed, ElementType pelem, ElementType? selem)
+            int attack, int defense, int speed/*, ElementType pelem, ElementType? selem*/)
         {
             CreatureID = creatureID;
             GenerationNum = generationNum;
@@ -40,8 +40,8 @@ namespace PokemonProject.Data.Model
             Attack = attack;
             Defense = defense;
             Speed = speed;
-            Pelem = pelem;
-            Selem = selem ?? ElementType.none; //it will be none if its null
+            //Pelem = pelem;
+            //Selem = selem ?? ElementType.none; //it will be none if its null
 
             Total = baseHP + attack + defense + speed;
         }

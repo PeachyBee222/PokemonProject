@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonProject.Data.Model
+namespace PokemonProject.Data.Models
 {
     public enum ElementType
     {
