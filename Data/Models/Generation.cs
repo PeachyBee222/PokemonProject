@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheFlyingSaucer.Data.Models
+namespace PokemonProject.Data.Models
 {
     public class Generation
     {

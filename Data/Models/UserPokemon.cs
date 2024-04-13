@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheFlyingSaucer.Data.Models
+namespace PokemonProject.Data.Models
 {
     /// <summary>
     /// The pokemon for each user

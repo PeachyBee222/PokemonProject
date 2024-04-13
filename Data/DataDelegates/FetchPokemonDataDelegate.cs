@@ -1,18 +1,19 @@
 ﻿using DataAccess;
-using TheFlyingSaucer.Data.Models;
+using PokemonProject.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheFlyingSaucer.Data.DataDelegates
+namespace PokemonProject.Data.DataDelegates
 {
     internal class FetchPokemonDataDelegate : DataReaderDelegate<Pokemon>
     {
         private readonly string name;
 
         public FetchPokemonDataDelegate(string name)
+            : base("Pokemon.FetchPokemon")
         {
             this.name = name;
         }

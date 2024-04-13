@@ -1,14 +1,14 @@
 ﻿using DataAccess;
-using TheFlyingSaucer.Data.Models;
+using PokemonProject.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PokemonProject.Data.Models;
-using TheFlyingSaucer.Data.DataDelegates;
+using PokemonProject.Data.DataDelegates;
 
-namespace TheFlyingSaucer.Data
+namespace PokemonProject.Data
 {
     public class SqlPokemonRepository : IPokemonRepository
     {

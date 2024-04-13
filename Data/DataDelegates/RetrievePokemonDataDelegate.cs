@@ -1,17 +1,33 @@
 ﻿using DataAccess;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PokemonProject.Data.Models;
 
-namespace TheFlyingSaucer.Data.DataDelegates
+namespace PokemonProject.Data.DataDelegates
 {
     internal class RetrievePokemonDataDelegate : DataReaderDelegate<IReadOnlyList<Pokemon>>
     {
         public RetrievePokemonDataDelegate()
             : base("Pokemon.RetrievePokemons")
         {
+        }
+        public override IReadOnlyList<Pokemon> Translate(Command command, IDataRowReader reader)
+        {
+            var pokemons = new List<Pokemon>();
+
+            while (reader.Read())
+            {
+                pokemons.Add(new Pokemon(
+                    reader.GetInt32("CreatureID"),
+                    reader.GetInt32("GenerationNum"),
+                    reader.GetString("Name"),
+                    reader.GetInt32("BaseHP"),
+                    reader.GetInt32("Attack"),
+                    reader.GetInt32("Defense"),
+                    reader.GetInt32("Speed"))
+                    );
+            }
+
+            return pokemons;
         }
     }
 }
