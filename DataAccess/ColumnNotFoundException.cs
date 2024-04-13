@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DataAccess
+﻿namespace DataAccess
 {
     public class ColumnNotFoundException : Exception
     {

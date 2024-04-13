@@ -1,8 +1,4 @@
-﻿using System;
-using System.Data;
-using System.Data.SqlClient;
-
-namespace DataAccess
+﻿namespace DataAccess
 {
     public abstract class DataDelegate : IDataDelegate
     {
