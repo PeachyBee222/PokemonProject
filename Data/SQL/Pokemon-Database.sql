@@ -32,7 +32,7 @@ CREATE TABLE Pokemon.Creatures
 (
     CreatureID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
     GenerationNum INT NOT NULL FOREIGN KEY
-        REFERENCES Pokemon.Generation(GenerationID),
+        REFERENCES Pokemon.Generation(GenerationNum),
     [Name] NVARCHAR(30) NOT NULL UNIQUE,
     BaseHP INT NOT NULL
         CONSTRAINT [NE_Pokemon_Creatures_BaseHP] CHECK(BaseHP > 0),
@@ -41,9 +41,7 @@ CREATE TABLE Pokemon.Creatures
     Defense INT NOT NULL
         CONSTRAINT [NE_Pokemon_Creatures_Defense] CHECK(Defense > 0),
     Speed INT NOT NULL
-        CONSTRAINT [NE_Pokemon_Creatures_Speed] CHECK(Speed > 0),
-    Total INT NOT NULL,
-    CONSTRAINT [TE_Pokemon_Creatures_Total] CHECK(Total = (BaseHP + Attack + Defense + Speed)) --Has to be equal to BaseHP + Attack + Defense + Speed
+        CONSTRAINT [NE_Pokemon_Creatures_Speed] CHECK(Speed > 0)
 )
 
 CREATE TABLE Pokemon.CreatureElement
