@@ -5,12 +5,7 @@ VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{61167CA1-40CE-46E5-B24F-82A2C83762FF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTests", "DataTests\DataTests.csproj", "{29BC1150-587E-4516-ABF8-5B1E4DAA50D3}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Website", "Website\Website.csproj", "{DFF6FE04-8052-40D3-AE02-205312C771C9}"
-	ProjectSection(ProjectDependencies) = postProject
-		{637553E8-2D77-4635-9665-BA60EAFA3E68} = {637553E8-2D77-4635-9665-BA60EAFA3E68}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess2", "DataAccess2\DataAccess2\DataAccess2.csproj", "{637553E8-2D77-4635-9665-BA60EAFA3E68}"
 EndProject
@@ -24,10 +19,6 @@ Global
 		{61167CA1-40CE-46E5-B24F-82A2C83762FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61167CA1-40CE-46E5-B24F-82A2C83762FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61167CA1-40CE-46E5-B24F-82A2C83762FF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{29BC1150-587E-4516-ABF8-5B1E4DAA50D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29BC1150-587E-4516-ABF8-5B1E4DAA50D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29BC1150-587E-4516-ABF8-5B1E4DAA50D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29BC1150-587E-4516-ABF8-5B1E4DAA50D3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DFF6FE04-8052-40D3-AE02-205312C771C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DFF6FE04-8052-40D3-AE02-205312C771C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFF6FE04-8052-40D3-AE02-205312C771C9}.Release|Any CPU.ActiveCfg = Release|Any CPU

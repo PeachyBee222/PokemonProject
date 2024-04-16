@@ -7,6 +7,6 @@ namespace TheFlyingSaucer.Data
         IReadOnlyList<Pokemon> RetrievePokemons();
         Pokemon FetchPokemon(string name);
         Pokemon GetPokemon(string name);
-        Pokemon CreatePokemon(int generationNum, string name, int baseHP, int attack, int defense, int speed);
+        Pokemon CreatePokemon(int generationNum, string name, int baseHP, int attack, int defense, int speed, ElementType pelem, ElementType selem);
     }
 }

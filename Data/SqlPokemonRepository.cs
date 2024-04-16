@@ -13,12 +13,12 @@ namespace TheFlyingSaucer.Data
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public Pokemon CreatePokemon(int generationNum, string name, int baseHP, int attack, int defense, int speed)
+        public Pokemon CreatePokemon(int generationNum, string name, int baseHP, int attack, int defense, int speed, ElementType pelem, ElementType selem)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(name));
 
-            var d = new CreatePokemonDataDelegate(generationNum, name, baseHP, attack, defense, speed);
+            var d = new CreatePokemonDataDelegate(generationNum, name, baseHP, attack, defense, speed, pelem, selem);
             return executor.ExecuteNonQuery(d);
         }
 

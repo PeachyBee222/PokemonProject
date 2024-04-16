@@ -1,6 +1,7 @@
 ﻿using TheFlyingSaucer.Data.Models;
 using System.Data;
 using DataAccess2;
+using System.Reflection.PortableExecutable;
 
 namespace TheFlyingSaucer.Data.DataDelegates
 {
@@ -12,8 +13,10 @@ namespace TheFlyingSaucer.Data.DataDelegates
         public readonly int Attack;
         public readonly int Defense;
         public readonly int Speed;
-    
-        public CreatePokemonDataDelegate(int generationNum, string name, int baseHP, int attack, int defense, int speed)
+        public readonly ElementType pelem;
+        public readonly ElementType selem;
+
+        public CreatePokemonDataDelegate(int generationNum, string name, int baseHP, int attack, int defense, int speed, ElementType pelem, ElementType selem)
             :base("Pokemon.CreatePokemon")
         {
             this.GenerationNum = generationNum;
@@ -22,6 +25,8 @@ namespace TheFlyingSaucer.Data.DataDelegates
             this.Attack = attack;
             this.Defense = defense;
             this.Speed = speed;
+            this.pelem = pelem;
+            this.selem = selem;
         }
 
         public override void PrepareCommand(Command command)
@@ -41,7 +46,17 @@ namespace TheFlyingSaucer.Data.DataDelegates
 
         public override Pokemon Translate(Command command)
         {
-            return new Pokemon(command.GetParameterValue<int>("CreatureID"), GenerationNum, Name, BaseHP, Attack, Defense, Speed);
+            return (new Pokemon(
+                command.GetParameterValue<int>("CreatureID"),
+                GenerationNum,
+                Name,
+                BaseHP,
+                Attack,
+                Defense,
+                Speed,
+                pelem,
+                selem)
+                );
         }
     }
 }
