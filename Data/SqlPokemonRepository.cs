@@ -22,6 +22,15 @@ namespace PokemonProject.Data
             return executor.ExecuteNonQuery(d);
         }
 
+        public User CreateUser(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(email));
+
+            var d = new CreateUserDataDelegate(email);
+            return executor.ExecuteNonQuery(d);
+        }
+
         public Pokemon FetchPokemon(string name)
         {
             var d = new FetchPokemonDataDelegate(name);
@@ -31,6 +40,12 @@ namespace PokemonProject.Data
         public Pokemon GetPokemon(string name)
         {
             var d = new GetPokemonDataDelegate(name);
+            return executor.ExecuteReader(d);
+        }
+
+        public User GetUser(string email)
+        {
+            var d = new GetUserDataDelegate(email);
             return executor.ExecuteReader(d);
         }
 

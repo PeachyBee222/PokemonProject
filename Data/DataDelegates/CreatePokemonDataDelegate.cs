@@ -41,7 +41,15 @@ namespace PokemonProject.Data.DataDelegates
 
         public override Pokemon Translate(Command command)
         {
-            return new Pokemon(command.GetParameterValue<int>("CreatureID"), GenerationNum, Name, BaseHP, Attack, Defense, Speed);
+            return new Pokemon(
+                command.GetParameterValue<int>("CreatureID"),
+                GenerationNum,
+                Name,
+                BaseHP,
+                Attack,
+                Defense,
+                Speed
+                );
         }
     }
 }
