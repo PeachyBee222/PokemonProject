@@ -20,7 +20,7 @@ namespace TheFlyingSaucer.Data.Models
         /// The users email
         /// </summary>
         public string Email { get; }
-        
+
         /// <summary>
         /// List of the users pokemon
         /// </summary>
@@ -35,12 +35,13 @@ namespace TheFlyingSaucer.Data.Models
         {
             UserID = userID;
             Email = email;
-
+            Pokemon = new List<UserPokemon>();
         }
 
         /// <summary>
         /// A way to set the users pokemon
         /// </summary>
+        /// <param name="pokemon">the list of pokemon to be added</param>
         public void SetUserPokemon(List<UserPokemon> pokemon)
         {
             Pokemon = pokemon;
@@ -49,6 +50,7 @@ namespace TheFlyingSaucer.Data.Models
         /// <summary>
         /// A way to set the users pokemon
         /// </summary>
+        /// <param name="pokemon">sets the users pokemon by adding 1 pokemon</param>
         public void SetUserPokemon(UserPokemon pokemon)
         {
             Pokemon.Add(pokemon);
@@ -57,6 +59,8 @@ namespace TheFlyingSaucer.Data.Models
         /// <summary>
         /// A way to set the users pokemon
         /// </summary>
+        /// <param name="nickname">the nickname of the pokemon</param>
+        /// <param name="pokemonID">the id of the pokemon</param>
         public void SetUserPokemon(int pokemonID, string? nickname)
         {
             UserPokemon temp = new UserPokemon(pokemonID, nickname);
