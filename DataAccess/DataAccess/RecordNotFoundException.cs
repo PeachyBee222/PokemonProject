@@ -1,4 +1,10 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace DataAccess
 {
@@ -6,7 +12,7 @@ namespace DataAccess
     public class RecordNotFoundException : Exception
     {
         public RecordNotFoundException(string key)
-         : base($"The requested record with key [{key}] does not exist.")
+           : base($"The requested record with key [{key}] does not exist.")
         {
         }
 

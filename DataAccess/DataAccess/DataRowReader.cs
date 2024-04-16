@@ -1,7 +1,16 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DataAccess
 {
+    /// <summary>
+    /// Simple wrapper class for more concise code by the callers.
+    /// Other "getters" supported by <see cref="SqlDataReader"/> can easily be added.
+    /// </summary>
     internal class DataRowReader : IDataRowReader
     {
         private readonly SqlDataReader reader;

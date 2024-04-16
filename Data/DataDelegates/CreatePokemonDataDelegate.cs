@@ -1,6 +1,6 @@
 ﻿using PokemonProject.Data.Models;
-using DataAccess;
 using System.Data;
+using DataAccess;
 
 namespace PokemonProject.Data.DataDelegates
 {

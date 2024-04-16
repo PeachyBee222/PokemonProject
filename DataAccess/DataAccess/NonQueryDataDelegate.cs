@@ -1,9 +1,15 @@
-﻿namespace DataAccess
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DataAccess
 {
     public abstract class NonQueryDataDelegate<T> : DataDelegate, INonQueryDataDelegate<T>
     {
         protected NonQueryDataDelegate(string procedureName)
-         : base(procedureName)
+           : base(procedureName)
         {
         }
 
