@@ -4,9 +4,11 @@ namespace PokemonProject.Data
 {
     public interface IPokemonRepository
     {
-        IReadOnlyList<Pokemon> RetrievePokemons();
+        Pokemon CreatePokemon(int generationNum, string name, int baseHP, int attack, int defense, int speed);
+        User CreateUser(string email);
         Pokemon FetchPokemon(string name);
         Pokemon GetPokemon(string name);
-        Pokemon CreatePokemon(int generationNum, string name, int baseHP, int attack, int defense, int speed);
+        User GetUser(string email);
+        IReadOnlyList<Pokemon> RetrievePokemons();
     }
 }
