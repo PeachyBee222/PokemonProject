@@ -13,22 +13,22 @@ namespace PokemonProject.Data
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public Pokemon CreatePokemon(int generationNum, string name, int baseHP, int attack, int defense, int speed)
+        public void CreatePokemon(int generationNum, string name, int baseHP, int attack, int defense, int speed)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(name));
 
             var d = new CreatePokemonDataDelegate(generationNum, name, baseHP, attack, defense, speed);
-            return executor.ExecuteNonQuery(d);
+            executor.ExecuteNonQuery(d);
         }
 
-        public User CreateUser(string email)
+        public void CreateUser(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(email));
 
             var d = new CreateUserDataDelegate(email);
-            return executor.ExecuteNonQuery(d);
+            executor.ExecuteNonQuery(d);
         }
 
         public Pokemon FetchPokemon(string name)
@@ -47,6 +47,12 @@ namespace PokemonProject.Data
         {
             var d = new GetUserDataDelegate(email);
             return executor.ExecuteReader(d);
+        }
+
+        public void AddPokemon(int PokemonID, string nickname)
+        {
+            var d = new AddPokemonDataDelegate(PokemonID, nickname);
+            executor.ExecuteNonQuery(d);
         }
 
         public IReadOnlyList<Pokemon> RetrievePokemons()
