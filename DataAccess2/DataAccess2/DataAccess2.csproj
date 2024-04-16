@@ -4,17 +4,13 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RootNamespace>TheFlyingSaucer.Data</RootNamespace>
-    <AssemblyName>TheFlyingSaucer.Data</AssemblyName>
+    <RootNamespace>DataAccess2</RootNamespace>
+    <AssemblyName>DataAccess2</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Ksu.Cs.CodeAnalyzers" Version="1.0.3.4" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\DataAccess2\DataAccess2\DataAccess2.csproj" />
   </ItemGroup>
 
 </Project>

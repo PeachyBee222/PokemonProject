@@ -1,4 +1,4 @@
-﻿using DataAccess;
+﻿using DataAccess2;
 using PokemonProject.Data.Models;
 
 namespace PokemonProject.Data.DataDelegates
