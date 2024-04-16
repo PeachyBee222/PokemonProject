@@ -151,7 +151,7 @@ namespace Website.Pages
                      *  or sort both of the lists, by pokemonid
                      *  then the indexes should line up
                      *  
-                     *  we could have SQL return a list of tuples
+                     *  we could have SQL return a list of tuples or a dictionary
                      *  var tupleList = new IEnumerable<(Pokemon, UserPokemon)>;
                      */
                 }

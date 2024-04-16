@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PokemonProject.Data.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,9 @@ namespace TheFlyingSaucer.Data.Models
     public class UserPokemon
     {
         /// <summary>
-        /// The id of the pokemon
+        /// The pokemon creature
         /// </summary>
-        public int PokemonID { get; set; }
+        public Pokemon Pokemon { get; set; }
 
         /// <summary>
         /// The nickname the user gives the specified pokemon
@@ -24,11 +25,11 @@ namespace TheFlyingSaucer.Data.Models
         /// <summary>
         /// The constructor for a user adding a pokemon
         /// </summary>
-        /// <param name="pokemonID"></param>
+        /// <param name="pokemon"></param>
         /// <param name="nickname"></param>
-        public UserPokemon(int pokemonID, string? nickname)
+        public UserPokemon(Pokemon pokemon, string? nickname)
         {
-            PokemonID = pokemonID;
+            Pokemon = pokemon;
             NickName = nickname ?? string.Empty;
         }
     }
