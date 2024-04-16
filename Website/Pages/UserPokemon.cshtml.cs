@@ -141,6 +141,19 @@ namespace Website.Pages
                 if(user.Email == userEmail)
                 {
                     //FIXME send this through a delegate to get the pokemon needed
+                    //idea for getting nickanem
+                    /*
+                     *  Loop through each pokemon the user has
+                     *  then loop through each userpokemon the user has
+                     *  when the pokemon id's match, ???
+                     *  
+                     *  
+                     *  or sort both of the lists, by pokemonid
+                     *  then the indexes should line up
+                     *  
+                     *  we could have SQL return a list of tuples
+                     *  var tupleList = new IEnumerable<(Pokemon, UserPokemon)>;
+                     */
                 }
 
             }
