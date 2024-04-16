@@ -21,20 +21,11 @@ namespace TheFlyingSaucer.Data
             var d = new CreatePokemonDataDelegate(generationNum, name, baseHP, attack, defense, speed, pelem, selem);
             return executor.ExecuteNonQuery(d);
         }
-
-        public Pokemon FetchPokemon(string name)
-        {
-            var d = new FetchPokemonDataDelegate(name);
-            return executor.ExecuteReader(d);
-        }
-
-        public Pokemon GetPokemon(string name)
-        {
-            var d = new GetPokemonDataDelegate(name);
-            return executor.ExecuteReader(d);
-        }
-
-        public IReadOnlyList<Pokemon> RetrievePokemons()
+        /// <summary>
+        /// gets all of the pokemon from the database
+        /// </summary>
+        /// <returns>a list of all pokemon</returns>
+        public List<Pokemon> RetrievePokemons()
         {
             return executor.ExecuteReader(new RetrievePokemonDataDelegate());
         }

@@ -4,13 +4,13 @@ using TheFlyingSaucer.Data.Models;
 
 namespace TheFlyingSaucer.Data.DataDelegates
 {
-    internal class RetrievePokemonDataDelegate : DataReaderDelegate<IReadOnlyList<Pokemon>>
+    internal class RetrievePokemonDataDelegate : DataReaderDelegate<List<Pokemon>>
     {
         public RetrievePokemonDataDelegate()
             : base("Pokemon.RetrievePokemons")
         {
         }
-        public override IReadOnlyList<Pokemon> Translate(Command command, IDataRowReader reader)
+        public override List<Pokemon> Translate(Command command, IDataRowReader reader)
         {
             var pokemons = new List<Pokemon>();
 
