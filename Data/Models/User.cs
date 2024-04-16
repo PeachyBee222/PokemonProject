@@ -1,4 +1,4 @@
-﻿namespace PokemonProject.Data.Models
+﻿namespace TheFlyingSaucer.Data.Models
 {
     /// <summary>
     /// The users of the pokemon
@@ -55,9 +55,9 @@
         /// </summary>
         /// <param name="nickname">the nickname of the pokemon</param>
         /// <param name="pokemonID">the id of the pokemon</param>
-        public void SetUserPokemon(int pokemonID, string? nickname)
+        public void SetUserPokemon(Pokemon pokemon, string? nickname)
         {
-            UserPokemon temp = new UserPokemon(pokemonID, nickname);
+            UserPokemon temp = new UserPokemon(pokemon, nickname);
             Pokemon.Add(temp);
         }
     }

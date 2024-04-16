@@ -1,4 +1,4 @@
-﻿namespace PokemonProject.Data.Models
+﻿namespace TheFlyingSaucer.Data.Models
 {
     /// <summary>
     /// the model class for the pokemon

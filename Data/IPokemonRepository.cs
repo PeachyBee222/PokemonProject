@@ -1,6 +1,6 @@
-﻿using PokemonProject.Data.Models;
+﻿using TheFlyingSaucer.Data.Models;
 
-namespace PokemonProject.Data
+namespace TheFlyingSaucer.Data
 {
     public interface IPokemonRepository
     {

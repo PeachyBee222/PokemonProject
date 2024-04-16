@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonProject.DataTests
+namespace TheFlyingSaucer.DataTests
 {
     /// <summary>
     /// Unit tests Example. DELETE UPON COMPLETION

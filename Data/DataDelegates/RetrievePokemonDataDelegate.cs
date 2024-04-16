@@ -1,7 +1,7 @@
 ﻿using DataAccess2;
-using PokemonProject.Data.Models;
+using TheFlyingSaucer.Data.Models;
 
-namespace PokemonProject.Data.DataDelegates
+namespace TheFlyingSaucer.Data.DataDelegates
 {
     internal class RetrievePokemonDataDelegate : DataReaderDelegate<IReadOnlyList<Pokemon>>
     {

@@ -1,2 +1,2 @@
 global using Xunit;
-global using PokemonProject.Data;
+global using TheFlyingSaucer.Data;

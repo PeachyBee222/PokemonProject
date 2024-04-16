@@ -1,4 +1,4 @@
-﻿namespace PokemonProject.Data.Models
+﻿namespace TheFlyingSaucer.Data.Models
 {
     public class Generation
     {
