@@ -8,6 +8,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTests", "DataTests\DataTests.csproj", "{29BC1150-587E-4516-ABF8-5B1E4DAA50D3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Website", "Website\Website.csproj", "{DFF6FE04-8052-40D3-AE02-205312C771C9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2B0C357F-FDEC-4FDD-866D-6CB17E361024} = {2B0C357F-FDEC-4FDD-866D-6CB17E361024}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess\DataAccess.csproj", "{2B0C357F-FDEC-4FDD-866D-6CB17E361024}"
 EndProject
