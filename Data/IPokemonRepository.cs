@@ -10,5 +10,6 @@ namespace PokemonProject.Data
         Pokemon GetPokemon(string name);
         User GetUser(string email);
         IReadOnlyList<Pokemon> RetrievePokemons();
+        IReadOnlyList<User> RetrieveUsers();
     }
 }

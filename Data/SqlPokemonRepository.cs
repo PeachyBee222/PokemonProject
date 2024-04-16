@@ -53,5 +53,10 @@ namespace PokemonProject.Data
         {
             return executor.ExecuteReader(new RetrievePokemonDataDelegate());
         }
+
+        public IReadOnlyList<User> RetrieveUsers()
+        {
+            return executor.ExecuteReader(new RetrieveUserDataDelegate());
+        }
     }
 }
