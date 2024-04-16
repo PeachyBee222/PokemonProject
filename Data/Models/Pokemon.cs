@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PokemonProject.Data.Model
+﻿namespace PokemonProject.Data.Models
 {
     /// <summary>
     /// the model class for the pokemon
@@ -81,7 +75,7 @@ namespace PokemonProject.Data.Model
         /// <param name="pelem"></param>
         /// <param name="selem"></param>
         public Pokemon(int creatureID, int generationNum, string name, int baseHP,
-            int attack, int defense, int speed, ElementType pelem, ElementType? selem)
+            int attack, int defense, int speed/*, ElementType pelem, ElementType? selem*/)
         {
             CreatureID = creatureID;
             GenerationNum = generationNum;
@@ -90,8 +84,8 @@ namespace PokemonProject.Data.Model
             Attack = attack;
             Defense = defense;
             Speed = speed;
-            Pelem = pelem;
-            Selem = selem ?? ElementType.none; //it will be none if its null
+            //Pelem = pelem;
+            //Selem = selem ?? ElementType.none; //it will be none if its null
 
             Total = baseHP + attack + defense + speed;
         }

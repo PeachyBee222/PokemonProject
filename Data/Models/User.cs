@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TheFlyingSaucer.Data.Models
+﻿namespace PokemonProject.Data.Models
 {
     /// <summary>
     /// The users of the pokemon
@@ -27,7 +21,7 @@ namespace TheFlyingSaucer.Data.Models
         public List<UserPokemon> Pokemon { get; set; }
 
         /// <summary>
-        /// Constructor for User
+        /// Constructor for User --fancy comments
         /// </summary>
         /// <param name="userID">the id for the user</param>
         /// <param name="email">the email for the user</param>
