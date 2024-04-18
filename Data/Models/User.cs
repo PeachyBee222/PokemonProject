@@ -54,7 +54,7 @@
         /// A way to set the users pokemon
         /// </summary>
         /// <param name="nickname">the nickname of the pokemon</param>
-        /// <param name="pokemonID">the id of the pokemon</param>
+        /// <param name="pokemon">the Pokemon object</param>
         public void SetUserPokemon(Pokemon pokemon, string? nickname)
         {
             UserPokemon temp = new UserPokemon(pokemon, nickname);
