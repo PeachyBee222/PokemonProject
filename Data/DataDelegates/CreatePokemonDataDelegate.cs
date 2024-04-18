@@ -15,9 +15,9 @@ namespace TheFlyingSaucer.Data.DataDelegates
         public readonly int Speed;
         public readonly ElementType pelem;
         public readonly ElementType selem;
-        public readonly int NumUsers;
+        public readonly int NumUsers = 0;
 
-        public CreatePokemonDataDelegate(int generationNum, string name, int baseHP, int attack, int defense, int speed, ElementType pelem, ElementType selem, int numUsers)
+        public CreatePokemonDataDelegate(int generationNum, string name, int baseHP, int attack, int defense, int speed, ElementType pelem, ElementType selem)
             : base("Pokemon.CreatePokemon")
         {
             this.GenerationNum = generationNum;
@@ -28,7 +28,6 @@ namespace TheFlyingSaucer.Data.DataDelegates
             this.Speed = speed;
             this.pelem = pelem;
             this.selem = selem;
-            this.NumUsers = numUsers;
         }
 
         public override void PrepareCommand(Command command)
@@ -43,7 +42,6 @@ namespace TheFlyingSaucer.Data.DataDelegates
             command.Parameters.AddWithValue("Speed", Speed);
             command.Parameters.AddWithValue("Pelem", pelem);
             command.Parameters.AddWithValue("Selem", selem);
-            command.Parameters.AddWithValue("NumUsers", NumUsers);
 
             var p = command.Parameters.Add("CreatureID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;

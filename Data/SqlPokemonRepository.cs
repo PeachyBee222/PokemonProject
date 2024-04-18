@@ -23,15 +23,14 @@ namespace TheFlyingSaucer.Data
         /// <param name="speed">speed of the pokemon</param>
         /// <param name="pelem">first element type of the pokemon</param>
         /// <param name="selem">second element type of the pokemon</param>
-        /// <param name="numUsers">number of users of the pokemon</param>
         /// <returns>the new Pokemon object</returns>
         /// <exception cref="ArgumentException"></exception>
-        public Pokemon CreatePokemon(int generationNum, string name, int baseHP, int attack, int defense, int speed, ElementType pelem, ElementType selem, int numUsers)
+        public Pokemon CreatePokemon(int generationNum, string name, int baseHP, int attack, int defense, int speed, ElementType pelem, ElementType selem)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(name));
 
-            var d = new CreatePokemonDataDelegate(generationNum, name, baseHP, attack, defense, speed, pelem, selem, numUsers);
+            var d = new CreatePokemonDataDelegate(generationNum, name, baseHP, attack, defense, speed, pelem, selem);
             return executor.ExecuteNonQuery(d);
         }
         /// <summary>

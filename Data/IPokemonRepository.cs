@@ -25,9 +25,8 @@ namespace TheFlyingSaucer.Data
         /// <param name="speed">speed of the pokemon</param>
         /// <param name="pelem">first element type of the pokemon</param>
         /// <param name="selem">second element type of the pokemon</param>
-        /// <param name="numUsers">number of users of the pokemon</param>
         /// <returns>the new Pokemon object</returns>
-        Pokemon CreatePokemon(int generationNum, string name, int baseHP, int attack, int defense, int speed, ElementType pelem, ElementType selem, int numUsers);
+        Pokemon CreatePokemon(int generationNum, string name, int baseHP, int attack, int defense, int speed, ElementType pelem, ElementType selem);
         /// <summary>
         /// creates a new user
         /// </summary>
