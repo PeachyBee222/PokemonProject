@@ -55,6 +55,6 @@ namespace TheFlyingSaucer.Data
         /// </summary>
         /// <param name="pokemon">Pokemon object</param>
         /// <param name="nickname">Pokemon nickname</param>
-        void AddPokemon(Pokemon pokemon, string nickname);
+        void AddPokemon(int pokemonID, string nickname, string email);
     }
 }

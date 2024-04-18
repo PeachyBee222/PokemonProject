@@ -81,9 +81,9 @@ namespace TheFlyingSaucer.Data
         /// </summary>
         /// <param name="pokemon">Pokemon object</param>
         /// <param name="nickname">Pokemon nickname</param>
-        public void AddPokemon(Pokemon pokemon, string nickname)
+        public void AddPokemon(int pokemonID, string nickname, string email)
         {
-            var d = new AddPokemonDataDelegate(pokemon, nickname);
+            var d = new AddPokemonDataDelegate(pokemonID, nickname, email);
             executor.ExecuteNonQuery(d);
         }
         /// <summary>
