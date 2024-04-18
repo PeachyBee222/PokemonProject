@@ -4,7 +4,7 @@ using System.Data;
 
 namespace TheFlyingSaucer.Data.DataDelegates
 {
-    internal class CreateUserDataDelegate : NonQueryDataDelegate<User>
+    public class CreateUserDataDelegate : NonQueryDataDelegate<User>
     {
         public readonly string Email;
         public CreateUserDataDelegate(string email)

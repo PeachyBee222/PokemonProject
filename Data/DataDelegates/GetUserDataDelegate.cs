@@ -3,7 +3,7 @@ using DataAccess2;
 
 namespace TheFlyingSaucer.Data.DataDelegates
 {
-    internal class GetUserDataDelegate : DataReaderDelegate<User>
+    public class GetUserDataDelegate : DataReaderDelegate<User>
     {
         private readonly string UserEmail;
 

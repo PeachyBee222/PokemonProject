@@ -3,7 +3,7 @@ using TheFlyingSaucer.Data.Models;
 
 namespace TheFlyingSaucer.Data.DataDelegates
 {
-    internal class RetrieveUserDataDelegate : DataReaderDelegate<List<User>>
+    public class RetrieveUserDataDelegate : DataReaderDelegate<List<User>>
     {
         public RetrieveUserDataDelegate()
             : base("Pokemon.RetrieveUsers")

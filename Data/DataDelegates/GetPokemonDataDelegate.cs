@@ -3,7 +3,7 @@ using DataAccess2;
 
 namespace TheFlyingSaucer.Data.DataDelegates
 {
-    internal class GetPokemonDataDelegate : DataReaderDelegate<Pokemon>
+    public class GetPokemonDataDelegate : DataReaderDelegate<Pokemon>
     {
         private readonly string PokemonName;
 

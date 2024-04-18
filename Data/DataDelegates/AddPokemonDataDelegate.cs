@@ -4,7 +4,7 @@ using TheFlyingSaucer.Data.Models;
 
 namespace TheFlyingSaucer.Data.DataDelegates
 {
-    internal class AddPokemonDataDelegate : NonQueryDataDelegate<UserPokemon>
+    public class AddPokemonDataDelegate : NonQueryDataDelegate<UserPokemon>
     {
         public readonly Pokemon pokemon;
         public readonly string NickName;

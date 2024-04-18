@@ -3,7 +3,7 @@ using TheFlyingSaucer.Data.Models;
 
 namespace TheFlyingSaucer.Data.DataDelegates
 {
-    internal class FetchPokemonDataDelegate : DataReaderDelegate<Pokemon>
+    public class FetchPokemonDataDelegate : DataReaderDelegate<Pokemon>
     {
         private readonly string name;
 

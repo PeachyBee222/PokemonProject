@@ -5,7 +5,7 @@ using System.Reflection.PortableExecutable;
 
 namespace TheFlyingSaucer.Data.DataDelegates
 {
-    internal class CreatePokemonDataDelegate : NonQueryDataDelegate<Pokemon>
+    public class CreatePokemonDataDelegate : NonQueryDataDelegate<Pokemon>
     {
         public readonly int GenerationNum;
         public readonly string Name;
