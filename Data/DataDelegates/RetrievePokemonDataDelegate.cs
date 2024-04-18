@@ -30,8 +30,9 @@ namespace TheFlyingSaucer.Data.DataDelegates
                     reader.GetInt32("Defense"),
                     reader.GetInt32("Speed"),
                     pelem,
-                    selem)
-                    );
+                    selem,
+                    reader.GetInt32("NumUsers")
+                    ));
             }
 
             return pokemons;

@@ -75,7 +75,7 @@
         /// <param name="pelem"></param>
         /// <param name="selem"></param>
         public Pokemon(int creatureID, int generationNum, string name, int baseHP,
-            int attack, int defense, int speed, ElementType pelem, ElementType? selem)
+            int attack, int defense, int speed, ElementType pelem, ElementType? selem, int numUsers)
         {
             CreatureID = creatureID;
             GenerationNum = generationNum;
@@ -86,6 +86,7 @@
             Speed = speed;
             Pelem = pelem;
             Selem = selem ?? ElementType.none; //it will be none if its null
+            NumUsers = numUsers;
 
             Total = baseHP + attack + defense + speed;
         }
