@@ -55,7 +55,7 @@ namespace Website.Pages
 
             for (int i = 1; i <= 50; i++)
             {
-                Pokemon temp = new Pokemon(i, 1, "Some Pokemon", 1, 1, 1, 1, ElementType.fire, null);
+                Pokemon temp = new Pokemon(i, 1, "Some Pokemon", 1, 1, 1, 1, ElementType.fire, null, 0);
                 testPokemon.Add(temp);
             }
 
