@@ -109,6 +109,7 @@ BEGIN
             WHERE @CreatureID = CE.CreatureID AND E.ElementID = CE.ElementID
         )
 END;
+SET @CreatureID = SCOPE_IDENTITY();
 GO
 
 --Add Pokemon
