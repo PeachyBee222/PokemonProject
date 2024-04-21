@@ -6,7 +6,8 @@ CREATE OR ALTER PROCEDURE Pokemon.CreatePokemon
     @Defense INT,
     @Speed INT,
     @ElementTypePrimary NVARCHAR(20),
-    @ElementTypeSecondary NVARCHAR(20)
+    @ElementTypeSecondary NVARCHAR(20),
+    @CreatureID INT OUTPUT
 AS
 MERGE Pokemon.Creatures C
 USING ( 
