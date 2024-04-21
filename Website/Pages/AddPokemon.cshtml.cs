@@ -22,7 +22,7 @@ namespace Website.Pages
         {
             //Add this to the user pokemon //fixme what next???
             AddPokemonDataDelegate a = new AddPokemonDataDelegate(pokemonid, nickname, email);
-
+            
         }
     }
 }
