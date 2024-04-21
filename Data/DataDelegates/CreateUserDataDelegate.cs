@@ -8,7 +8,7 @@ namespace TheFlyingSaucer.Data.DataDelegates
     {
         public readonly string Email;
         public CreateUserDataDelegate(string email)
-            : base("Pokemon.CreateUser")
+            : base("Pokemon.AddUser")
         {
             this.Email = email;
         }
