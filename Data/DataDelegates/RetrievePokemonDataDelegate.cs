@@ -18,8 +18,8 @@ namespace TheFlyingSaucer.Data.DataDelegates
                 ElementType pelem;
                 ElementType selem;
                 //FIXME i need to know the names of these exactly
-                Enum.TryParse<ElementType>(reader.GetString("PrimaryElement"), true, out pelem);
-                Enum.TryParse<ElementType>(reader.GetString("SecondaryElement"), true, out selem);
+                Enum.TryParse<ElementType>(reader.GetString("ElementTypePrimary"), true, out pelem);
+                Enum.TryParse<ElementType>(reader.GetString("ElementTypeSecondary"), true, out selem);
                 pokemons.Add(new Pokemon(
                     reader.GetInt32("CreatureID"),
                     reader.GetInt32("GenerationNum"),

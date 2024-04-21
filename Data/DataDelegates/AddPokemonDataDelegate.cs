@@ -6,23 +6,23 @@ namespace TheFlyingSaucer.Data.DataDelegates
 {
     public class AddPokemonDataDelegate : NonQueryDataDelegate<UserPokemon>
     {
-        public readonly int PokemonID;
-        public readonly string NickName;
-        public readonly string UserEmail;
+        public readonly int PokemonName;
+        public readonly string Nickname;
+        public readonly string Email;
 
-        public AddPokemonDataDelegate(int pokemonID, string nickname, string userEmail)
+        public AddPokemonDataDelegate(int pokemonName, string nickname, string userEmail)
             : base("Pokemon.AddPokemon")
         {
-            this.PokemonID = pokemonID;
-            this.NickName = nickname;
-            this.UserEmail = userEmail;
+            this.PokemonName = pokemonName;
+            this.Nickname = nickname;
+            this.Email = userEmail;
         }
 
         public override void PrepareCommand(Command command)
         {
             base.PrepareCommand(command);
-            command.Parameters.AddWithValue("PokemonID", PokemonID);
-            command.Parameters.AddWithValue("NickName", NickName);
+            command.Parameters.AddWithValue("Name", PokemonName);
+            command.Parameters.AddWithValue("Nickname", Nickname);
         }
 
         public override UserPokemon Translate(Command command)
@@ -34,8 +34,8 @@ namespace TheFlyingSaucer.Data.DataDelegates
             int Attack = command.GetParameterValue<int>("Attack");
             int Defense = command.GetParameterValue<int>("Defense");
             int Speed = command.GetParameterValue<int>("Speed");
-            int ElementOne = command.GetParameterValue<int>("IsPrimary");   //FIXME to match up witch SQL
-            int ElementTwo = command.GetParameterValue<int>("IsSecondary");
+            int ElementOne = command.GetParameterValue<int>("ElementTypePrimary");   //FIXME to match up witch SQL
+            int ElementTwo = command.GetParameterValue<int>("ElementTypeSecondary");
             int NumUsers = command.GetParameterValue<int>("NumUsers");
 
             Enum.TryParse(ElementOne.ToString(), out ElementType primary);
@@ -45,7 +45,7 @@ namespace TheFlyingSaucer.Data.DataDelegates
 
             return new UserPokemon(
                 pokemon,
-                NickName ?? string.Empty
+                Nickname ?? string.Empty
                 );
         }
     }

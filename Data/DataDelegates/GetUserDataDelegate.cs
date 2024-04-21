@@ -5,19 +5,19 @@ namespace TheFlyingSaucer.Data.DataDelegates
 {
     public class GetUserDataDelegate : DataReaderDelegate<User>
     {
-        private readonly string UserEmail;
+        private readonly string Email;
 
         public GetUserDataDelegate(string email)
             : base("Pokemon.GetUser")
         {
-            this.UserEmail = email;
+            this.Email = email;
         }
 
         public override void PrepareCommand(Command command)
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("Email", UserEmail);
+            command.Parameters.AddWithValue("Email", Email);
         }
 
         public override User Translate(Command command, IDataRowReader reader)
