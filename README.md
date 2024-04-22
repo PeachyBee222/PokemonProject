@@ -1,6 +1,6 @@
 # Project Steps
 ## Start-up
-- Move down to the Data/SQL file
+- Navigate down to the Data/SQL folder
 - Run these files in this order:
 1. Tables/Pokemon-Database.sql
 2. Seeding/Data.sql
