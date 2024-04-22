@@ -1,1 +1,8 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=9841516&assignment_repo_type=AssignmentRepo)
+# Project Setup Steps
+## Start-up
+- Navigate down to the Data/SQL folder
+- Run these files in this order (using data development/management tool EX: Azure Data Studio):
+1. Tables/Pokemon-Database.sql
+2. Seeding/Data.sql
+3. Procedures/Pokemon.AllProcedures.sql
+- Finally, run the website
