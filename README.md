@@ -1,4 +1,4 @@
-# Project Steps
+# Project Setup Steps
 ## Start-up
 - Navigate down to the Data/SQL folder
 - Run these files in this order:
