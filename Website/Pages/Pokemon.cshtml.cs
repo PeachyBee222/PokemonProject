@@ -7,8 +7,22 @@ using TheFlyingSaucer.Data.Models;
 namespace Website.Pages
 {
     //Be careful before editing name here, the HTML that uses this needs the .MenuModel
-    public class MenuModel : PageModel
+    public class PokemonModel : PageModel
     {
+        /// <summary>
+        /// Private backing  variable
+        /// </summary>
+        private readonly IPokemonRepository _pokemonRepository;
+
+        /// <summary>
+        /// links the pokemon repository to the page
+        /// </summary>
+        /// <param name="pokemonRepository"></param>
+        public PokemonModel(IPokemonRepository pokemonRepository)
+        {
+            _pokemonRepository = pokemonRepository;
+        }
+
         /// <summary>
         ///  Starts the webpage
         /// </summary>
@@ -19,13 +33,12 @@ namespace Website.Pages
         public void OnGet(string SearchTerms, uint? TotalMin, uint? TotalMax, string? ElementFilter)
         {
             //the following are for pokemon testing FIXME
-            PokemonInfo = TestPokemon();
+            PokemonInfo = GetPokemon(); //may put this in the constructor if needed
             GenerationPop = TestGeneration();
             TopUserStat = TestStatBlockTotal();
             TopUserNumPokemon = TestNumPokemon();
 
             //This can go once we have our data in, its an example of how to get the data
-            //MenuItems = Menu.FullMenu;
 
             this.SearchTerms = SearchTerms;
 
@@ -48,6 +61,24 @@ namespace Website.Pages
             PokemonInfo = FilterByElement(PokemonInfo, element);
 
         }
+        /// <summary>
+        /// Gets a list of pokemon from SQL
+        /// </summary>
+        /// <returns>a list of all of the pokemon</returns>
+        public List<Pokemon> GetPokemon()
+        {
+            //use the retrieve pokemon delegate
+            List<Pokemon> allPokemon = _pokemonRepository.RetrievePokemons();
+            return allPokemon;
+        }
+        /// <summary>
+        /// gets a list of the top 3 generations
+        /// </summary>
+        /// <returns></returns> FIXME need this in the repository
+        //public List<Generation> GetGeneration()
+        //{
+        //    List<Generation> generations = _pokemonRepository.GetGeneration;
+        //}
 
         /// <summary>
         /// Test for the pokemon database

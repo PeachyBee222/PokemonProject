@@ -9,14 +9,31 @@ namespace Website.Pages
 {
     public class CreatePokemonModel : PageModel
     {
-
+        /// <summary>
+        /// Private backing  variable
+        /// </summary>
         private readonly IPokemonRepository _pokemonRepository;
 
+        /// <summary>
+        /// links the pokemon repository to the page
+        /// </summary>
+        /// <param name="pokemonRepository"></param>
         public CreatePokemonModel(IPokemonRepository pokemonRepository)
         {
             _pokemonRepository = pokemonRepository;
         }
 
+        /// <summary>
+        /// Happens after the user presses submit. 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="attack"></param>
+        /// <param name="defense"></param>
+        /// <param name="speed"></param>
+        /// <param name="hp"></param>
+        /// <param name="gen"></param>
+        /// <param name="pelement"></param>
+        /// <param name="selement"></param>
         public void OnPost(string name, int attack, int defense, int speed, int hp, int gen, string pelement, string selement)
         {
             Submit(name, attack, defense, speed, hp, gen, pelement, selement);
