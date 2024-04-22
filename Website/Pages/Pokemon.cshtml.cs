@@ -79,6 +79,16 @@ namespace Website.Pages
         //{
         //    List<Generation> generations = _pokemonRepository.GetGeneration;
         //}
+        //public List<User> GetUserStat()
+        //{
+        //    List<User> users = _pokemonRepository.RetrieveUsersStat();
+        //}
+        //
+        //public List<User> GetUserNumPokemon()
+        //{
+        //  List<User> users = _pokemonRepostiony.RetriveUserNumPokemon();
+        //}
+
 
         /// <summary>
         /// Test for the pokemon database

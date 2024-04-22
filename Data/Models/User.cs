@@ -21,6 +21,16 @@
         public List<UserPokemon> Pokemon { get; set; }
 
         /// <summary>
+        /// the average total of all of the users pokemon
+        /// </summary>
+        public int AverageTotalStat { get; set; }
+
+        /// <summary>
+        /// The number of pokemon a user has
+        /// </summary>
+        public int NumPokemon { get; set; }
+
+        /// <summary>
         /// Constructor for User --fancy comments
         /// </summary>
         /// <param name="userID">the id for the user</param>
@@ -57,8 +67,26 @@
         /// <param name="pokemon">the Pokemon object</param>
         public void SetUserPokemon(Pokemon pokemon, string? nickname)
         {
-            UserPokemon temp = new UserPokemon(pokemon, nickname);
+            UserPokemon temp = new UserPokemon(pokemon, Email, nickname);
             Pokemon.Add(temp);
+        }
+
+        /// <summary>
+        /// sets the average total stat for the user
+        /// </summary>
+        /// <param name="total"></param>
+        public void SetAverageTotal(int total)
+        {
+            AverageTotalStat = total;
+        }
+
+        /// <summary>
+        /// Sets the number of pokemon a user has
+        /// </summary>
+        /// <param name="num"></param>
+        public void SetNumPokemon(int num)
+        {
+            NumPokemon = num;
         }
     }
 }
