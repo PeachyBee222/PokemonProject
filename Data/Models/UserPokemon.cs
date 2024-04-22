@@ -23,13 +23,19 @@ namespace TheFlyingSaucer.Data.Models
         public string NickName { get; set; }
 
         /// <summary>
+        /// The email of the user
+        /// </summary>
+        public string UserEmail {  get; set; }
+        
+        /// <summary>
         /// The constructor for a user adding a pokemon
         /// </summary>
         /// <param name="pokemon"></param>
         /// <param name="nickname"></param>
-        public UserPokemon(Pokemon pokemon, string? nickname)
+        public UserPokemon(Pokemon pokemon, string userEmail, string? nickname)
         {
             Pokemon = pokemon;
+            UserEmail = userEmail;
             NickName = nickname ?? string.Empty;
         }
     }
