@@ -25,32 +25,26 @@ WHEN NOT MATCHED THEN
    VALUES(NA.GenerationNum, NA.PokemonName, NA.BaseHP, NA.Attack, NA.Defense, NA.Speed);
 SET @CreatureID = SCOPE_IDENTITY();
 
-DECLARE @CreaturesId INT = (
-   SELECT C.CreatureID
-   FROM Pokemon.Creatures C
-   WHERE C.[Name] = @PokemonName
-)
-
 INSERT Pokemon.CreatureElement(CreatureID, ElementID, IsPrimary)
-SELECT @CreaturesId, E.ElementID, 1
+SELECT @CreatureID, E.ElementID, 1
 FROM Pokemon.Element E
 WHERE E.[Name] = @ElementTypePrimary AND NOT EXISTS
    (
       SELECT *
       FROM Pokemon.CreatureElement CE
-      WHERE @CreaturesId = CE.CreatureID AND E.ElementID = CE.ElementID
+      WHERE @CreatureID = CE.CreatureID AND E.ElementID = CE.ElementID
    );
 
 IF @ElementTypeSecondary IS NOT NULL
 BEGIN
     INSERT Pokemon.CreatureElement(CreatureID, ElementID, IsPrimary)
-    SELECT @CreaturesId, E.ElementID, 0 
+    SELECT @CreatureID, E.ElementID, 0 
     FROM Pokemon.Element E
     WHERE E.[Name] = @ElementTypeSecondary AND NOT EXISTS
         (
             SELECT *
             FROM Pokemon.CreatureElement CE
-            WHERE @CreaturesId = CE.CreatureID AND E.ElementID = CE.ElementID
+            WHERE @CreatureID = CE.CreatureID AND E.ElementID = CE.ElementID
         )
 END;
 GO
