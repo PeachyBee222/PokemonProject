@@ -1,9 +1,17 @@
+using TheFlyingSaucer.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
+const string connectionString = @"Server=(localdb)\MSSQLLocalDb;Database=PokemonProject;Integrated Security=SSPI;";
+
+var pokemon_connection = new SqlPokemonRepository(connectionString);
+
+builder.Services.AddSingleton<IPokemonRepository>(pokemon_connection);
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

@@ -1,28 +1,31 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TheFlyingSaucer.Data.DataDelegates;
+using TheFlyingSaucer.Data;
 
 namespace Website.Pages
 {
     public class AddPokemonModel : PageModel
     {
-        public void OnGet(string email, string nickname, int pokemonid)
+        private readonly IPokemonRepository _pokemonRepository;
+
+        public AddPokemonModel(IPokemonRepository pokemonRepository)
         {
-
-            Submit(email, nickname, pokemonid);
-
+            _pokemonRepository = pokemonRepository;
         }
+
+        public void OnPost(string email)
+        {
+            Submit(email);
+        }
+
         /// <summary>
-        /// Adds the given data to the users pokemon based off their email
+        /// This will send the account information to SQL for creating a new account
         /// </summary>
         /// <param name="email"></param>
-        /// <param name="nickname"></param>
-        /// <param name="pokemonid"></param>
-        public void Submit(string email, string nickname, int pokemonid)
+        public void Submit(string email)
         {
-            //Add this to the user pokemon //fixme what next???
-            AddPokemonDataDelegate a = new AddPokemonDataDelegate(pokemonid, nickname, email);
-            
+            // Example of using _pokemonRepository to create a new user
+            //_pokemonRepository.AddPokemon(email);
         }
     }
 }

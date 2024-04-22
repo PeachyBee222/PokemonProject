@@ -1,27 +1,32 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TheFlyingSaucer.Data.DataDelegates;
+using TheFlyingSaucer.Data;
 
 
 namespace Website.Pages
 {
     public class CreateAccountModel : PageModel
     {
-        public void OnGet(string email)
+        private readonly IPokemonRepository _pokemonRepository;
+
+        public CreateAccountModel(IPokemonRepository pokemonRepository)
+        {
+            _pokemonRepository = pokemonRepository;
+        }
+
+        public void OnPost(string email)
         {
             Submit(email);
         }
 
         /// <summary>
-        /// This will send the account information to SQL for creating a new accound
+        /// This will send the account information to SQL for creating a new account
         /// </summary>
         /// <param name="email"></param>
-        /// <param name="firstname"></param>
-        /// <param name="lastname"></param>
         public void Submit(string email)
         {
-            //send this information to the create account table, FIXME what else
-            CreateUserDataDelegate n = new CreateUserDataDelegate(email);
+            // Example of using _pokemonRepository to create a new user
+            _pokemonRepository.CreateUser(email);
         }
 
     }

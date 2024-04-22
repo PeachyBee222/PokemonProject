@@ -2,14 +2,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 using System.Xml.Linq;
+using TheFlyingSaucer.Data;
 using TheFlyingSaucer.Data.Models;
-using TheFlyingSaucer.Data.DataDelegates;
 
 namespace Website.Pages
 {
     public class CreatePokemonModel : PageModel
     {
-        public void OnGet(string name, int attack, int defense, int speed, int hp, int gen, string pelement, string selement)
+
+        private readonly IPokemonRepository _pokemonRepository;
+
+        public CreatePokemonModel(IPokemonRepository pokemonRepository)
+        {
+            _pokemonRepository = pokemonRepository;
+        }
+
+        public void OnPost(string name, int attack, int defense, int speed, int hp, int gen, string pelement, string selement)
         {
             Submit(name, attack, defense, speed, hp, gen, pelement, selement);
         }
@@ -48,7 +56,7 @@ namespace Website.Pages
             }
 
             //send all of the attributes to SQL using primary and secondary FIXME now what?
-            CreatePokemonDataDelegate d = new CreatePokemonDataDelegate(gen, name, hp, attack, defense, speed, primary, secondary);
+            _pokemonRepository.CreatePokemon(gen, name, hp, attack, defense, speed, primary, secondary);
         }
     }
 }

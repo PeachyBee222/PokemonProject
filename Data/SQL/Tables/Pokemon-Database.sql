@@ -1,4 +1,10 @@
-﻿IF SCHEMA_ID(N'Pokemon') IS NULL
+﻿IF DB_ID('PokemonProject') IS NULL
+   EXEC(N'CREATE DATABASE [PokemonProject];');
+GO
+USE PokemonProject
+GO
+
+IF SCHEMA_ID(N'Pokemon') IS NULL
     EXEC(N'CREATE SCHEMA [Pokemon];');
 GO
 

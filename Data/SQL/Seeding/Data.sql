@@ -1,3 +1,6 @@
+USE PokemonProject
+GO
+
 SET IDENTITY_INSERT Pokemon.Generation ON ;
 INSERT Pokemon.Generation(GenerationNum, [Name])
 VALUES

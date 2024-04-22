@@ -34,13 +34,13 @@ namespace TheFlyingSaucer.Data.DataDelegates
             base.PrepareCommand(command);
 
             command.Parameters.AddWithValue("GenerationNum", GenerationNum);
-            command.Parameters.AddWithValue("Name", PokemonName);
+            command.Parameters.AddWithValue("PokemonName", PokemonName);
             command.Parameters.AddWithValue("BaseHP", BaseHP);
             command.Parameters.AddWithValue("Attack", Attack);
             command.Parameters.AddWithValue("Defense", Defense);
             command.Parameters.AddWithValue("Speed", Speed);
-            command.Parameters.AddWithValue("Pelem", ElementTypePrimary);
-            command.Parameters.AddWithValue("Selem", ElementTypeSecondary);
+            command.Parameters.AddWithValue("ElementTypePrimary", ElementTypePrimary);
+            command.Parameters.AddWithValue("ElementTypeSecondary", ElementTypeSecondary);
 
             var p = command.Parameters.Add("CreatureID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;
