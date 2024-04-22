@@ -21,8 +21,9 @@ namespace TheFlyingSaucer.Data.DataDelegates
         public override void PrepareCommand(Command command)
         {
             base.PrepareCommand(command);
-            command.Parameters.AddWithValue("Name", PokemonID);
+            command.Parameters.AddWithValue("PokemonID", PokemonID);
             command.Parameters.AddWithValue("Nickname", Nickname);
+            command.Parameters.AddWithValue("Email", Email);
         }
 
         public override UserPokemon Translate(Command command)
@@ -45,6 +46,7 @@ namespace TheFlyingSaucer.Data.DataDelegates
 
             return new UserPokemon(
                 pokemon,
+                Email,
                 Nickname ?? string.Empty
                 );
         }
