@@ -33,9 +33,6 @@ namespace Website.Pages
         public void OnGet(string SearchTerms, uint? TotalMin, uint? TotalMax, string? ElementFilter)
         {
             PokemonInfo = GetPokemon();
-            GenerationPop = GetGeneration();
-            TopUserStat = GetUserStat();
-            TopUserNumPokemon = GetUserNumPokemon();
 
             this.SearchTerms = SearchTerms;
 
@@ -67,34 +64,6 @@ namespace Website.Pages
             List<Pokemon> allPokemon = _pokemonRepository.RetrievePokemons();
             return allPokemon;
         }
-        /// <summary>
-        /// gets a list of the top 3 generations
-        /// </summary>
-        /// <returns>a list of generations</returns>
-        public List<Generation> GetGeneration()
-        {
-            List<Generation> generations = _pokemonRepository.RetrieveGenerations();
-            return generations;
-        }
-        /// <summary>
-        /// Gets the users and their average pokemon total stats
-        /// </summary>
-        /// <returns>a list of users</returns>
-        public List<User> GetUserStat()
-        {
-            List<User> users = _pokemonRepository.RetrieveUserStat();
-            return users;
-        }
-        /// <summary>
-        /// gets the users total number of pokemon
-        /// </summary>
-        /// <returns>a list of users</returns>
-        public List<User> GetUserNumPokemon()
-        {
-            List<User> users = _pokemonRepository.RetrieveUserNumPokemon();
-            return users;
-        }
-
 
         /// <summary>
         /// Test for the pokemon database, no longer needed
@@ -158,30 +127,6 @@ namespace Website.Pages
         /// The list of pokemon for the database to display
         /// </summary>
         public IEnumerable<Pokemon>? PokemonInfo
-        {
-            get; protected set;
-        }
-
-        /// <summary>
-        /// a list of generations with the number of pokemon used by all the users
-        /// </summary>
-        public IEnumerable<Generation>? GenerationPop
-        {
-            get; protected set;
-        }
-
-        /// <summary>
-        /// a list of 3 users with the best average pokemon totals
-        /// </summary>
-        public IEnumerable<User>? TopUserStat
-        {
-            get; protected set;
-        }
-
-        /// <summary>
-        /// a list of 3 users with the most pokemon
-        /// </summary>
-        public IEnumerable<User>? TopUserNumPokemon
         {
             get; protected set;
         }
