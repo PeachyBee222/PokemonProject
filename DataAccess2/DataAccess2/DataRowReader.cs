@@ -81,7 +81,39 @@ namespace DataAccess2
 
         private T GetValue<T>(string name, Func<int, T> getter)
         {
-            return getter(GetOrdinal(name));
+            var ordinal = GetOrdinal(name);
+            if (reader.IsDBNull(ordinal))
+            {
+                // Handle DBNull based on T
+                if (Nullable.GetUnderlyingType(typeof(T)) != null)
+                {
+                    // T is nullable, return null
+                    return default;
+                }
+                else
+                {
+                    // T is a non-nullable value type, handle it based on the type
+                    if (typeof(T) == typeof(string))
+                    {
+                        // Return "null" as a string
+                        return (T)(object)"none";
+                    }
+                    else if (typeof(T).IsValueType)
+                    {
+                        // For value types other than string, return default value
+                        return default;
+                    }
+                    else
+                    {
+                        // For reference types, return null
+                        return default;
+                    }
+                }
+            }
+            else
+            {
+                return getter(ordinal);
+            }
         }
 
         public T GetValue<T>(string name, T ifDbNull)

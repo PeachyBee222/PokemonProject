@@ -67,12 +67,6 @@ namespace TheFlyingSaucer.Data
         /// <returns>found Pokemon object</returns>
         Pokemon GetPokemon(string name);
         /// <summary>
-        /// gets the user with the specified email
-        /// </summary>
-        /// <param name="email">email of the user</param>
-        /// <returns>found User object</returns>
-        User GetUser(string email);
-        /// <summary>
         /// adds the pokemon to the user
         /// </summary>
         /// <param name="pokemon">Pokemon object</param>
