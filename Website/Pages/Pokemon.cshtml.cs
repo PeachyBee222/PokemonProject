@@ -32,13 +32,10 @@ namespace Website.Pages
         /// <param name="ElementFilter"> for filtering elements</param>
         public void OnGet(string SearchTerms, uint? TotalMin, uint? TotalMax, string? ElementFilter)
         {
-            //the following are for pokemon testing FIXME
-            PokemonInfo = GetPokemon(); //may put this in the constructor if needed
+            PokemonInfo = GetPokemon();
             GenerationPop = GetGeneration();
             TopUserStat = GetUserStat();
             TopUserNumPokemon = GetUserNumPokemon();
-
-            //This can go once we have our data in, its an example of how to get the data
 
             this.SearchTerms = SearchTerms;
 
@@ -100,7 +97,7 @@ namespace Website.Pages
 
 
         /// <summary>
-        /// Test for the pokemon database
+        /// Test for the pokemon database, no longer needed
         /// </summary>
         /// <returns></returns>
         public IEnumerable<Pokemon> TestPokemon()
@@ -117,7 +114,7 @@ namespace Website.Pages
         }
 
         /// <summary>
-        /// Test for the generation stats
+        /// Test for the generation stats, no longer needed
         /// </summary>
         /// <returns></returns>
         public IEnumerable<Generation> TestGeneration()
@@ -133,7 +130,7 @@ namespace Website.Pages
         }
         /// <summary>
         /// This is for the top 3 users considering their average
-        /// pokemons total (so total of all pokemon / num of all pokemon)
+        /// pokemons total (so total of all pokemon / num of all pokemon). no longer needed
         /// </summary>
         /// <returns>Needs the user email and the number they have</returns>
         public IEnumerable<int> TestStatBlockTotal()
@@ -145,7 +142,7 @@ namespace Website.Pages
             return TestStat;
         }
         /// <summary>
-        /// This is for the total number of pokemon the top 3 users own
+        /// This is for the total number of pokemon the top 3 users own. no longer needed
         /// </summary>
         /// <returns>a list of the top 3 users</returns>
         public IEnumerable<int> TestNumPokemon()

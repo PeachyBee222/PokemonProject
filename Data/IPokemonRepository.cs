@@ -30,6 +30,13 @@ namespace TheFlyingSaucer.Data
         /// <returns>a list of all users</returns>
         List<User> RetrieveUserNumPokemon();
         /// <summary>
+        /// Gets the user and their pokemon
+        /// </summary>
+        /// <param name="email">the email of the user</param>
+        /// <returns>a dictionary of the users pokemon</returns>
+        Dictionary<User,Pokemon> GetUserPokemon(string email);
+
+        /// <summary>
         /// creates a new pokemon
         /// </summary>
         /// <param name="generationNum">generation number of the pokemon</param>

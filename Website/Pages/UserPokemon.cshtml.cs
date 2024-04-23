@@ -3,11 +3,26 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using TheFlyingSaucer.Data.Models;
 using TheFlyingSaucer.Data;
 using TheFlyingSaucer.Data.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace Website.Pages
 {
     public class UserPokemonModel : PageModel
     {
+        /// <summary>
+        /// Private backing  variable
+        /// </summary>
+        private readonly IPokemonRepository _pokemonRepository;
+
+        /// <summary>
+        /// links the pokemon repository to the page
+        /// </summary>
+        /// <param name="pokemonRepository"></param>
+        public UserPokemonModel(IPokemonRepository pokemonRepository)
+        {
+            _pokemonRepository = pokemonRepository;
+        }
+
         /// <summary>
         ///  Starts the webpage
         /// </summary>
@@ -17,11 +32,8 @@ namespace Website.Pages
         /// <param name="ElementFilter"> for filtering elements</param>
         public void OnGet(string SearchUser, uint? TotalMin, uint? TotalMax, string? ElementFilter)
         {
-            //This can go once we have our data in, its an example of how to get the data
-            //MenuItems = Menu.FullMenu;
-            Users = TestUsers();
-            UserPokemon = TestPokemon();
-            AllPokemon = TestPokemon();
+            Index = 0;
+            AllPokemon = _pokemonRepository.RetrievePokemons();
 
             this.SearchUser = SearchUser;
 
@@ -46,7 +58,7 @@ namespace Website.Pages
         }
 
         /// <summary>
-        /// Test for the pokemon database
+        /// Test for the pokemon database, no longer needed
         /// </summary>
         /// <returns></returns>
         public IEnumerable<Pokemon> TestPokemon()
@@ -63,7 +75,7 @@ namespace Website.Pages
         }
 
         /// <summary>
-        /// Test for the user database
+        /// Test for the user database. no longer needed
         /// </summary>
         /// <returns></returns>
         public IEnumerable<User> TestUsers()
@@ -99,6 +111,17 @@ namespace Website.Pages
         /// </summary>
         public IEnumerable<User>? Users { get; protected set; }
 
+
+        /// <summary>
+        /// The current searched user
+        /// </summary>
+        public User? CurrentUser { get; protected set; }
+
+        /// <summary>
+        /// the index of the pokemon we are looking at, this is to get the nickname
+        /// </summary>
+        public int Index;
+
         /// <summary>
         /// the maximum bound for the total
         /// </summary>
@@ -121,6 +144,20 @@ namespace Website.Pages
             get;
             set;
         }
+        /// <summary>
+        /// gets thee nickname of the users pokemon from an index that will start at 0 and go to the number of pokemon
+        /// </summary>
+        /// <returns>the nickname of the pokemon</returns>
+        public string GetNickName()
+        {
+            if(CurrentUser == null)
+            {
+                return "N/A";
+            }
+            string nickname = CurrentUser.Pokemon[Index].NickName;
+            Index++;
+            return nickname;
+        }
 
         /// <summary>
         /// Filters by the search words passed in
@@ -134,30 +171,14 @@ namespace Website.Pages
             {
                 return AllPokemon;
             }
-            
-            foreach (User user in Users)
-            {
-                //if we find the user we are searching for
-                if(user.Email == userEmail)
-                {
-                    //FIXME send this through a delegate to get the pokemon needed
-                    //idea for getting nickanem
-                    /*
-                     *  Loop through each pokemon the user has
-                     *  then loop through each userpokemon the user has
-                     *  when the pokemon id's match, ???
-                     *  
-                     *  
-                     *  or sort both of the lists, by pokemonid
-                     *  then the indexes should line up
-                     *  
-                     *  we could have SQL return a list of tuples or a dictionary
-                     *  var tupleList = new IEnumerable<(Pokemon, UserPokemon)>;
-                     */
-                }
 
-            }
-            return AllPokemon; //FIX TO RESULTS WHEN READY
+            Dictionary<User, Pokemon> dict = _pokemonRepository.GetUserPokemon(userEmail);
+
+            List<User> user = new List<User>(dict.Keys);
+            CurrentUser = user[0];
+
+            List<Pokemon> pokemon = new List<Pokemon>(dict.Values);
+            return pokemon;
         }
 
         /// <summary>

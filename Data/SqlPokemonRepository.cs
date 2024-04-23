@@ -114,7 +114,7 @@ namespace TheFlyingSaucer.Data
         /// gets all of the users average total from the database
         /// </summary>
         /// <returns>a list of all users</returns>
-        public List<User> RetrieveUserstat()
+        public List<User> RetrieveUserStat()
         {
             return executor.ExecuteReader(new GetUserStatBlockRankingDataDelegate());
         }
@@ -122,9 +122,18 @@ namespace TheFlyingSaucer.Data
         /// gets all of the users number of pokemon
         /// </summary>
         /// <returns>a list of all users</returns>
-        public List<User> RetriveUserNumPokemon()
+        public List<User> RetrieveUserNumPokemon()
         {
             return executor.ExecuteReader(new GetUserRanksDataDelegate());
+        }
+        /// <summary>
+        /// gets the pokemon associated with the user
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public Dictionary<User, Pokemon> GetUserPokemon(string email)
+        {
+            return executor.ExecuteReader(new GetUserDataDelegate(email));
         }
     }
 }

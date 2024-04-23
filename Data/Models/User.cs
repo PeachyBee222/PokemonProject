@@ -18,17 +18,17 @@
         /// <summary>
         /// List of the users pokemon
         /// </summary>
-        public List<UserPokemon> Pokemon { get; set; }
+        public List<UserPokemon> Pokemon { get; private set; }
 
         /// <summary>
         /// the average total of all of the users pokemon
         /// </summary>
-        public int AverageTotalStat { get; set; }
+        public int AverageTotalStat { get; private set; }
 
         /// <summary>
         /// The number of pokemon a user has
         /// </summary>
-        public int NumPokemon { get; set; }
+        public int NumPokemon { get; private set; }
 
         /// <summary>
         /// Constructor for User --fancy comments
