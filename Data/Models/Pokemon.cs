@@ -74,6 +74,7 @@
         /// <param name="speed"></param>
         /// <param name="pelem"></param>
         /// <param name="selem"></param>
+        /// <param name="numUsers"></param>
         public Pokemon(int creatureID, int generationNum, string name, int baseHP,
             int attack, int defense, int speed, ElementType pelem, ElementType? selem, int numUsers)
         {
@@ -87,6 +88,34 @@
             Pelem = pelem;
             Selem = selem ?? ElementType.none; //it will be none if its null
             NumUsers = numUsers;
+
+            Total = baseHP + attack + defense + speed;
+        }
+
+        /// <summary>
+        /// Constructor for pokemon
+        /// </summary>
+        /// <param name="creatureID"></param>
+        /// <param name="generationNum"></param>
+        /// <param name="name"></param>
+        /// <param name="baseHP"></param>
+        /// <param name="attack"></param>
+        /// <param name="defense"></param>
+        /// <param name="speed"></param>
+        /// <param name="pelem"></param>
+        /// <param name="selem"></param>
+        public Pokemon(int creatureID, int generationNum, string name, int baseHP,
+            int attack, int defense, int speed, ElementType pelem, ElementType? selem)
+        {
+            CreatureID = creatureID;
+            GenerationNum = generationNum;
+            Name = name;
+            BaseHP = baseHP;
+            Attack = attack;
+            Defense = defense;
+            Speed = speed;
+            Pelem = pelem;
+            Selem = selem ?? ElementType.none; //it will be none if its null
 
             Total = baseHP + attack + defense + speed;
         }
