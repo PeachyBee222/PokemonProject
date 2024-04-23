@@ -20,7 +20,7 @@ SELECT U.UserID, U.Email,
 FROM Pokemon.Users U
     LEFT JOIN Pokemon.UserCreature UC ON UC.UserID = U.UserID
     LEFT JOIN Pokemon.Creatures C ON C.CreatureID = UC.CreatureID
-GROUP BY U.UserID
+GROUP BY U.UserID, U.Email
 ORDER BY AverageStatBlockTotal DESC
 GO
 
@@ -174,6 +174,7 @@ BEGIN
            C.Attack,
            C.Defense,
            C.Speed,
+           C.GenerationNum,
            MAX(IIF(CE.IsPrimary = 1, E.Name, NULL)) AS PrimaryElement,
            MAX(IIF(CE.IsPrimary = 0, E.Name, NULL)) AS SecondaryElement,
            UCP.NumberOfUsers  -- Using the NumberOfUsers column from the table variable
@@ -187,6 +188,7 @@ BEGIN
              C.Attack,
              C.Defense,
              C.Speed,
+             C.GenerationNum,
              UCP.NumberOfUsers  -- Include UCP.NumberOfUsers in the GROUP BY clause
     ORDER BY C.CreatureID ASC
 END;

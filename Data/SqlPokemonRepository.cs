@@ -67,16 +67,6 @@ namespace TheFlyingSaucer.Data
             return executor.ExecuteReader(d);
         }
         /// <summary>
-        /// gets the user with the specified email
-        /// </summary>
-        /// <param name="email">email of the user</param>
-        /// <returns>found User object</returns>
-        public User GetUser(string email)
-        {
-            var d = new GetUserDataDelegate(email);
-            return executor.ExecuteReader(d);
-        }
-        /// <summary>
         /// adds the pokemon to the user
         /// </summary>
         /// <param name="pokemon">Pokemon object</param>
