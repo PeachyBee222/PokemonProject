@@ -7,21 +7,21 @@ AS
 SELECT U.Email, 
     COUNT(UC.CreatureID) AS NumberOfPokemon
 FROM Pokemon.Users U
-    INNER JOIN Pokemon.UserCreature UC ON UC.UserID = U.UserID
+    LEFT JOIN Pokemon.UserCreature UC ON UC.UserID = U.UserID
 GROUP BY U.Email
-ORDER BY NumberOfPokemon ASC
+ORDER BY NumberOfPokemon DESC
 GO
 
 --User rank based on average Pokemon statistic block total
 CREATE OR ALTER PROCEDURE Pokemon.GetUserStatBlockRanking
 AS
-SELECT U.Email,
-    DENSE_RANK() OVER(ORDER BY  SUM(C.Attack + C.BaseHP + C.Defense + C.Speed) / COUNT(UC.CreatureID) DESC) AS Rank,
-    SUM(C.Attack + C.BaseHP + C.Defense + C.Speed) / COUNT(UC.CreatureID) AS AverageStatBlockTotal
+SELECT MAX(U.Email) AS Email,
+    ISNULL(SUM(C.Attack + C.BaseHP + C.Defense + C.Speed) / COUNT(UC.CreatureID), 0) AS AverageStatBlockTotal
 FROM Pokemon.Users U
-    INNER JOIN Pokemon.UserCreature UC ON UC.UserID = U.UserID
-    INNER JOIN Pokemon.Creatures C ON C.CreatureID = UC.CreatureID
-GROUP BY U.Email, C.CreatureID
+    LEFT JOIN Pokemon.UserCreature UC ON UC.UserID = U.UserID
+    LEFT JOIN Pokemon.Creatures C ON C.CreatureID = UC.CreatureID
+GROUP BY U.Email
+ORDER BY AverageStatBlockTotal DESC
 GO
 
 --Number of users that utilize specific pokemon
@@ -39,11 +39,12 @@ GO
 CREATE OR ALTER PROCEDURE Pokemon.CreatureUsePerGeneration
 AS
 SELECT G.GenerationNum,
-    ISNULL(COUNT(UC.CreatureID), 0) AS TotalNumOfPokemon
+    G.[Name],
+    ISNULL(COUNT(UC.CreatureID), 0) AS TotalNumOfUsers
 FROM Pokemon.Generation G
     LEFT JOIN Pokemon.Creatures C ON G.GenerationNum = C.GenerationNum
     LEFT JOIN Pokemon.UserCreature UC ON UC.CreatureID = C.CreatureID
-GROUP BY G.GenerationNum
+GROUP BY G.GenerationNum, G.[Name]
 ORDER BY G.GenerationNum ASC;
 GO
 
@@ -139,28 +140,54 @@ GO
 CREATE OR ALTER PROCEDURE Pokemon.GetUser
     @Email NVARCHAR(128)
 AS
-SELECT U.UserID, U.Email, MAX(C.CreatureID) AS CreatureID, MAX(C.Name) AS CreatureName, ISNULL(MAX(UC.Nickname), N'N/A') AS Nickname,
+SELECT U.UserID, U.Email, C.CreatureID AS CreatureID, MAX(C.Name) AS CreatureName, ISNULL(MAX(UC.Nickname), N'N/A') AS Nickname,
         MAX(C.BaseHP) AS HP, MAX(C.Attack) AS Attack, MAX(C.Defense) AS Defense, MAX(C.Speed) AS Speed,
         MAX(IIF(CE.IsPrimary = 1, E.Name, NULL)) AS PrimaryElement,
         MAX(IIF(CE.IsPrimary = 0, E.Name, NULL)) AS SecondaryElement 
 FROM Pokemon.UserCreature UC
-    INNER JOIN Pokemon.Users U ON UC.UserID = U.UserID
-    INNER JOIN Pokemon.Creatures C ON C.CreatureID = UC.CreatureID
-    INNER JOIN Pokemon.CreatureElement CE ON CE.CreatureID = C.CreatureID
-    INNER JOIN Pokemon.Element E ON E.ElementID = CE.ElementID
+    LEFT JOIN Pokemon.Users U ON UC.UserID = U.UserID
+    LEFT JOIN Pokemon.Creatures C ON C.CreatureID = UC.CreatureID
+    LEFT JOIN Pokemon.CreatureElement CE ON CE.CreatureID = C.CreatureID
+    LEFT JOIN Pokemon.Element E ON E.ElementID = CE.ElementID
 WHERE U.Email = @Email
-GROUP BY U.UserID, U.Email;
+GROUP BY U.UserID, U.Email, C.CreatureID
 GO
 
 --Retrieve Pokemon (all)
 CREATE OR ALTER PROCEDURE Pokemon.RetrievePokemon
 AS
-SELECT C.CreatureID, C.Name, C.BaseHP AS HP, 
-        C.Attack, C.Defense, C.Speed,
-        MAX(IIF(CE.IsPrimary = 1, E.Name, NULL)) AS PrimaryElement,
-        MAX(IIF(CE.IsPrimary = 0, E.Name, NULL)) AS SecondaryElement 
-FROM Pokemon.Creatures C
+BEGIN
+    -- Declare a table variable to store the results of the procedure
+    DECLARE @UserCountPerPokemon TABLE (
+        Name NVARCHAR(50),
+        NumberOfUsers INT
+    );
+
+    -- Execute the GetUserCountPerPokemon procedure and insert its results into the table variable
+    INSERT INTO @UserCountPerPokemon (Name, NumberOfUsers)
+    EXEC Pokemon.GetUserCountPerPokemon;
+
+    -- Query using the data from @UserCountPerPokemon along with other tables
+    SELECT C.CreatureID,
+           C.Name,
+           C.BaseHP AS HP,
+           C.Attack,
+           C.Defense,
+           C.Speed,
+           MAX(IIF(CE.IsPrimary = 1, E.Name, NULL)) AS PrimaryElement,
+           MAX(IIF(CE.IsPrimary = 0, E.Name, NULL)) AS SecondaryElement,
+           UCP.NumberOfUsers  -- Using the NumberOfUsers column from the table variable
+    FROM Pokemon.Creatures C
     INNER JOIN Pokemon.CreatureElement CE ON CE.CreatureID = C.CreatureID
     INNER JOIN Pokemon.Element E ON E.ElementID = CE.ElementID
-GROUP BY C.CreatureID, C.Name, C.BaseHP, C.Attack, C.Defense, C.Speed;
+    LEFT JOIN @UserCountPerPokemon UCP ON C.Name = UCP.Name
+    GROUP BY C.CreatureID,
+             C.Name,
+             C.BaseHP,
+             C.Attack,
+             C.Defense,
+             C.Speed,
+             UCP.NumberOfUsers  -- Include UCP.NumberOfUsers in the GROUP BY clause
+    ORDER BY C.CreatureID ASC
+END;
 GO
