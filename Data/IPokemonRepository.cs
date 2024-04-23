@@ -15,6 +15,21 @@ namespace TheFlyingSaucer.Data
         /// <returns>a list of all users</returns>
         List<User> RetrieveUsers();
         /// <summary>
+        /// Gets a list of all the generations from the database
+        /// </summary>
+        /// <returns>all generations</returns>
+        List<Generation> RetrieveGenerations();
+        /// <summary>
+        /// Gets the average total of all the pokemon the user has from database
+        /// </summary>
+        /// <returns>list of users</returns>
+        List<User> RetrieveUserStat();
+        /// <summary>
+        /// Gets all the users number of pokemon
+        /// </summary>
+        /// <returns>a list of all users</returns>
+        List<User> RetrieveUserNumPokemon();
+        /// <summary>
         /// creates a new pokemon
         /// </summary>
         /// <param name="generationNum">generation number of the pokemon</param>
