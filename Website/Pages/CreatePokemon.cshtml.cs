@@ -72,7 +72,7 @@ namespace Website.Pages
                 secondary = ElementType.none;
             }
 
-            //send all of the attributes to SQL using primary and secondary FIXME now what?
+            //send all of the attributes to SQL using primary and secondary
             _pokemonRepository.CreatePokemon(gen, name, hp, attack, defense, speed, primary, secondary);
         }
     }

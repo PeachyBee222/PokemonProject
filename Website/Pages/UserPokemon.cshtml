@@ -67,8 +67,7 @@
                                 <tr class="info-details">
                                     <th>@item.CreatureID</th>
                                     <th>@item.Name</th>
-                                    <!--FIXME do an if check on nickname, none if null-->
-                                    <th>Nickname</th>
+                                    <th>@Model.GetNickName()</th>
                                     <th>@item.Total</th>
                                     <th>@item.BaseHP</th>
                                     <th>@item.Attack</th>
@@ -76,8 +75,8 @@
                                     <th>@item.Speed</th>
                                     <th>@item.Pelem</th>
                                     <th>@item.Selem</th>
-                                    <!--Need to get the number of users per pokemon, do i add to the class?-->
                                 </tr>
+                                
                             }
                         </table>
                  </div>
