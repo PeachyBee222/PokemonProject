@@ -102,5 +102,29 @@ namespace TheFlyingSaucer.Data
         {
             return executor.ExecuteReader(new RetrieveUserDataDelegate());
         }
+        /// <summary>
+        /// gets all the generations from the database
+        /// </summary>
+        /// <returns>list of all generations</returns>
+        public List<Generation> RetrieveGenerations()
+        {
+            return executor.ExecuteReader(new CreatureUsePerGenerationDataDelegate());
+        }
+        /// <summary>
+        /// gets all of the users average total from the database
+        /// </summary>
+        /// <returns>a list of all users</returns>
+        public List<User> RetrieveUserstat()
+        {
+            return executor.ExecuteReader(new GetUserStatBlockRankingDataDelegate());
+        }
+        /// <summary>
+        /// gets all of the users number of pokemon
+        /// </summary>
+        /// <returns>a list of all users</returns>
+        public List<User> RetriveUserNumPokemon()
+        {
+            return executor.ExecuteReader(new GetUserRanksDataDelegate());
+        }
     }
 }

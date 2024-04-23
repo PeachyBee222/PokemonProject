@@ -75,19 +75,22 @@ namespace Website.Pages
         /// gets a list of the top 3 generations
         /// </summary>
         /// <returns></returns> FIXME need this in the repository
-        //public List<Generation> GetGeneration()
-        //{
-        //    List<Generation> generations = _pokemonRepository.GetGeneration;
-        //}
-        //public List<User> GetUserStat()
-        //{
-        //    List<User> users = _pokemonRepository.RetrieveUsersStat();
-        //}
-        //
-        //public List<User> GetUserNumPokemon()
-        //{
-        //  List<User> users = _pokemonRepostiony.RetriveUserNumPokemon();
-        //}
+        public List<Generation> GetGeneration()
+        {
+            List<Generation> generations = _pokemonRepository.RetrieveGenerations();
+            return generations;
+        }
+        public List<User> GetUserStat()
+        {
+            List<User> users = _pokemonRepository.RetrieveUserStat();
+            return users;
+        }
+        
+        public List<User> GetUserNumPokemon()
+        {
+            List<User> users = _pokemonRepository.RetrieveUserNumPokemon();
+            return users;
+        }
 
 
         /// <summary>
