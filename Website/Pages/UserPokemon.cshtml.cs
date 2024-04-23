@@ -33,11 +33,7 @@ namespace Website.Pages
         public void OnGet(string SearchUser, uint? TotalMin, uint? TotalMax, string? ElementFilter)
         {
             Index = 0;
-            //This can go once we have our data in, its an example of how to get the data
-            //MenuItems = Menu.FullMenu;
-            //Users = TestUsers();
-            UserPokemon = TestPokemon();
-            AllPokemon = TestPokemon();
+            AllPokemon = _pokemonRepository.RetrievePokemons();
 
             this.SearchUser = SearchUser;
 
@@ -62,7 +58,7 @@ namespace Website.Pages
         }
 
         /// <summary>
-        /// Test for the pokemon database
+        /// Test for the pokemon database, no longer needed
         /// </summary>
         /// <returns></returns>
         public IEnumerable<Pokemon> TestPokemon()
@@ -79,7 +75,7 @@ namespace Website.Pages
         }
 
         /// <summary>
-        /// Test for the user database
+        /// Test for the user database. no longer needed
         /// </summary>
         /// <returns></returns>
         public IEnumerable<User> TestUsers()
