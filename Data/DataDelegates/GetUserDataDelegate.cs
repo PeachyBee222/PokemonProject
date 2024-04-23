@@ -3,7 +3,7 @@ using DataAccess2;
 
 namespace TheFlyingSaucer.Data.DataDelegates
 {
-    public class GetUserDataDelegate : DataReaderDelegate<User>
+    public class GetUserDataDelegate : DataReaderDelegate<Dictionary<User,Pokemon>>
     {
         private readonly string Email;
 
@@ -20,13 +20,40 @@ namespace TheFlyingSaucer.Data.DataDelegates
             command.Parameters.AddWithValue("Email", Email);
         }
 
-        public override User Translate(Command command, IDataRowReader reader)
+        public override Dictionary<User, Pokemon> Translate(Command command, IDataRowReader reader)
         {
-            if (!reader.Read()) return null;
-            return new User(
-                reader.GetInt32("UserID"),
-                reader.GetString("Email")
-                );
+            if (!reader.Read())
+                return null;
+
+            var userPokemon = new Dictionary<User, Pokemon>();
+
+            while (reader.Read())
+            {
+                var user = new User(
+                    reader.GetInt32("UserID"),
+                    reader.GetString("Email"));
+
+                ElementType pelem;
+                ElementType selem;
+                //FIXME i need to know the names of these exactly
+                Enum.TryParse<ElementType>(reader.GetString("PrimaryElement"), true, out pelem);
+                Enum.TryParse<ElementType>(reader.GetString("SecondaryElement"), true, out selem);
+                var pokemon = new Pokemon(
+                    reader.GetInt32("CreatureID"),
+                    reader.GetInt32("GenerationNum"),
+                    reader.GetString("Name"),
+                    reader.GetInt32("BaseHP"),
+                    reader.GetInt32("Attack"),
+                    reader.GetInt32("Defense"),
+                    reader.GetInt32("Speed"),
+                    pelem,
+                    selem
+                    );
+
+                userPokemon.Add(user, pokemon);
+            }
+
+            return userPokemon;
         }
     }
 }
