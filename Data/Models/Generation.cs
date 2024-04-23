@@ -21,6 +21,13 @@
             SetGenNum(genName);
         }
 
+        public Generation(string genName, int genNum, int users)
+        {
+            GenName = genName;
+            GenUsers = users;
+            GenNum = genNum;
+        }
+
         private void SetGenName (int genNum)
         {
             switch (genNum)

@@ -38,8 +38,7 @@
                     @foreach (var item in @Model.TopUserStat)
                     {
                         <div class="stat-function-item flex-item">
-                            <!--FIXME update this to be the correct information. and update the codebehind-->
-                            <h5>Email: <span>@item</span></h5>
+                            <h5>@item.Email: <span>@item.AverageTotalStat</span></h5>
                         </div>
                     }
                 </div>
@@ -66,8 +65,7 @@
                         @foreach (var item in @Model.TopUserNumPokemon)
                         {
                             <div class="stat-function-item flex-item">
-                                <!--FIXME update this to be the correct information. and update the codebehind-->
-                                <h5>Email: <span>@item Pokémon</span></h5>
+                                <h5>@item.Email: <span>@item.NumPokemon Pokémon</span></h5>
                             </div>
                         }
                     </div>

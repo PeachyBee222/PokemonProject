@@ -34,9 +34,9 @@ namespace Website.Pages
         {
             //the following are for pokemon testing FIXME
             PokemonInfo = GetPokemon(); //may put this in the constructor if needed
-            GenerationPop = TestGeneration();
-            TopUserStat = TestStatBlockTotal();
-            TopUserNumPokemon = TestNumPokemon();
+            GenerationPop = GetGeneration();
+            TopUserStat = GetUserStat();
+            TopUserNumPokemon = GetUserNumPokemon();
 
             //This can go once we have our data in, its an example of how to get the data
 
@@ -67,25 +67,31 @@ namespace Website.Pages
         /// <returns>a list of all of the pokemon</returns>
         public List<Pokemon> GetPokemon()
         {
-            //use the retrieve pokemon delegate
             List<Pokemon> allPokemon = _pokemonRepository.RetrievePokemons();
             return allPokemon;
         }
         /// <summary>
         /// gets a list of the top 3 generations
         /// </summary>
-        /// <returns></returns> FIXME need this in the repository
+        /// <returns>a list of generations</returns>
         public List<Generation> GetGeneration()
         {
             List<Generation> generations = _pokemonRepository.RetrieveGenerations();
             return generations;
         }
+        /// <summary>
+        /// Gets the users and their average pokemon total stats
+        /// </summary>
+        /// <returns>a list of users</returns>
         public List<User> GetUserStat()
         {
             List<User> users = _pokemonRepository.RetrieveUserStat();
             return users;
         }
-        
+        /// <summary>
+        /// gets the users total number of pokemon
+        /// </summary>
+        /// <returns>a list of users</returns>
         public List<User> GetUserNumPokemon()
         {
             List<User> users = _pokemonRepository.RetrieveUserNumPokemon();
@@ -170,7 +176,7 @@ namespace Website.Pages
         /// <summary>
         /// a list of 3 users with the best average pokemon totals
         /// </summary>
-        public IEnumerable<int>? TopUserStat
+        public IEnumerable<User>? TopUserStat
         {
             get; protected set;
         }
@@ -178,7 +184,7 @@ namespace Website.Pages
         /// <summary>
         /// a list of 3 users with the most pokemon
         /// </summary>
-        public IEnumerable<int>? TopUserNumPokemon
+        public IEnumerable<User>? TopUserNumPokemon
         {
             get; protected set;
         }
