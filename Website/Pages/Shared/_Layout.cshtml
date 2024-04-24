@@ -9,65 +9,67 @@
     <link rel="stylesheet" href="~/Website.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light mb-3">
+    <div class="trail">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light mb-3">
+                <div class="container">
+                    <img src="~/Images/pokemonlogo.png" width="65" height="92" />
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-page="/CreateAccount">Create User</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-page="/CreatePokemon">Create Pokémon</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-page="/UserPokemon">Search User Pokémon</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-page="/Pokemon">Pokémon Data Base</a>
+                            </li>
+                            <li class="nav-item menu-nav-item">
+                                <a class="nav-link" asp-area="" asp-page="/AddPokemon">Add Pokémon</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div>
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <footer class="text-muted">
             <div class="container">
-                <img src="~/Images/pokemonlogo.png" width="65" height="92" />
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/CreateAccount">Create User</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/CreatePokemon">Create Pokémon</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/UserPokemon">Search User Pokémon</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Pokemon">Pokémon Data Base</a>
-                        </li>
-                        <li class="nav-item menu-nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/AddPokemon">Add Pokémon</a>
-                        </li>
-                    </ul>
+                <div>
+                    <img src="~/Images/pokemonlogo.png" width="213" height="300" />
+                </div>
+                <div class="footer-links">
+                    <a asp-area="" asp-page="/CreateAccount">Create User</a>
+                    <a asp-area="" asp-page="/Pokemon">Pokémon Data Base</a>
+                    <a asp-area="" asp-page="/CreatePokemon">Create Pokémon</a>
+                </div>
+                <div class="copywrite">
+                    &copy; (c)2024 - The Pokémon Data Base LLC
                 </div>
             </div>
-        </nav>
-    </header>
-    <div>
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        </footer>
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+
+        @await RenderSectionAsync("Scripts", required: false)
     </div>
-
-    <footer class="text-muted">
-        <div class="container">
-            <div>
-                <img src="~/Images/pokemonlogo.png" width="213" height="300" />
-            </div>
-            <div class="footer-links">
-                <a asp-area="" asp-page="/CreateAccount">Create User</a>
-                <a asp-area="" asp-page="/Pokemon">Pokémon Data Base</a>
-                <a asp-area="" asp-page="/CreatePokemon">Create Pokémon</a>
-            </div>
-            <div class="copywrite">
-                &copy; (c)2024 - The Pokémon Data Base LLC
-            </div>
-        </div>
-    </footer>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
