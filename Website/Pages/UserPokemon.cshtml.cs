@@ -173,6 +173,10 @@ namespace Website.Pages
             }
 
             Dictionary<User, Pokemon> dict = _pokemonRepository.GetUserPokemon(userEmail);
+            if(dict.Count == 0)
+            {
+                return new List<Pokemon>();
+            }
 
             List<User> user = new List<User>(dict.Keys);
             CurrentUser = user[0];

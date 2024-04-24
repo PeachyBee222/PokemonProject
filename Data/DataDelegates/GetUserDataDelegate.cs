@@ -22,17 +22,23 @@ namespace TheFlyingSaucer.Data.DataDelegates
 
         public override Dictionary<User, Pokemon> Translate(Command command, IDataRowReader reader)
         {
-            if (!reader.Read())
-                return null;
 
             var userPokemon = new Dictionary<User, Pokemon>();
 
-            while (reader.Read())
-            {
-                var user = new User(
+            reader.Read();
+
+            var user = new User(
                     reader.GetInt32("UserID"),
                     reader.GetString("Email"));
 
+            int index = 0;
+
+            if(reader.GetString("PrimaryElement") == "none")
+            {
+                return userPokemon;
+            }
+            do
+            {
                 ElementType pelem;
                 ElementType selem;
                 //FIXME i need to know the names of these exactly
@@ -41,17 +47,28 @@ namespace TheFlyingSaucer.Data.DataDelegates
                 var pokemon = new Pokemon(
                     reader.GetInt32("CreatureID"),
                     reader.GetInt32("GenerationNum"),
-                    reader.GetString("Name"),
-                    reader.GetInt32("BaseHP"),
+                    reader.GetString("CreatureName"),
+                    reader.GetInt32("HP"),
                     reader.GetInt32("Attack"),
                     reader.GetInt32("Defense"),
                     reader.GetInt32("Speed"),
                     pelem,
                     selem
                     );
-
-                userPokemon.Add(user, pokemon);
-            }
+                user.SetUserPokemon(pokemon, reader.GetString("Nickname"));
+                
+                if(index == 0)
+                {
+                    userPokemon.Add(user, pokemon);
+                }
+                else
+                {
+                    userPokemon.Add(new User(
+                    reader.GetInt32("UserID"),
+                    reader.GetString("Email")), pokemon);
+                }
+                index++;
+            } while (reader.Read());
 
             return userPokemon;
         }
