@@ -34,8 +34,6 @@ namespace Website.Pages
         {
             Index = 0;
             AllPokemon = _pokemonRepository.RetrievePokemons();
-            //SearchBarName = "YOUR email...";
-
             SearchUser = SearchTerms;
 
             this.TotalMax = TotalMax;
@@ -172,7 +170,6 @@ namespace Website.Pages
             List<Pokemon> results = new List<Pokemon>();
             if (userEmail == null)
             {
-                //SearchBarName = "YOUR email...";
                 return AllPokemon;
             }
 
@@ -186,7 +183,6 @@ namespace Website.Pages
 
             List<Pokemon> pokemon = new List<Pokemon>(dict.Values);
 
-            //SearchBarName = CurrentUser.Email;
             return pokemon;
         }
 
