@@ -2,14 +2,14 @@
 @model Website.Pages.IndexModel
 @{
     ViewData["Title"] = "Home";
-    ViewData["Intro"] = "Pokémon Data Base";
+    ViewData["Intro"] = "Pokémon Collections";
 }
 @using TheFlyingSaucer.Data;
 
 <div class="slogan">
     <div class="slogan-more">
         <h1>
-            Pokémon Data Base
+            @ViewData["Intro"]
         </h1>
         <div class="call-to-action">
             <spans class="slogan-catch">View Pokémon Here</spans>
