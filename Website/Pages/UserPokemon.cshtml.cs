@@ -47,7 +47,7 @@ namespace Website.Pages
             }
             else
             {
-                element = null;
+                element = ElementType.none;
             }
 
             UserPokemon = Search(SearchUser);
@@ -232,7 +232,7 @@ namespace Website.Pages
         /// <returns>the items with the given element</returns>
         public IEnumerable<Pokemon> FilterByElement(IEnumerable<Pokemon> items, ElementType? element)
         {
-            if (element == null) return items;
+            if (element == ElementType.none) return items;
             var results = new List<Pokemon>();
 
             foreach (Pokemon item in items)
