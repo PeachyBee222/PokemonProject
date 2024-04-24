@@ -28,27 +28,9 @@ namespace TheFlyingSaucer.Data.DataDelegates
 
         public override UserPokemon Translate(Command command)
         {
-            int PokemonID = command.GetParameterValue<int>("CreatureID");
-            int GenerationNum = command.GetParameterValue<int>("GenerationNum");
-            string Name = command.GetParameterValue<string>("Name");
-            int BaseHP = command.GetParameterValue<int>("BaseHP");
-            int Attack = command.GetParameterValue<int>("Attack");
-            int Defense = command.GetParameterValue<int>("Defense");
-            int Speed = command.GetParameterValue<int>("Speed");
-            int ElementOne = command.GetParameterValue<int>("ElementTypePrimary");   //FIXME to match up witch SQL
-            int ElementTwo = command.GetParameterValue<int>("ElementTypeSecondary");
-            int NumUsers = command.GetParameterValue<int>("NumUsers");
+            Pokemon pokemon = new Pokemon(0, 0, "Blah", 0, 0, 0, 0, ElementType.fire, ElementType.none);
 
-            Enum.TryParse(ElementOne.ToString(), out ElementType primary);
-            Enum.TryParse(ElementTwo.ToString(), out ElementType secondary);
-
-            Pokemon pokemon = new Pokemon(PokemonID, GenerationNum, Name, BaseHP, Attack, Defense, Speed, primary, secondary, NumUsers);
-
-            return new UserPokemon(
-                pokemon,
-                Email,
-                Nickname ?? string.Empty
-                );
+            return new UserPokemon(pokemon, Email, Nickname);
         }
     }
 }

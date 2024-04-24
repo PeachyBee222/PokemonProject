@@ -13,7 +13,7 @@ namespace TheFlyingSaucer.Data.DataDelegates
         public override List<User> Translate(Command command, IDataRowReader reader)
         {
             if (!reader.Read())
-                return null;
+                return new List<User>();
 
             var users = new List<User>();
 
