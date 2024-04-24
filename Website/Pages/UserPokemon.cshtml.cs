@@ -47,7 +47,7 @@ namespace Website.Pages
             }
             else
             {
-                this.ElementFilter = null;
+                element = null;
             }
 
             UserPokemon = Search(SearchUser);
