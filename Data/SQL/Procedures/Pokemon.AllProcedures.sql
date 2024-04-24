@@ -140,17 +140,17 @@ GO
 CREATE OR ALTER PROCEDURE Pokemon.GetUser
     @Email NVARCHAR(128)
 AS
-SELECT U.UserID, U.Email, C.CreatureID AS CreatureID, MAX(C.Name) AS CreatureName, ISNULL(MAX(UC.Nickname), N'N/A') AS Nickname,
+SELECT U.UserID, U.Email, C.CreatureID AS CreatureID, MAX(C.Name) AS CreatureName, ISNULL(MAX(UC.Nickname), N'N/A') AS Nickname, C.GenerationNum,
         MAX(C.BaseHP) AS HP, MAX(C.Attack) AS Attack, MAX(C.Defense) AS Defense, MAX(C.Speed) AS Speed,
         MAX(IIF(CE.IsPrimary = 1, E.Name, NULL)) AS PrimaryElement,
         MAX(IIF(CE.IsPrimary = 0, E.Name, NULL)) AS SecondaryElement 
 FROM Pokemon.UserCreature UC
-    LEFT JOIN Pokemon.Users U ON UC.UserID = U.UserID
+    FULL JOIN Pokemon.Users U ON UC.UserID = U.UserID
     LEFT JOIN Pokemon.Creatures C ON C.CreatureID = UC.CreatureID
     LEFT JOIN Pokemon.CreatureElement CE ON CE.CreatureID = C.CreatureID
     LEFT JOIN Pokemon.Element E ON E.ElementID = CE.ElementID
 WHERE U.Email = @Email
-GROUP BY U.UserID, U.Email, C.CreatureID
+GROUP BY U.UserID, U.Email, C.CreatureID, C.GenerationNum
 GO
 
 --Retrieve Pokemon (all)

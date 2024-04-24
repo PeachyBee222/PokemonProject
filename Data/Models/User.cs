@@ -40,6 +40,7 @@
             UserID = userID;
             Email = email;
             Pokemon = new List<UserPokemon>();
+            NumPokemon = 0;
         }
 
         /// <summary>
@@ -49,6 +50,7 @@
         public void SetUserPokemon(List<UserPokemon> pokemon)
         {
             Pokemon = pokemon;
+            NumPokemon = pokemon.Count;
         }
 
         /// <summary>
@@ -58,6 +60,7 @@
         public void SetUserPokemon(UserPokemon pokemon)
         {
             Pokemon.Add(pokemon);
+            NumPokemon++;
         }
 
         /// <summary>
@@ -69,6 +72,7 @@
         {
             UserPokemon temp = new UserPokemon(pokemon, Email, nickname);
             Pokemon.Add(temp);
+            NumPokemon++;
         }
 
         /// <summary>
