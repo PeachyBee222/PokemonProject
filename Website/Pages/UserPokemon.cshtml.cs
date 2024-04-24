@@ -34,9 +34,9 @@ namespace Website.Pages
         {
             Index = 0;
             AllPokemon = _pokemonRepository.RetrievePokemons();
-            SearchBarName = "YOUR email...";
+            //SearchBarName = "YOUR email...";
 
-            this.SearchUser = SearchUser;
+            SearchUser = SearchTerms;
 
             this.TotalMax = TotalMax;
             this.TotalMin = TotalMin;
@@ -165,14 +165,14 @@ namespace Website.Pages
         /// <summary>
         /// Filters by the search words passed in
         /// </summary>
-        /// <param name="terms">the words to search for</param>
+        /// <param name="userEmail">the email to search for</param>
         /// <returns>the list with items that have the terms in it</returns>
         public IEnumerable<Pokemon> Search(string userEmail)
         {
             List<Pokemon> results = new List<Pokemon>();
             if (userEmail == null)
             {
-                SearchBarName = "YOUR email...";
+                //SearchBarName = "YOUR email...";
                 return AllPokemon;
             }
 
@@ -186,7 +186,7 @@ namespace Website.Pages
 
             List<Pokemon> pokemon = new List<Pokemon>(dict.Values);
 
-            SearchBarName = CurrentUser.Email;
+            //SearchBarName = CurrentUser.Email;
             return pokemon;
         }
 
