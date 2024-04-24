@@ -34,6 +34,7 @@ namespace Website.Pages
         {
             Index = 0;
             AllPokemon = _pokemonRepository.RetrievePokemons();
+            SearchBarName = "YOUR email...";
 
             this.SearchUser = SearchUser;
 
@@ -144,6 +145,8 @@ namespace Website.Pages
             get;
             set;
         }
+
+        public string SearchBarName { get;set; }
         /// <summary>
         /// gets thee nickname of the users pokemon from an index that will start at 0 and go to the number of pokemon
         /// </summary>
@@ -169,6 +172,7 @@ namespace Website.Pages
             List<Pokemon> results = new List<Pokemon>();
             if (userEmail == null)
             {
+                SearchBarName = "YOUR email...";
                 return AllPokemon;
             }
 
@@ -177,11 +181,12 @@ namespace Website.Pages
             {
                 return new List<Pokemon>();
             }
-
             List<User> user = new List<User>(dict.Keys);
             CurrentUser = user[0];
 
             List<Pokemon> pokemon = new List<Pokemon>(dict.Values);
+
+            SearchBarName = CurrentUser.Email;
             return pokemon;
         }
 
