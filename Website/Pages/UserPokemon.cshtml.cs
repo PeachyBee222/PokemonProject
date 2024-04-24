@@ -30,7 +30,7 @@ namespace Website.Pages
         /// <param name="TotalMin">for filtering total</param>
         /// <param name="TotalMax">for filtering total</param>
         /// <param name="ElementFilter"> for filtering elements</param>
-        public void OnGet(string SearchUser, uint? TotalMin, uint? TotalMax, string? ElementFilter)
+        public void OnGet(string SearchTerms, uint? TotalMin, uint? TotalMax, string? ElementFilter)
         {
             Index = 0;
             AllPokemon = _pokemonRepository.RetrievePokemons();
@@ -50,7 +50,7 @@ namespace Website.Pages
                 this.ElementFilter = null;
             }
 
-            UserPokemon = Search(SearchUser);
+            UserPokemon = Search(SearchTerms);
 
             UserPokemon = FilterByTotal(UserPokemon, TotalMin, TotalMax);
             UserPokemon = FilterByElement(UserPokemon, element);
