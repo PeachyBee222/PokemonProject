@@ -40,7 +40,16 @@ namespace TheFlyingSaucer.Data.DataDelegates
             command.Parameters.AddWithValue("Defense", Defense);
             command.Parameters.AddWithValue("Speed", Speed);
             command.Parameters.AddWithValue("ElementTypePrimary", ElementTypePrimary.ToString());
-            command.Parameters.AddWithValue("ElementTypeSecondary", ElementTypeSecondary == ElementType.none ? null : ElementTypeSecondary.ToString());
+            if (ElementTypeSecondary == ElementType.none)
+            {
+                // Add @ElementTypeSecondary with a NULL value
+                command.Parameters.AddWithValue("ElementTypeSecondary", DBNull.Value);
+            }
+            else
+            {
+                // Add @ElementTypeSecondary with its actual value
+                command.Parameters.AddWithValue("ElementTypeSecondary", ElementTypeSecondary.ToString());
+            }
 
             var p = command.Parameters.Add("CreatureID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;

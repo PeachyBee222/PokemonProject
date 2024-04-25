@@ -18,8 +18,6 @@ namespace TheFlyingSaucer.Data.DataDelegates
 
         public override List<Generation> Translate(Command command, IDataRowReader reader)
         {
-            if (!reader.Read())
-                return null;
 
             var generations = new List<Generation>();
 
