@@ -4,7 +4,7 @@ GO
 --User rank based on pokemon amount query
 CREATE OR ALTER PROCEDURE Pokemon.GetUserRanks
 AS
-SELECT U.UserID, U.Email, 
+SELECT TOP 3 U.UserID, U.Email, 
     COUNT(UC.CreatureID) AS NumberOfPokemon
 FROM Pokemon.Users U
     LEFT JOIN Pokemon.UserCreature UC ON UC.UserID = U.UserID
@@ -15,7 +15,7 @@ GO
 --User rank based on average Pokemon statistic block total
 CREATE OR ALTER PROCEDURE Pokemon.GetUserStatBlockRanking
 AS
-SELECT U.UserID, U.Email,
+SELECT TOP 3 U.UserID, U.Email,
     ISNULL(SUM(C.Attack + C.BaseHP + C.Defense + C.Speed) / COUNT(UC.CreatureID), 0) AS AverageStatBlockTotal
 FROM Pokemon.Users U
     LEFT JOIN Pokemon.UserCreature UC ON UC.UserID = U.UserID
