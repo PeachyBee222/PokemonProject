@@ -1,4 +1,4 @@
-# Project Setup Steps
+# Project Setup
 ## Start-up
 - Navigate down to the Data/SQL folder
 - Run these files in this order (using data development/management tool EX: Azure Data Studio):
