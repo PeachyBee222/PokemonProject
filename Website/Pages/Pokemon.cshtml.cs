@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TheFlyingSaucer.Data.Models;
-using TheFlyingSaucer.Data;
-using TheFlyingSaucer.Data.Models;
+using PokemonCollections.Data.Models;
+using PokemonCollections.Data;
+using PokemonCollections.Data.Models;
 
 namespace Website.Pages
 {

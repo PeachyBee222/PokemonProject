@@ -1,7 +1,7 @@
-﻿using TheFlyingSaucer.Data.Models;
+﻿using PokemonCollections.Data.Models;
 using DataAccess2;
 
-namespace TheFlyingSaucer.Data.DataDelegates
+namespace PokemonCollections.Data.DataDelegates
 {
     public class GetUserDataDelegate : DataReaderDelegate<Dictionary<User,Pokemon>>
     {

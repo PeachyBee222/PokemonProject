@@ -1,8 +1,8 @@
 ﻿using DataAccess2;
 using System.Data;
-using TheFlyingSaucer.Data.Models;
+using PokemonCollections.Data.Models;
 
-namespace TheFlyingSaucer.Data.DataDelegates
+namespace PokemonCollections.Data.DataDelegates
 {
     public class AddPokemonDataDelegate : NonQueryDataDelegate<UserPokemon>
     {
@@ -22,7 +22,16 @@ namespace TheFlyingSaucer.Data.DataDelegates
         {
             base.PrepareCommand(command);
             command.Parameters.AddWithValue("PokemonID", PokemonID);
-            command.Parameters.AddWithValue("Nickname", Nickname);
+            if (Nickname == null)
+            {
+                // Add @ElementTypeSecondary with a NULL value
+                command.Parameters.AddWithValue("Nickname", DBNull.Value);
+            }
+            else
+            {
+                // Add @ElementTypeSecondary with its actual value
+                command.Parameters.AddWithValue("Nickname", Nickname);
+            }
             command.Parameters.AddWithValue("Email", Email);
         }
 

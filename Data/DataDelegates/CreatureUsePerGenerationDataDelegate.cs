@@ -5,9 +5,9 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using TheFlyingSaucer.Data.Models;
+using PokemonCollections.Data.Models;
 
-namespace TheFlyingSaucer.Data.DataDelegates
+namespace PokemonCollections.Data.DataDelegates
 {
     internal class CreatureUsePerGenerationDataDelegate : DataReaderDelegate<List<Generation>>
     {

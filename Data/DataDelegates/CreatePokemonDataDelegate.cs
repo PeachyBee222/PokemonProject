@@ -1,9 +1,9 @@
-﻿using TheFlyingSaucer.Data.Models;
+﻿using PokemonCollections.Data.Models;
 using System.Data;
 using DataAccess2;
 using System.Reflection.PortableExecutable;
 
-namespace TheFlyingSaucer.Data.DataDelegates
+namespace PokemonCollections.Data.DataDelegates
 {
     public class CreatePokemonDataDelegate : NonQueryDataDelegate<Pokemon>
     {
