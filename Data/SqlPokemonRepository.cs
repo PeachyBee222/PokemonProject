@@ -1,8 +1,8 @@
 ﻿using DataAccess2;
-using TheFlyingSaucer.Data.Models;
-using TheFlyingSaucer.Data.DataDelegates;
+using PokemonCollections.Data.Models;
+using PokemonCollections.Data.DataDelegates;
 
-namespace TheFlyingSaucer.Data
+namespace PokemonCollections.Data
 {
     public class SqlPokemonRepository : IPokemonRepository
     {

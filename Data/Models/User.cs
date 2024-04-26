@@ -1,4 +1,4 @@
-﻿namespace TheFlyingSaucer.Data.Models
+﻿namespace PokemonCollections.Data.Models
 {
     /// <summary>
     /// The users of the pokemon
