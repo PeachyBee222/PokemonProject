@@ -1,7 +1,7 @@
 USE PokemonProject
 GO
 
---User rank based on pokemon amount query
+--User rank based on pokemon amount query (Gets the top 3 users with the most pokemon)
 CREATE OR ALTER PROCEDURE Pokemon.GetUserRanks
 AS
 SELECT TOP 3 U.UserID, U.Email, 
@@ -12,7 +12,7 @@ GROUP BY U.Email, U.UserID
 ORDER BY NumberOfPokemon DESC
 GO
 
---User rank based on average Pokemon statistic block total
+--User rank based on average Pokemon statistic block total (Gets the top 3 users with the highest average stat block)
 CREATE OR ALTER PROCEDURE Pokemon.GetUserStatBlockRanking
 AS
 SELECT TOP 3 U.UserID, U.Email,
@@ -35,7 +35,7 @@ GROUP BY C.Name, C.CreatureID, C.GenerationNum
 ORDER BY C.GenerationNum ASC, C.CreatureID ASC;
 GO
 
---Total number of pokemon for in use for each generation
+--Total number of pokemon that are in use for each generation
 CREATE OR ALTER PROCEDURE Pokemon.CreatureUsePerGeneration
 AS
 SELECT G.GenerationNum,
@@ -48,7 +48,7 @@ GROUP BY G.GenerationNum, G.[Name]
 ORDER BY G.GenerationNum ASC;
 GO
 
---Add user procedure
+--Add user procedure to add a brand new user to the database.
 CREATE OR ALTER PROCEDURE Pokemon.AddUser
    @Email NVARCHAR(128),
    @UserID INT OUTPUT
@@ -59,7 +59,7 @@ IF NOT EXISTS (SELECT * FROM Pokemon.Users WHERE Email = @Email)
 SET @UserID = SCOPE_IDENTITY();
 GO
 
---Create pokemon
+--Create pokemon by adding to the creatures table, and linking the creature to it's elements in the CreatureElements table.
 CREATE OR ALTER PROCEDURE Pokemon.CreatePokemon
     @GenerationNum INT,
     @PokemonName NVARCHAR(30),
@@ -108,7 +108,7 @@ WHERE E.[Name] = @ElementTypeSecondary AND NOT EXISTS
     );
 GO
 
---Add Pokemon
+--Add Pokemon to the UserCreature table so a pokemon can be associated with a user
 CREATE OR ALTER PROCEDURE Pokemon.AddPokemon
     @Email NVARCHAR(128),
     @PokemonID INT,
@@ -133,7 +133,7 @@ WHERE NOT EXISTS
    );
 GO
 
---Get User
+--Get all of the pokemon and their stats associated with a user
 CREATE OR ALTER PROCEDURE Pokemon.GetUser
     @Email NVARCHAR(128)
 AS
