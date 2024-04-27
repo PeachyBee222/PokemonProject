@@ -154,17 +154,12 @@ GO
 CREATE OR ALTER PROCEDURE Pokemon.RetrievePokemon
 AS
 BEGIN
-    -- Declare a table variable to store the results of the procedure
     DECLARE @UserCountPerPokemon TABLE (
         Name NVARCHAR(50),
         NumberOfUsers INT
     );
-
-    -- Execute the GetUserCountPerPokemon procedure and insert its results into the table variable
     INSERT INTO @UserCountPerPokemon (Name, NumberOfUsers)
     EXEC Pokemon.GetUserCountPerPokemon;
-
-    -- Query using the data from @UserCountPerPokemon along with other tables
     SELECT C.CreatureID,
            C.Name,
            C.BaseHP AS HP,
@@ -174,7 +169,7 @@ BEGIN
            C.GenerationNum,
            MAX(IIF(CE.IsPrimary = 1, E.Name, NULL)) AS PrimaryElement,
            MAX(IIF(CE.IsPrimary = 0, E.Name, NULL)) AS SecondaryElement,
-           UCP.NumberOfUsers  -- Using the NumberOfUsers column from the table variable
+           UCP.NumberOfUsers  
     FROM Pokemon.Creatures C
     INNER JOIN Pokemon.CreatureElement CE ON CE.CreatureID = C.CreatureID
     INNER JOIN Pokemon.Element E ON E.ElementID = CE.ElementID
@@ -186,7 +181,7 @@ BEGIN
              C.Defense,
              C.Speed,
              C.GenerationNum,
-             UCP.NumberOfUsers  -- Include UCP.NumberOfUsers in the GROUP BY clause
+             UCP.NumberOfUsers
     ORDER BY C.CreatureID ASC
 END;
 GO
