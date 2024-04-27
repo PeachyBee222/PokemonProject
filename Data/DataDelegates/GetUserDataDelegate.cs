@@ -3,6 +3,9 @@ using DataAccess2;
 
 namespace PokemonCollections.Data.DataDelegates
 {
+    /// <summary>
+    /// The data delegate to call our procedure for getting the pokemon that are associated with a pokemon
+    /// </summary>
     public class GetUserDataDelegate : DataReaderDelegate<Dictionary<User,Pokemon>>
     {
         private readonly string Email;

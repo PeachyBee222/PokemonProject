@@ -82,7 +82,7 @@ namespace DataAccess2
         private T GetValue<T>(string name, Func<int, T> getter)
         {
             var ordinal = GetOrdinal(name);
-            if (reader.IsDBNull(ordinal))
+            if (!reader.HasRows || reader.IsDBNull(ordinal))
             {
                 // Handle DBNull based on T
                 if (Nullable.GetUnderlyingType(typeof(T)) != null)

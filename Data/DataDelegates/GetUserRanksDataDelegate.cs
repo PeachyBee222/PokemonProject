@@ -3,6 +3,9 @@ using PokemonCollections.Data.Models;
 
 namespace PokemonCollections.Data.DataDelegates
 {
+    /// <summary>
+    /// The data delegate to call our procedure for getting the user ranks aggreagated query (Number of pokemon per user)
+    /// </summary>
     internal class GetUserRanksDataDelegate : DataReaderDelegate<List<User>>
     {
         public GetUserRanksDataDelegate()

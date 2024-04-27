@@ -3,6 +3,9 @@ using PokemonCollections.Data.Models;
 
 namespace PokemonCollections.Data.DataDelegates
 {
+    /// <summary>
+    /// The data delegate to call our procedure for getting all the pokemon and their data
+    /// </summary>
     public class RetrievePokemonDataDelegate : DataReaderDelegate<List<Pokemon>>
     {
         public RetrievePokemonDataDelegate()

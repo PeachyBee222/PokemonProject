@@ -4,6 +4,9 @@ using System.Data;
 
 namespace PokemonCollections.Data.DataDelegates
 {
+    /// <summary>
+    /// The data delegate to call our procedure for creating a brand new user
+    /// </summary>
     public class CreateUserDataDelegate : NonQueryDataDelegate<User>
     {
         public readonly string Email;

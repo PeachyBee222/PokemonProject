@@ -5,6 +5,9 @@ using System.Reflection.PortableExecutable;
 
 namespace PokemonCollections.Data.DataDelegates
 {
+    /// <summary>
+    /// The data delegate to call our procedure for creating a new pokemon and adding to the database
+    /// </summary>
     public class CreatePokemonDataDelegate : NonQueryDataDelegate<Pokemon>
     {
         public readonly int GenerationNum;

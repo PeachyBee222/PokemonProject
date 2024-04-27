@@ -9,6 +9,9 @@ using PokemonCollections.Data.Models;
 
 namespace PokemonCollections.Data.DataDelegates
 {
+    /// <summary>
+    /// The data delegate to call our procedure for getting the stats of the pokemon, as well as the number of users that use said pokemon
+    /// </summary>
     internal class GetUserCountPerPokemonDataDelegate : DataReaderDelegate<Pokemon>
     {
         public GetUserCountPerPokemonDataDelegate()

@@ -9,6 +9,9 @@ using PokemonCollections.Data.Models;
 
 namespace PokemonCollections.Data.DataDelegates
 {
+    /// <summary>
+    /// The data delegate to call our procedure for the aggregated query for the total number of pokemon being used per generation.
+    /// </summary>
     internal class CreatureUsePerGenerationDataDelegate : DataReaderDelegate<List<Generation>>
     {
         public CreatureUsePerGenerationDataDelegate()

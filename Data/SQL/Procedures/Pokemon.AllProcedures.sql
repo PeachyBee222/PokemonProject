@@ -97,18 +97,15 @@ WHERE E.[Name] = @ElementTypePrimary AND NOT EXISTS
       WHERE @CreatureID = CE.CreatureID AND E.ElementID = CE.ElementID
    );
 
-IF @ElementTypeSecondary IS NOT NULL
-BEGIN
-    INSERT Pokemon.CreatureElement(CreatureID, ElementID, IsPrimary)
-    SELECT @CreatureID, E.ElementID, 0 
-    FROM Pokemon.Element E
-    WHERE E.[Name] = @ElementTypeSecondary AND NOT EXISTS
-        (
-            SELECT *
-            FROM Pokemon.CreatureElement CE
-            WHERE @CreatureID = CE.CreatureID AND E.ElementID = CE.ElementID
-        )
-END;
+INSERT Pokemon.CreatureElement(CreatureID, ElementID, IsPrimary)
+SELECT @CreatureID, E.ElementID, 0 
+FROM Pokemon.Element E
+WHERE E.[Name] = @ElementTypeSecondary AND NOT EXISTS
+    (
+        SELECT *
+        FROM Pokemon.CreatureElement CE
+        WHERE @CreatureID = CE.CreatureID AND E.ElementID = CE.ElementID
+    );
 GO
 
 --Add Pokemon

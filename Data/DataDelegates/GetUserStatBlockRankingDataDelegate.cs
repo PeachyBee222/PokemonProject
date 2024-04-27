@@ -3,6 +3,10 @@ using PokemonCollections.Data.Models;
 
 namespace PokemonCollections.Data.DataDelegates
 {
+    /// <summary>
+    /// The data delegate to call our procedure for calling the UserStatBlockRanking aggregated query
+    /// Gets the average stat block ranking for the users
+    /// </summary>
     internal class GetUserStatBlockRankingDataDelegate : DataReaderDelegate<List<User>>
     {
         public GetUserStatBlockRankingDataDelegate()

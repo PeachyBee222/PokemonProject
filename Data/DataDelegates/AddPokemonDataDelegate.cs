@@ -4,6 +4,9 @@ using PokemonCollections.Data.Models;
 
 namespace PokemonCollections.Data.DataDelegates
 {
+    /// <summary>
+    /// The data delegate to call our procedure for adding a pokemon to a user
+    /// </summary>
     public class AddPokemonDataDelegate : NonQueryDataDelegate<UserPokemon>
     {
         public readonly int PokemonID;

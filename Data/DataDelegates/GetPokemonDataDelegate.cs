@@ -3,6 +3,9 @@ using DataAccess2;
 
 namespace PokemonCollections.Data.DataDelegates
 {
+    /// <summary>
+    /// The data delegate to call our procedure for getting the data of a pokemon given the pokemons name
+    /// </summary>
     public class GetPokemonDataDelegate : DataReaderDelegate<Pokemon>
     {
         private readonly string PokemonName;
